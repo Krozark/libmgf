@@ -1,7 +1,7 @@
 SRC = $(wildcard *.c*)
 OBJ = $(SRC:.cpp=.o) $(SRC:*.cpp=.o)
 
-all: $(OBJ)
+all: Parser lexer $(OBJ)
 #main
 
 .cpp.o:
@@ -12,6 +12,10 @@ all: $(OBJ)
 	$(CC) $(FLAGS) -o "$@" -c "$<"
 	@cp $@ "$(OBJ_DIR)"
 
+Parser: Parser.yy
+	bison -d -v Parser.yy
+	$(CC) $(FLAGS) -o "$@.o" -c "$@.tab.cc" 
+	@cp "$@.o" "$(OBJ_DIR)"
 
 
 #main: main.cpp 
@@ -21,3 +25,7 @@ all: $(OBJ)
 clean:
 	@rm -f *.o
 	@rm -f *.exe
+	@rm *.output
+	@rm *.cc
+	@rm *.hh
+

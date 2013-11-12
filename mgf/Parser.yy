@@ -75,8 +75,8 @@ void mgf::Parser::error(const mgf::Parser::location_type &l,const std::string &e
 /* include for access to scanner.yylex */
 #include <mgf/Scanner.hpp>
 static int yylex( mgf::Parser::semantic_type *yylval,
-    mfg::Scanner &scanner,
-    mgf::Driver &driver)
+    mgf::Scanner& scanner,
+    mgf::Driver& driver)
     {
         return scanner.yylex(yylval);
     }
