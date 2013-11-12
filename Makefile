@@ -6,7 +6,7 @@ LIBS =
 
 export DEFINES = 
 #export DEFINES = -DNDEBUG
-export FLAGS = -g -std=c++0x $(INCPATH) $(LIBS) $(DEFINES)
+export FLAGS = -g -Wall -std=c++0x $(INCPATH) $(LIBS) $(DEFINES)
 export TOP = $(CURDIR)
 export OBJ_DIR = $(TOP)/obj
 

@@ -20,6 +20,7 @@ Parser: Parser.yy
 Lexer: Lexer.lex
 	flex --outfile=$@.yy.cc $<
 	$(CC) $(FLAGS) -o "$@.o" -c "$@.yy.cc" 
+	@cp "$@.o" "$(OBJ_DIR)"
 
 
 
