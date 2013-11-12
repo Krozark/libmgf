@@ -1,7 +1,7 @@
 SRC = $(wildcard *.c*)
 OBJ = $(SRC:.cpp=.o) $(SRC:*.cpp=.o)
 
-all: Parser lexer $(OBJ)
+all: Parser Lexer $(OBJ)
 #main
 
 .cpp.o:
@@ -16,6 +16,11 @@ Parser: Parser.yy
 	bison -d -v Parser.yy
 	$(CC) $(FLAGS) -o "$@.o" -c "$@.tab.cc" 
 	@cp "$@.o" "$(OBJ_DIR)"
+
+Lexer: Lexer.lex
+	flex --outfile=$@.yy.cc $<
+	$(CC) $(FLAGS) -o "$@.o" -c "$@.yy.cc" 
+
 
 
 #main: main.cpp 

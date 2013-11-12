@@ -1,7 +1,9 @@
 #ifndef MGF_SCANNER_HPP
 #define MGF_SCANNER_HPP
 
+#if ! defined(yyFlexLexerOnce)
 #include <mgf/FlexLexer.hpp>
+#endif
  
 #undef YY_DECL
 #define YY_DECL int mgf::Scanner::yylex()

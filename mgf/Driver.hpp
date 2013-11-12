@@ -22,7 +22,7 @@ namespace mgf
             int parse_file(const std::string& filename);
             bool parse_next(std::istream& in);
 
-            void init();
+            void init(std::istream&);
 
         private:
             Analyse& analyse;

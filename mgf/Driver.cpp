@@ -1,15 +1,17 @@
 #include <mgf/Driver.hpp>
-#include <mgf/Analyse.hpp>
 
 #include <fstream>
+
+#include <mgf/Analyse.hpp>
+#include <mgf/Scanner.hpp>
 
 namespace mgf
 {
 
     Driver::Driver(mgf::Analyse& a) : 
         analyse(a),
-        Parser(nullptr),
-        Scanner(nullptr)
+        parser(nullptr),
+        scanner(nullptr)
     {
     }
 
@@ -23,7 +25,7 @@ namespace mgf
     int Driver::parse(std::istream& in)
     {
         int r = 0;
-        init();
+        init(in);
         while(parse_next(in))
         {
             ++r;
@@ -36,7 +38,7 @@ namespace mgf
         std::ifstream file(filename, std::ifstream::in);
         if (not file.good())
             return -1;
-        init();
+        init(file);
         int r = parse(file);
         file.close();
         return r;

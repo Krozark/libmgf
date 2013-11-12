@@ -1,4 +1,4 @@
-#include <Scanner.hpp>
+#include <mgf/Scanner.hpp>
 
 namespace mgf
 {
@@ -7,7 +7,7 @@ namespace mgf
     {
     }
 
-    int Scanner::yylex(MC::MC_Parser::semantic_type *lval)
+    int Scanner::yylex(mgf::Parser::semantic_type *lval)
     {
         yylval = lval;
         return this->yylex();
