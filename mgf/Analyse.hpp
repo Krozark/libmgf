@@ -10,9 +10,11 @@ namespace mgf
     class Analyse
     {
         public:
-            Analyse();
             Analyse(const Analyse&) = delete;
-            operator=(const Analyse&) = delete;
+            Analyse& operator=(const Analyse&) = delete;
+
+            Analyse();
+            Analyse(Analyse&& tmp);
 
             void push(Spectrum* spect);
 

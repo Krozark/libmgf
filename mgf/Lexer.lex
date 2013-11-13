@@ -1,6 +1,7 @@
 %{
-/* C++ string header, for string ops below */
+/* stl */
 #include <string>
+#include <sstream>
 /* Implementation of yyFlexScanner */
 #include <mgf/Scanner.hpp>
  
@@ -8,7 +9,7 @@
 typedef mgf::Parser::token token;
  
 /* define yyterminate as this instead of NULL */
-#define yyterminate() return token::END;
+#define yyterminate() return token::T_END;
  
 /* msvc2010 requires that we exclude this header file. */
 #define YY_NO_UNISTD_H
@@ -77,10 +78,6 @@ return token::UPPER;
     return token::V_DOUBLE;
 }
 
-[A-Za-z][:;,()A-Za-z0-9_.-]* {
-    yylval->stringVal = new std::string(yytext, yyleng);
-    return token::V_STRING;
-}
 
 
 
@@ -249,7 +246,7 @@ return token::UPPER;
 }
 
 "SEQ" {
-    return token::K_;
+    return token::K_SEQ;
 }
 
 "TAG" {
@@ -278,6 +275,14 @@ return token::UPPER;
 
 "USERNAME" {
     return token::K_USERNAME;
+}
+
+
+
+
+[A-Za-z][:;,()A-Za-z0-9_.-]* {
+    yylval->v_string = new std::string(yytext, yyleng);
+    return token::V_STRING;
 }
 
 %%

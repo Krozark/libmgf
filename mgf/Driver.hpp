@@ -3,13 +3,13 @@
 
 #include <iostream>
 
+#include <mgf/Analyse.hpp>
+#include <mgf/Scanner.hpp>
+
 namespace mgf
 {
     class Analyse;
     class Spectrum;
-
-    class Parser;
-    class Scanner;
 
     class Driver
     {

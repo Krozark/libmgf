@@ -17,8 +17,6 @@
 %define namespace "mgf"
 /* set the parser's class identifier */
 %define parser_class_name "Parser"
-/* start symbol is named "start" */
-%start start
  
 %lex-param { Scanner& scanner }
 %parse-param { Scanner& scanner }
@@ -48,6 +46,7 @@
  
 
 %token              T_END  0            "end of file"
+%token              T_EOL               "end of line"
 %token              T_COMMENT           "comment"
 %token              T_PLUS              "plus symbol"
 %token              T_MINUS             "minus symbol"
@@ -74,6 +73,7 @@
 %token              K_FRAMES            "FRAMES keyword: NA translation. [Comma separated list of frames,Default is 1,2,3,4,5,6]"
 %token              K_INSTRUMENT        "INSTRUMENT keyword: MS/MS ion series. [ESI-QUAD-TOF etc., as defined in fragmentation_rules]"
 %token              K_IT_MODS           "IT_MODS keyword: Variable Mods. [As defined in unimod.xml]"
+%token              K_ITOL              "ITOL keyword:  Fragment ion tol. [Unit dependent]"
 %token              K_ITOLU             "ITOLU keyword: Units for ITOL. [Da,mmu]"
 %token              K_LOCUS             "LOCUS keyword: Hierarchical scan range identifier. [string]"
 %token              K_MASS              "MASS keyword: Mono. or average. [Monoisotopic,Average]"
@@ -123,6 +123,11 @@ item : UPPER { driver.add_upper(); }
  
 /*YYACCEPT pour stoper lex*/
 
+
+/* start symbol is named "start" */
+%start start
+/* types */
+%type <v_integer> charge 
  
 %%
 
@@ -143,9 +148,7 @@ void mgf::Parser::error(const mgf::Parser::location_type &l,const std::string &e
  
 /* include for access to scanner.yylex */
 #include <mgf/Scanner.hpp>
-static int yylex( mgf::Parser::semantic_type *yylval,
-    mgf::Scanner& scanner,
-    mgf::Driver& driver)
+static int yylex( mgf::Parser::semantic_type *yylval,mgf::Scanner& scanner,mgf::Driver& driver)
     {
         return scanner.yylex(yylval);
     }

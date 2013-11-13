@@ -11,7 +11,7 @@ namespace mgf
     {
         public:
             Spectrum(const Spectrum&) = delete;
-            operator=(const Spectrum&) = delete;
+            Spectrum& operator=(const Spectrum&) = delete;
 
             Spectrum();
             Spectrum(Spectrum&& tmp);

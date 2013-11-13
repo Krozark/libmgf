@@ -2,23 +2,18 @@
 
 #include <fstream>
 
-#include <mgf/Analyse.hpp>
-#include <mgf/Scanner.hpp>
+//#include <mgf/Spectrum.hpp>
+
 
 namespace mgf
 {
 
-    Driver::Driver(std::istream& in) : 
-        input(in),
-        parser(in),
-        scanner(in)
+    Driver::Driver(std::istream& in) : scanner(in), parser(scanner,*this)
     {
     }
 
     Driver::~Driver()
     {
-        delete scanner;
-        delete parser;
     }
 
     
@@ -35,43 +30,43 @@ namespace mgf
         return nullptr;
     }
 
-    Analyse parse(std::istream& in)
+    Analyse Driver::parse(std::istream& in)
     {
         Analyse res;
         Driver::parse(in,res);
         return res;
     }
 
-    int parse(std::istream& in,Analyse& a)
+    int Driver::parse(std::istream& in,Analyse& a)
     {
-        int r = 0;
+        int res = 0;
         Driver driver(in);
-        Spectrum spectrum = nullptr;
-        while((spectrum = driver.next(in))!= nullptr)
+        Spectrum* spectrum = nullptr;
+        while((spectrum = driver.next())!= nullptr)
         {
             a.push(spectrum);
-            ++r;
+            ++res;
         }
-        return r;
+        return res;
     }
 
-    Analyse parse_file(const std::string& filename)
+    Analyse Driver::parse_file(const std::string& filename)
     {
         Analyse res;
         Driver::parse_file(filename,res);
         return res;
     }
 
-    int parse_file(const std::string& filename,Analyse& a)
+    int Driver::parse_file(const std::string& filename,Analyse& a)
     {
         int res = -1;
         std::ifstream file(filename, std::ifstream::in);
         if (file.good())
         {
-            r = Driver::parse(file);
+            res = Driver::parse(file,a);
             file.close();
         }
-        return r;
+        return res;
     }
 
 }
