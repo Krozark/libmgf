@@ -10,7 +10,11 @@ namespace mgf
     class Spectrum
     {
         public:
+            Spectrum(const Spectrum&) = delete;
+            operator=(const Spectrum&) = delete;
+
             Spectrum();
+            Spectrum(Spectrum&& tmp);
 
         private:
             double intensity,

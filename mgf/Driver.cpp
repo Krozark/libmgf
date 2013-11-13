@@ -8,10 +8,10 @@
 namespace mgf
 {
 
-    Driver::Driver(mgf::Analyse& a) : 
-        analyse(a),
-        parser(nullptr),
-        scanner(nullptr)
+    Driver::Driver(std::istream& in) : 
+        input(in),
+        parser(in),
+        scanner(in)
     {
     }
 
@@ -22,42 +22,56 @@ namespace mgf
     }
 
     
-    int Driver::parse(std::istream& in)
+    /*int Driver::parse(std::istream& in)
+    {
+    }
+
+    int Driver::parse_file(const std::string& filename)
+    {
+    }*/
+
+    Spectrum* Driver::next()
+    {
+        return nullptr;
+    }
+
+    Analyse parse(std::istream& in)
+    {
+        Analyse res;
+        Driver::parse(in,res);
+        return res;
+    }
+
+    int parse(std::istream& in,Analyse& a)
     {
         int r = 0;
-        init(in);
-        while(parse_next(in))
+        Driver driver(in);
+        Spectrum spectrum = nullptr;
+        while((spectrum = driver.next(in))!= nullptr)
         {
+            a.push(spectrum);
             ++r;
         }
         return r;
     }
 
-    int Driver::parse_file(const std::string& filename)
+    Analyse parse_file(const std::string& filename)
     {
+        Analyse res;
+        Driver::parse_file(filename,res);
+        return res;
+    }
+
+    int parse_file(const std::string& filename,Analyse& a)
+    {
+        int res = -1;
         std::ifstream file(filename, std::ifstream::in);
-        if (not file.good())
-            return -1;
-        init(file);
-        int r = parse(file);
-        file.close();
+        if (file.good())
+        {
+            r = Driver::parse(file);
+            file.close();
+        }
         return r;
     }
 
-    bool Driver::parse_next(std::istream& in)
-    {
-        return false;
-    }
-
-   void Driver::init(std::istream& in)
-   {
-       if (scanner)
-           delete scanner;
-       scanner = new mgf::Scanner(in);
-        
-       if (parser)
-           delete parser;
-       parser = new mgf::Parser(*scanner,*this);
-   } 
-    
 }

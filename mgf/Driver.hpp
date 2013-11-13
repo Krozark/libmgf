@@ -6,28 +6,32 @@
 namespace mgf
 {
     class Analyse;
+    class Spectrum;
+
     class Parser;
     class Scanner;
 
     class Driver
     {
         public:
-            Driver(mgf::Analyse& analyse);
+            Driver(std::istream& in);
             Driver(const Driver&) = delete;
             Driver& operator=(const Driver&) = delete;
 
             ~Driver();
 
-            int parse(std::istream& in);
-            int parse_file(const std::string& filename);
-            bool parse_next(std::istream& in);
+            Spectrum* next();
 
-            void init(std::istream&);
+            static Analyse parse(std::istream& in);
+            static int parse(std::istream& in,Analyse& a);
+            
+            static Analyse parse_file(const std::string& filename);
+            static int parse_file(const std::string& filename,Analyse& a);
 
         private:
-            Analyse& analyse;
-            Parser* parser;
-            Scanner* scanner;
+                
+            Parser parser;
+            Scanner scanner;
     };
 }
 #endif

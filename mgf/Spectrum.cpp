@@ -6,4 +6,9 @@ namespace mgf
     Spectrum::Spectrum()
     {
     }
+
+    Spectrum::Spectrum(Spectrum&& tmp)
+    {
+
+    }
 }
