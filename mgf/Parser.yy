@@ -16,7 +16,18 @@
 %parse-param { mgf::Scanner& scanner }
 
 %code requires {
+    #include <list>
+    #define MGF_NEW_INTEGER_LIST new std::list<int>
+    #define MGF_NEW_DOUBLE_LIST new std::list<double>
+    #define MGF_NEW_STRING_LIST new std::list<std::string>
+    #define MGF_NEW_ION_LIST    new std::list<mgf::s_ion>
+
     namespace mgf {
+
+        struct s_range {double min,max;bool s_min,s_max;};
+        struct s_i_range {double min,max;bool s_min,s_max;};
+        struct s_ion {double mz,it;int charge;};
+
         /*class Driver;*/
         class Scanner;
     }
@@ -30,9 +41,16 @@
  
 /* token types */
 %union {
-    int             v_integer;
-    double          v_double;
-    std::string*    v_string;
+    int                         v_integer;
+    double                      v_double;
+    std::string*                v_string;
+    std::list<int>*             v_interger_list;
+    std::list<double>*          v_double_list;
+    std::list<std::string>*     v_string_list;
+    mgf::s_range                v_d_range;
+    mgf::s_i_range              v_i_range;
+    mgf::s_ion                  v_ion;
+    std::list<mgf::s_ion>*      v_ion_list;
 }
  
 
@@ -52,7 +70,7 @@
 %token <v_string>   V_STRING            "string"
 
 %token              K_ACCESSION         "ACCESSION keyword : Database entries to be searched. [List of double quoted, comma separated values]"
-%token <v_integer>  K_CHARGE            "CHARGE keyword: Peptide charge. [8- to 8+ and combinations]"
+%token              K_CHARGE            "CHARGE keyword: Peptide charge. [8- to 8+ and combinations]"
 %token              K_CLE               "CLE keyword: Enzyme. [Trypsin etc., as defined in enzymes file]"
 %token              K_COM               "COM keyword: Search title"
 %token              K_CUTOUT            "CUTOUT keyword: Precursor removal. [Pair of comma separated integers]"
@@ -95,7 +113,7 @@
 
 /*\see http://www.matrixscience.com/help/data_file_help.html for more details*/
 
-%destructor { delete $$; } V_STRING; 
+%destructor { if($$) delete $$;$$=nullptr; } V_STRING <v_double_list> <v_interger_list> <v_string_list> <v_ion_list>
 
 /* destructor rule for <sval> objects */
 /*%destructor { if ($$) { delete ($$); ($$) = nullptr; } } <sval>*/
@@ -106,56 +124,55 @@
 /* start symbol is named "start" */
 %start start
 /* types */
-%type <v_integer> charge 
- 
+%type <v_integer>           charge
+%type <v_double>            double_quoted
+%type <v_double_list>       double_quoted_list
+%type <v_interger_list>     interger_list
+%type <v_string_list>       string_list
+%type <v_double>            number
+%type <v_d_range>           number_range
+%type <v_i_range>           raw
+%type <v_integer>           report_val
+%type <v_ion>               ion
+%type <v_ion_list>          ions
+
 %%
 
 charge : V_INTEGER T_PLUS   {$$=$1;}
        | V_INTEGER T_MINUS  {$$=-$1;}
        ;
 
-double_quoted : '"' V_DOUBLE '"'
+double_quoted : '"' V_DOUBLE '"' {$$=$2;}
               ;
 
-double_quoted_list : double_quoted_list ',' double_quoted
-                   | double_quoted
+double_quoted_list : double_quoted_list T_COMA double_quoted { $1->push_back($3);$$=$1;$1=nullptr;}
+                   | double_quoted  {auto l = MGF_NEW_DOUBLE_LIST;l->push_back($1);$$=l;}
+                                    
                    ;
 
-interger_list : interger_list ',' V_INTEGER
-              | V_INTEGER
+interger_list : interger_list T_COMA V_INTEGER {$1->push_back($3);$$=$1;$1=nullptr;}
+              | V_INTEGER   {auto l = MGF_NEW_INTEGER_LIST;l->push_back($1);$$=l;}
               ;
 
-string_list : string_list ',' V_STRING
-            | V_STRING
+string_list : string_list T_COMA V_STRING  {$1->push_back(*$3);$$=$1;$1=nullptr;}
+            | V_STRING  {auto l = MGF_NEW_STRING_LIST;l->push_back(*$1);$$=l;}
             ;
 
-number : V_INTEGER
-       | V_DOUBLE
+number : V_INTEGER  {$$=$1;}
+       | V_DOUBLE   {$$=$1;}
        ;
 
-number_range : number
-             | number '-' number
+number_range : number   {$$.min=$1;$$.s_min=true,$$.s_max=false;}
+             | number T_MINUS number {$$.min=$1;$$.max=$3;$$.s_min=$$.s_max=true;}
              ;
 
-raw : V_INTEGER
-    | V_INTEGER ':' V_INTEGER
+raw : V_INTEGER {$$.min=$1;$$.s_min=true,$$.s_max=false;}
+    | V_INTEGER ':' V_INTEGER {$$.min=$1;$$.max=$3;$$.s_min=$$.s_max=true;}
     ;
 
-report_val : V_INTEGER
-           | "AUTO"
+report_val : V_INTEGER  {$$=$1;}
+           | "AUTO"     {$$=-1;}
            ;
-
-ions : ions ion
-     | ion
-     ;
-
-ion : number number  T_EOL
-    | number number charge
-    ;
-
-headerparams : /* empty */
-             | headerparams headerparam
-             ;
 
 headerparam : K_ACCESSION T_EQUALS double_quoted_list T_EOL
             | K_CHARGE T_EQUALS charge T_EOL
@@ -188,19 +205,29 @@ headerparam : K_ACCESSION T_EQUALS double_quoted_list T_EOL
             | T_USER V_INTEGER T_EOL
             | K_USEREMAIL T_EQUALS V_STRING T_EOL
             | K_USERNAME T_EQUALS V_STRING T_EOL
+            | T_COMMENT T_EOL
             ;
+
+headerparams : /* empty */
+             | headerparams headerparam
+             ;
+
+
+ion : number number  T_EOL  {$$.mz=$1;$$.it=$2;$$.charge=0;}
+    | number number charge T_EOL    {$$.mz=$1;$$.it=$2;$$.charge=$3;}
+    ;
+
+ions : ions ion {$1->push_back($2);$$=$1;$1=nullptr;}
+     | ion      {auto l=MGF_NEW_ION_LIST;l->push_back($1);$$=l;}
+     ;
+
+block : T_BEGIN_IONS T_EOL blockparams ions T_END_IONS T_EOL    {std::cout<<"Pep"<<std::endl;}
+      | T_BEGIN_IONS T_EOL blockparams T_END_IONS T_EOL         {std::cout<<"Empty pep"<<std::endl;}
+      ;
 
 blocks : /* empty */
        | blocks block
        ;
-
-block : T_BEGIN_IONS T_EOL blockparams ions T_END_IONS T_EOL
-      | T_BEGIN_IONS T_EOL blockparams T_END_IONS T_EOL
-      ;
-
-blockparams : /* empty */
-            | blockparams blockparam
-            ;
 
 blockparam  : K_CHARGE T_EQUALS charge T_EOL
             | K_COMP T_EQUALS V_STRING T_EOL
@@ -209,6 +236,7 @@ blockparam  : K_CHARGE T_EQUALS charge T_EOL
             | K_IT_MODS T_EQUALS V_STRING T_EOL
             | K_LOCUS T_EQUALS V_STRING T_EOL
             | K_PEPMASS T_EQUALS number T_EOL
+            | K_PEPMASS T_EQUALS number number T_EOL
             | K_RAWFILE T_EQUALS V_STRING T_EOL
             | K_RAWSCANS T_EQUALS raw T_EOL
             | K_RTINSECONDS T_EQUALS number_range T_EOL
@@ -218,8 +246,12 @@ blockparam  : K_CHARGE T_EQUALS charge T_EOL
             | K_TITLE T_EQUALS V_STRING T_EOL
             | K_TOL T_EQUALS number T_EOL
             | K_TOLU T_EQUALS V_STRING T_EOL
+            | T_COMMENT T_EOL
             ;
 
+blockparams : /* empty */
+            | blockparams blockparam
+            ;
 
 
 start : headerparams blocks T_END
@@ -231,7 +263,7 @@ start : headerparams blocks T_END
  
 void mgf::Parser::error(const mgf::Parser::location_type &loc,const std::string &message)
 {
-   std::cerr<<"Error: "<<message<<std::endl;; 
+   std::cerr<<"Error: <"<<loc<<">: "<<message<<std::endl;; 
 }
  
 /*Now that we have the Parser declared, we can declare the Scanner and implement the yylex function*/

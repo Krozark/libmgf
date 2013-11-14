@@ -32,7 +32,7 @@ typedef mgf::Parser::token token;
     return token::T_EOL;
 }
 
-#[^/n]* {
+^[#;!/][^\n]* {
     return token::T_COMMENT;
 }
 
@@ -78,7 +78,7 @@ typedef mgf::Parser::token token;
     return token::T_COMA;
 }
 
-"USER" {
+^"USER" {
     return token::T_USER;
 }
 
@@ -95,167 +95,167 @@ typedef mgf::Parser::token token;
 
 
 
-"ACCESSION" {
+^"ACCESSION" {
     return token::K_ACCESSION;
 }
 
-"CHARGE" {
+^"CHARGE" {
     return token::K_CHARGE;
 }
 
-"CLE" {
+^"CLE" {
     return token::K_CLE;
 }
 
-"COM" {
+^"COM" {
     return token::K_COM;
 }
 
-"CUTOUT" {
+^"CUTOUT" {
     return token::K_CUTOUT;
 }
 
-"COMP" {
+^"COMP" {
     return token::K_COMP;
 }
 
-"DB" {
+^"DB" {
     return token::K_DB;
 }
 
-"DECOY" {
+^"DECOY" {
     return token::K_DECOY;
 }
 
-"ERRORTOLERANT" {
+^"ERRORTOLERANT" {
     return token::K_ERRORTOLERANT;
 }
 
-"ETAG" {
+^"ETAG" {
     return token::K_ETAG;
 }
 
-"FORMAT" {
+^"FORMAT" {
     return token::K_FORMAT;
 }
 
-"FRAMES" {
+^"FRAMES" {
     return token::K_FRAMES;
 }
 
-"INSTRUMENT" {
+^"INSTRUMENT" {
     return token::K_INSTRUMENT;
 }
 
-"IT_MODS" {
+^"IT_MODS" {
     return token::K_IT_MODS;
 }
 
-"ITOL" {
+^"ITOL" {
     return token::K_ITOL;
 }
 
-"ITOLU" {
+^"ITOLU" {
     return token::K_ITOLU;
 }
 
-"LOCUS" {
+^"LOCUS" {
     return token::K_LOCUS;
 }
 
-"MASS" {
+^"MASS" {
     return token::K_MASS;
 }
 
-"MODS" {
+^"MODS" {
     return token::K_MODS;
 }
 
-"MULTI_SITE_MODS" {
+^"MULTI_SITE_MODS" {
     return token::K_MULTI_SITE_MODS;
 }
 
-"PEP_ISOTOPE_ERROR" {
+^"PEP_ISOTOPE_ERROR" {
     return token::K_PEP_ISOTOPE_ERROR;
 }
 
-"PEPMASS" {
+^"PEPMASS" {
     return token::K_PEPMASS;
 }
 
-"PFA" {
+^"PFA" {
     return token::K_PFA;
 }
 
-"PRECURSOR" {
+^"PRECURSOR" {
     return token::K_PRECURSOR;
 }
 
-"QUANTITATION" {
+^"QUANTITATION" {
     return token::K_QUANTITATION;
 }
 
-"RAWFILE" {
+^"RAWFILE" {
     return token::K_RAWFILE;
 }
 
-"RAWSCANS" {
+^"RAWSCANS" {
     return token::K_RAWSCANS;
 }
 
-"REPORT" {
+^"REPORT" {
     return token::K_REPORT;
 }
 
-"REPTYPE" {
+^"REPTYPE" {
     return token::K_REPTYPE;
 }
 
-"RTINSECONDS" {
+^"RTINSECONDS" {
     return token::K_RTINSECONDS;
 }
 
-"SCANS" {
+^"SCANS" {
     return token::K_SCANS;
 }
 
-"SEARCH" {
+^"SEARCH" {
     return token::K_SEARCH;
 }
 
-"SEG" {
+^"SEG" {
     return token::K_SEG;
 }
 
-"SEQ" {
+^"SEQ" {
     return token::K_SEQ;
 }
 
-"TAG" {
+^"TAG" {
     return token::K_TAG;
 }
 
-"TAXONOMY" {
+^"TAXONOMY" {
     return token::K_TAXONOMY;
 }
 
-"TITLE" {
+^"TITLE" {
     return token::K_TITLE;
 }
 
-"TOL" {
+^"TOL" {
     return token::K_TOL;
 }
 
-"TOLU" {
+^"TOLU" {
     return token::K_TOLU;
 }
 
-"USEREMAIL" {
+^"USEREMAIL" {
     return token::K_USEREMAIL;
 }
 
-"USERNAME" {
+^"USERNAME" {
     return token::K_USERNAME;
 }
 
