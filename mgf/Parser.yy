@@ -149,19 +149,20 @@ ions : ions ion
      | ion
      ;
 
-ion : /* todo */
+ion : number number  T_EOL
+    | number number charge
     ;
 
-header : /* empty */
-       | header headerparam
-       ;
+headerparams : /* empty */
+             | headerparams headerparam
+             ;
 
 headerparam : K_ACCESSION T_EQUALS double_quoted_list T_EOL
             | K_CHARGE T_EQUALS charge T_EOL
             | K_CLE T_EQUALS V_STRING T_EOL
             | K_COMP T_EQUALS V_STRING T_EOL
             | K_CUTOUT T_EQUALS interger_list T_EOL
-            | K_BD T_EQUALS V_STRING T_EOL
+            | K_DB T_EQUALS V_STRING T_EOL
             | K_DECOY T_EQUALS V_INTEGER T_EOL
             | K_ERRORTOLERANT T_EQUALS V_INTEGER T_EOL
             | K_FORMAT T_EQUALS V_STRING T_EOL
@@ -169,7 +170,7 @@ headerparam : K_ACCESSION T_EQUALS double_quoted_list T_EOL
             | K_INSTRUMENT T_EQUALS V_STRING T_EOL
             | K_IT_MODS T_EQUALS V_STRING T_EOL
             | K_ITOL T_EQUALS V_DOUBLE T_EOL
-            | K_ITOLU T_EQUALS V_STRING T_EOL
+            | K_ITOLU T_EQUALS V_STRING T_EOL
             | K_MASS T_EQUALS V_STRING  T_EOL
             | K_MODS T_EQUALS V_STRING T_EOL
             | K_MULTI_SITE_MODS T_EQUALS V_INTEGER T_EOL
@@ -193,9 +194,13 @@ blocks : /* empty */
        | blocks block
        ;
 
-block : T_BEGIN_IONS T_EOL blockparam ions T_END_IONS T_EOL
-      | T_BEGIN_IONS T_EOL blockparam T_END_IONS T_EOL
+block : T_BEGIN_IONS T_EOL blockparams ions T_END_IONS T_EOL
+      | T_BEGIN_IONS T_EOL blockparams T_END_IONS T_EOL
       ;
+
+blockparams : /* empty */
+            | blockparams blockparam
+            ;
 
 blockparam  : K_CHARGE T_EQUALS charge T_EOL
             | K_COMP T_EQUALS V_STRING T_EOL
@@ -217,7 +222,7 @@ blockparam  : K_CHARGE T_EQUALS charge T_EOL
 
 
 
-start : header blocks T_END {std::cout<<"charge:"<<$1<<std::endl;}
+start : headerparams blocks T_END
       ;
 
 
