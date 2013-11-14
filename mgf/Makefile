@@ -13,7 +13,7 @@ all: Parser Lexer $(OBJ)
 	@cp $@ "$(OBJ_DIR)"
 
 Parser: Parser.yy
-	bison -d -v Parser.yy
+	bison Parser.yy
 	$(CC) $(FLAGS) -o "$@.o" -c "$@.tab.cc" 
 	@cp "$@.o" "$(OBJ_DIR)"
 
@@ -31,7 +31,6 @@ Lexer: Lexer.lex
 clean:
 	@rm -f *.o
 	@rm -f *.exe
-	@rm *.output
 	@rm *.cc
 	@rm *.hh
 

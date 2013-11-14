@@ -14,27 +14,6 @@ typedef mgf::Parser::token token;
 /* msvc2010 requires that we exclude this header file. */
 #define YY_NO_UNISTD_H
 
-/*[a-z] {
-    return token::LOWER ;
-}
- 
-[A-Z] {
-return token::UPPER;
-}
- 
-[a-zA-Z]+ {
-    yylval->sval = STOKEN(yytext);
-    return token::WORD;
-}
- 
-\n {
-    return token::NEWLINE;
-}
- 
-. {
-    return token::CHAR;
-}*/
-
 /*
     token::T_ => general token
     token::V_ => value
@@ -43,9 +22,8 @@ return token::UPPER;
 %}
  
 %option c++
-%option debug
-%option nodefault
 %option yyclass="Scanner"
+%option nodefault
 %option noyywrap
  
 %%
@@ -285,4 +263,3 @@ return token::UPPER;
     return token::V_STRING;
 }
 
-%%

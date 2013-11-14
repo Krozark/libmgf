@@ -1,4 +1,9 @@
+#include <iostream>
+
+#include <mgf/Driver.hpp>
+
 int main(int argc,char* argv[])
 {
-    return 0;
+    mgf::Driver driver(std::cin);
+    return driver.parse();
 }

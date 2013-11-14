@@ -1,40 +1,31 @@
-%code requires {
-    namespace mgf {
-        class Driver;
-        class Scanner;
-    }
-}
-
-/* use newer C++ skeleton file */
+ /* use newer C++ skeleton file */
 %skeleton "lalr1.cc"
 /* Require bison version or later */
 %require "2.5"
-/* add debug output code to generated parser. */
-%debug
 /* write a header file containing macro definitions */
 %defines
 /* namespace to enclose parser in */
 %define namespace "mgf"
 /* set the parser's class identifier */
 %define parser_class_name "Parser"
+
+/*%lex-param { Driver& driver }
+%parse-param { Driver& driver }*/
  
-%lex-param { Scanner& scanner }
-%parse-param { Scanner& scanner }
+%lex-param { mgf::Scanner& scanner }
+%parse-param { mgf::Scanner& scanner }
+
+%code requires {
+    namespace mgf {
+        /*class Driver;*/
+        class Scanner;
+    }
+}
  
-%lex-param { Driver& driver }
-%parse-param { Driver& driver }
  
 %code{
-    #include <iostream>
-    #include <cstdlib>
-    #include <fstream>
-    /* include for all driver functions */
-    #include <mgf/Driver.hpp>
-
-    /* this is silly, but I can't figure out a way around */
-    static int yylex(mgf::Parser::semantic_type *yylval,
-        mgf::Scanner &scanner,
-        mgf::Driver &driver);
+	/*Prototype for the yylex function*/
+	static int yylex(mgf::Parser::semantic_type* yylval, mgf::Scanner& scanner);
 }
  
 /* token types */
@@ -107,19 +98,6 @@
 
 /* destructor rule for <sval> objects */
 /*%destructor { if ($$) { delete ($$); ($$) = nullptr; } } <sval>*/
-/*
-list_option : END 
-            | list END;
- 
-list : item
-     | list item;
- 
-item : UPPER { driver.add_upper(); }
-     | LOWER { driver.add_lower(); }
-     | WORD { driver.add_word( *$1 ); }
-     | NEWLINE { driver.add_newline(); }
-     | CHAR { driver.add_char(); };
-*/
  
 /*YYACCEPT pour stoper lex*/
 
@@ -133,22 +111,23 @@ item : UPPER { driver.add_upper(); }
 
 charge : V_INTEGER T_PLUS   {$$=$1;}
        | V_INTEGER T_MINUS  {$$=-$1;}
+       ;
 
-start : T_END
+start : charge T_END
+      ;
 
 
 %%
  
  
-void mgf::Parser::error(const mgf::Parser::location_type &l,const std::string &err_message)
+void mgf::Parser::error(const mgf::Parser::location_type &loc,const std::string &message)
 {
-   std::cerr << "Error: " << err_message << "\n"; 
+   std::cerr<<"Error: "<<message<<std::endl;; 
 }
  
- 
-/* include for access to scanner.yylex */
+/*Now that we have the Parser declared, we can declare the Scanner and implement the yylex function*/
 #include <mgf/Scanner.hpp>
-static int yylex( mgf::Parser::semantic_type *yylval,mgf::Scanner& scanner,mgf::Driver& driver)
-    {
-        return scanner.yylex(yylval);
-    }
+static int yylex( mgf::Parser::semantic_type *yylval,mgf::Scanner& scanner)
+{
+    return scanner.yylex(yylval);
+}

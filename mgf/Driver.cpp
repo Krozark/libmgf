@@ -8,7 +8,7 @@
 namespace mgf
 {
 
-    Driver::Driver(std::istream& in) : scanner(in), parser(scanner,*this)
+    Driver::Driver(std::istream& in) : scanner(in), parser(scanner)
     {
     }
 
@@ -17,19 +17,16 @@ namespace mgf
     }
 
     
-    /*int Driver::parse(std::istream& in)
+    int Driver::parse()
     {
+        return parser.parse();
     }
 
-    int Driver::parse_file(const std::string& filename)
-    {
-    }*/
-
-    Spectrum* Driver::next()
+    /*Spectrum* Driver::next()
     {
         return nullptr;
     }
-
+:w
     Analyse Driver::parse(std::istream& in)
     {
         Analyse res;
@@ -67,6 +64,5 @@ namespace mgf
             file.close();
         }
         return res;
-    }
-
+    }*/
 }
