@@ -42,6 +42,7 @@
 %token              T_PLUS              "plus symbol"
 %token              T_MINUS             "minus symbol"
 %token              T_EQUALS            "equals symbol"
+%token              T_COMA              "coma symbol"
 %token              T_USER              "USER token, USER00 to USER12"
 %token              T_BEGIN_IONS        "BEGIN IONS token"
 %token              T_END_IONS          "END IONS token"
@@ -113,7 +114,110 @@ charge : V_INTEGER T_PLUS   {$$=$1;}
        | V_INTEGER T_MINUS  {$$=-$1;}
        ;
 
-start : charge T_END
+double_quoted : '"' V_DOUBLE '"'
+              ;
+
+double_quoted_list : double_quoted_list ',' double_quoted
+                   | double_quoted
+                   ;
+
+interger_list : interger_list ',' V_INTEGER
+              | V_INTEGER
+              ;
+
+string_list : string_list ',' V_STRING
+            | V_STRING
+            ;
+
+number : V_INTEGER
+       | V_DOUBLE
+       ;
+
+number_range : number
+             | number '-' number
+             ;
+
+raw : V_INTEGER
+    | V_INTEGER ':' V_INTEGER
+    ;
+
+report_val : V_INTEGER
+           | "AUTO"
+           ;
+
+ions : ions ion
+     | ion
+     ;
+
+ion : /* todo */
+    ;
+
+header : /* empty */
+       | header headerparam
+       ;
+
+headerparam : K_ACCESSION T_EQUALS double_quoted_list T_EOL
+            | K_CHARGE T_EQUALS charge T_EOL
+            | K_CLE T_EQUALS V_STRING T_EOL
+            | K_COMP T_EQUALS V_STRING T_EOL
+            | K_CUTOUT T_EQUALS interger_list T_EOL
+            | K_BD T_EQUALS V_STRING T_EOL
+            | K_DECOY T_EQUALS V_INTEGER T_EOL
+            | K_ERRORTOLERANT T_EQUALS V_INTEGER T_EOL
+            | K_FORMAT T_EQUALS V_STRING T_EOL
+            | K_FRAMES T_EQUALS interger_list T_EOL
+            | K_INSTRUMENT T_EQUALS V_STRING T_EOL
+            | K_IT_MODS T_EQUALS V_STRING T_EOL
+            | K_ITOL T_EQUALS V_DOUBLE T_EOL
+            | K_ITOLU T_EQUALS V_STRING T_EOL
+            | K_MASS T_EQUALS V_STRING  T_EOL
+            | K_MODS T_EQUALS V_STRING T_EOL
+            | K_MULTI_SITE_MODS T_EQUALS V_INTEGER T_EOL
+            | K_PEP_ISOTOPE_ERROR T_EQUALS V_INTEGER T_EOL
+            | K_PFA T_EQUALS V_INTEGER T_EOL
+            | K_PRECURSOR T_EQUALS number T_EOL
+            | K_QUANTITATION T_EQUALS V_STRING T_EOL
+            | K_REPORT T_EQUALS report_val T_EOL
+            | K_REPTYPE T_EQUALS V_STRING T_EOL
+            | K_SEARCH T_EQUALS V_STRING T_EOL
+            | K_SEG T_EQUALS number T_EOL
+            | K_TAXONOMY T_EQUALS V_STRING T_EOL
+            | K_TOL T_EQUALS number T_EOL
+            | K_TOLU T_EQUALS V_STRING T_EOL
+            | T_USER V_INTEGER T_EOL
+            | K_USEREMAIL T_EQUALS V_STRING T_EOL
+            | K_USERNAME T_EQUALS V_STRING T_EOL
+            ;
+
+blocks : /* empty */
+       | blocks block
+       ;
+
+block : T_BEGIN_IONS T_EOL blockparam ions T_END_IONS T_EOL
+      | T_BEGIN_IONS T_EOL blockparam T_END_IONS T_EOL
+      ;
+
+blockparam  : K_CHARGE T_EQUALS charge T_EOL
+            | K_COMP T_EQUALS V_STRING T_EOL
+            | K_ETAG T_EQUALS string_list T_EOL
+            | K_INSTRUMENT T_EQUALS V_STRING T_EOL
+            | K_IT_MODS T_EQUALS V_STRING T_EOL
+            | K_LOCUS T_EQUALS V_STRING T_EOL
+            | K_PEPMASS T_EQUALS number T_EOL
+            | K_RAWFILE T_EQUALS V_STRING T_EOL
+            | K_RAWSCANS T_EQUALS raw T_EOL
+            | K_RTINSECONDS T_EQUALS number_range T_EOL
+            | K_SCANS T_EQUALS number_range T_EOL
+            | K_SEQ T_EQUALS string_list T_EOL
+            | K_TAG T_EQUALS string_list T_EOL
+            | K_TITLE T_EQUALS V_STRING T_EOL
+            | K_TOL T_EQUALS number T_EOL
+            | K_TOLU T_EQUALS V_STRING T_EOL
+            ;
+
+
+
+start : header blocks T_END {std::cout<<"charge:"<<$1<<std::endl;}
       ;
 
 

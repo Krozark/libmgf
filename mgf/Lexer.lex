@@ -74,6 +74,10 @@ typedef mgf::Parser::token token;
     return token::T_EQUALS;
 }
 
+"," {
+    return token::T_COMA;
+}
+
 "USER" {
     return token::T_USER;
 }

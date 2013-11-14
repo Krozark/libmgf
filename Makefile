@@ -13,7 +13,7 @@ export OBJ_DIR = $(TOP)/obj
 SRC = $(wildcard *.c*)
 OBJ = $(SRC:.cpp=.o) $(SRC:*.cpp=.o)
 
-SUBDIRS = mgf
+SUBDIRS = mgf obj
 
 export EXEC = Mgf
 
@@ -23,11 +23,12 @@ CLEANDIRS = $(SUBDIRS:%=clean-%)
 .PHONY: subdirs $(SUBDIRS)
 .PHONY: subdirs $(CLEANDIRS)
 
-all: subdirs $(OBJ) obj
+all: mgf $(OBJ) obj
 
-subdirs: $(SUBDIRS)
-     
-$(SUBDIRS):
+mgf:
+	$(MAKE) -C $@
+
+obj:
 	$(MAKE) -C $@
 
 
