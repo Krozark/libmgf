@@ -4,6 +4,8 @@
 %require "2.5"
 /* write a header file containing macro definitions */
 %defines
+/* verbose error messages */
+%error-verbose
 /* namespace to enclose parser in */
 %define namespace "mgf"
 /* set the parser's class identifier */
@@ -21,6 +23,8 @@
     #define MGF_NEW_DOUBLE_LIST new std::list<double>
     #define MGF_NEW_STRING_LIST new std::list<std::string>
     #define MGF_NEW_ION_LIST    new std::list<mgf::s_ion>
+
+    extern int mgf_line_no;
 
     namespace mgf {
 
@@ -61,6 +65,7 @@
 %token              T_MINUS             "minus symbol"
 %token              T_EQUALS            "equals symbol"
 %token              T_COMA              "coma symbol"
+%token              T_AND               "and"
 %token              T_USER              "USER token, USER00 to USER12"
 %token              T_BEGIN_IONS        "BEGIN IONS token"
 %token              T_END_IONS          "END IONS token"
@@ -113,7 +118,7 @@
 
 /*\see http://www.matrixscience.com/help/data_file_help.html for more details*/
 
-%destructor { if($$) delete $$;$$=nullptr; } V_STRING <v_double_list> <v_interger_list> <v_string_list> <v_ion_list>
+%destructor { if($$) delete $$;$$=nullptr; } <v_string> <v_double_list> <v_interger_list> <v_string_list> <v_ion_list>
 
 /* destructor rule for <sval> objects */
 /*%destructor { if ($$) { delete ($$); ($$) = nullptr; } } <sval>*/
@@ -125,6 +130,7 @@
 %start start
 /* types */
 %type <v_integer>           charge
+%type <v_interger_list>     charge_list
 %type <v_double>            double_quoted
 %type <v_double_list>       double_quoted_list
 %type <v_interger_list>     interger_list
@@ -142,6 +148,11 @@ charge : V_INTEGER T_PLUS   {$$=$1;}
        | V_INTEGER T_MINUS  {$$=-$1;}
        ;
 
+charge_list : charge    {auto l=MGF_NEW_INTEGER_LIST;l->push_back($1);$$=l;}
+            | charge_list T_COMA charge {$1->push_back($3);$$=$1;$1=nullptr;}
+            | charge_list T_AND charge  {$1->push_back($3);$$=$1;$1=nullptr;}
+            ;
+
 double_quoted : '"' V_DOUBLE '"' {$$=$2;}
               ;
 
@@ -157,6 +168,14 @@ interger_list : interger_list T_COMA V_INTEGER {$1->push_back($3);$$=$1;$1=nullp
 string_list : string_list T_COMA V_STRING  {$1->push_back(*$3);$$=$1;$1=nullptr;}
             | V_STRING  {auto l = MGF_NEW_STRING_LIST;l->push_back(*$1);$$=l;}
             ;
+
+string_st : V_STRING
+          | string_st V_STRING
+          | string_st number
+          | string_st T_COMA
+          | string_st T_PLUS
+          | string_st T_MINUS
+          ;
 
 number : V_INTEGER  {$$=$1;}
        | V_DOUBLE   {$$=$1;}
@@ -174,8 +193,16 @@ report_val : V_INTEGER  {$$=$1;}
            | "AUTO"     {$$=-1;}
            ;
 
+ignored : T_EOL
+        /*| T_COMMENT T_EOL*/
+        ;
+
+ignoreds : ignored
+         | ignoreds ignored
+         ;
+
 headerparam : K_ACCESSION T_EQUALS double_quoted_list T_EOL
-            | K_CHARGE T_EQUALS charge T_EOL
+            | K_CHARGE T_EQUALS charge_list T_EOL
             | K_CLE T_EQUALS V_STRING T_EOL
             | K_COMP T_EQUALS V_STRING T_EOL
             | K_CUTOUT T_EQUALS interger_list T_EOL
@@ -205,7 +232,7 @@ headerparam : K_ACCESSION T_EQUALS double_quoted_list T_EOL
             | T_USER V_INTEGER T_EOL
             | K_USEREMAIL T_EQUALS V_STRING T_EOL
             | K_USERNAME T_EQUALS V_STRING T_EOL
-            | T_COMMENT T_EOL
+            | ignoreds
             ;
 
 headerparams : /* empty */
@@ -227,6 +254,7 @@ block : T_BEGIN_IONS T_EOL blockparams ions T_END_IONS T_EOL    {std::cout<<"Pep
 
 blocks : /* empty */
        | blocks block
+       | blocks ignoreds block
        ;
 
 blockparam  : K_CHARGE T_EQUALS charge T_EOL
@@ -243,10 +271,10 @@ blockparam  : K_CHARGE T_EQUALS charge T_EOL
             | K_SCANS T_EQUALS number_range T_EOL
             | K_SEQ T_EQUALS string_list T_EOL
             | K_TAG T_EQUALS string_list T_EOL
-            | K_TITLE T_EQUALS V_STRING T_EOL
+            | K_TITLE T_EQUALS string_st T_EOL
             | K_TOL T_EQUALS number T_EOL
             | K_TOLU T_EQUALS V_STRING T_EOL
-            | T_COMMENT T_EOL
+            | ignoreds
             ;
 
 blockparams : /* empty */
@@ -263,7 +291,7 @@ start : headerparams blocks T_END
  
 void mgf::Parser::error(const mgf::Parser::location_type &loc,const std::string &message)
 {
-   std::cerr<<"Error: <"<<loc<<">: "<<message<<std::endl;; 
+   std::cerr<<"Error line "<<mgf_line_no<<" : "<<message<<std::endl;; 
 }
  
 /*Now that we have the Parser declared, we can declare the Scanner and implement the yylex function*/

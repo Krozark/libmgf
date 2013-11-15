@@ -4,7 +4,7 @@ LIBS =
 #-lpthread 
 #-lmysqlcppconn 
 
-export DEFINES = 
+export DEFINES = -DCOLORS 
 #export DEFINES = -DNDEBUG
 export FLAGS = -g -Wall -std=c++0x $(INCPATH) $(LIBS) $(DEFINES)
 export TOP = $(CURDIR)

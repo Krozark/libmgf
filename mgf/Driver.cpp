@@ -19,6 +19,12 @@ namespace mgf
     
     int Driver::parse()
     {
+        /*int r;
+        while ((r = parser.parse())!=0)
+        {
+            std::cout<<"parse:"<<r<<std::endl;
+        }
+        return r;*/
         return parser.parse();
     }
 
