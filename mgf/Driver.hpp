@@ -5,6 +5,7 @@
 
 #include <mgf/Analyse.hpp>
 #include <mgf/Scanner.hpp>
+#include <mgf/GlobalHeader.hpp>
 
 namespace mgf
 {
@@ -30,6 +31,7 @@ namespace mgf
             static Analyse parse_file(const std::string& filename);
             static int parse_file(const std::string& filename,Analyse& a);*/
 
+            GlobalHeader header;
         private:
                 
             Scanner scanner;

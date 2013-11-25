@@ -14,6 +14,9 @@
 
 namespace mgf
 {
+    class Parser;
+    //typename Parser::semantic_type;
+
     class Scanner : public yyFlexLexer
     {
         public:

@@ -10,12 +10,12 @@
 %define namespace "mgf"
 /* set the parser's class identifier */
 %define parser_class_name "Parser"
-
-/*%lex-param { Driver& driver }
-%parse-param { Driver& driver }*/
  
 %lex-param { mgf::Scanner& scanner }
 %parse-param { mgf::Scanner& scanner }
+
+/*%lex-param { mgf::Driver& driver }*/
+%parse-param { mgf::Driver& driver }
 
 %code requires {
     #include <list>
@@ -32,15 +32,19 @@
         struct s_i_range {double min,max;bool s_min,s_max;};
         struct s_ion {double mz,it;int charge;};
 
-        /*class Driver;*/
         class Scanner;
+        class Driver;
     }
+    
 }
  
  
 %code{
+    #include <mgf/Driver.hpp>
 	/*Prototype for the yylex function*/
 	static int yylex(mgf::Parser::semantic_type* yylval, mgf::Scanner& scanner);
+
+    #define DEL(x) delete x; x=nullptr;
 }
  
 /* token types */
@@ -118,7 +122,7 @@
 
 /*\see http://www.matrixscience.com/help/data_file_help.html for more details*/
 
-%destructor { if($$) delete $$;$$=nullptr; } <v_string> <v_double_list> <v_interger_list> <v_string_list> <v_ion_list>
+/*%destructor { if($$) delete $$;$$=nullptr; } <v_string> <v_double_list> <v_interger_list> <v_string_list> <v_ion_list>*/
 
 /* destructor rule for <sval> objects */
 /*%destructor { if ($$) { delete ($$); ($$) = nullptr; } } <sval>*/
@@ -135,12 +139,14 @@
 %type <v_double_list>       double_quoted_list
 %type <v_interger_list>     interger_list
 %type <v_string_list>       string_list
+%type <v_string>            string_st
 %type <v_double>            number
 %type <v_d_range>           number_range
 %type <v_i_range>           raw
 %type <v_integer>           report_val
 %type <v_ion>               ion
 %type <v_ion_list>          ions
+
 
 /*ignored : T_EOL
         ;
@@ -172,12 +178,12 @@ interger_list : interger_list T_COMA V_INTEGER {$1->push_back($3);$$=$1;$1=nullp
               | V_INTEGER   {auto l = MGF_NEW_INTEGER_LIST;l->push_back($1);$$=l;}
               ;
 
-string_list : string_list T_COMA V_STRING  {$1->push_back(*$3);$$=$1;$1=nullptr;}
+string_list : string_list T_COMA V_STRING  {$1->push_back(*$3);$$=$1;$1=nullptr;DEL($3);}
             | V_STRING  {auto l = MGF_NEW_STRING_LIST;l->push_back(*$1);$$=l;}
             ;
 
-string_st : V_STRING
-          | string_st V_STRING
+string_st : V_STRING {DEL($1);}
+          | string_st V_STRING  {DEL($2);}
           | string_st number
           | string_st T_COMA
           | string_st T_PLUS
@@ -201,38 +207,38 @@ report_val : V_INTEGER  {$$=$1;}
            ;
 
 
-headerparam : K_ACCESSION T_EQUALS double_quoted_list T_EOL
-            | K_CHARGE T_EQUALS charge_list T_EOL
-            | K_CLE T_EQUALS V_STRING T_EOL
-            | K_COM T_EQUALS V_STRING T_EOL
-            | K_COMP T_EQUALS V_STRING T_EOL
-            | K_CUTOUT T_EQUALS interger_list T_EOL
-            | K_DB T_EQUALS V_STRING T_EOL
-            | K_DECOY T_EQUALS V_INTEGER T_EOL
-            | K_ERRORTOLERANT T_EQUALS V_INTEGER T_EOL
-            | K_FORMAT T_EQUALS V_STRING T_EOL
-            | K_FRAMES T_EQUALS interger_list T_EOL
-            | K_INSTRUMENT T_EQUALS V_STRING T_EOL
-            | K_IT_MODS T_EQUALS V_STRING T_EOL
-            | K_ITOL T_EQUALS V_DOUBLE T_EOL
-            | K_ITOLU T_EQUALS V_STRING T_EOL
-            | K_MASS T_EQUALS V_STRING  T_EOL
-            | K_MODS T_EQUALS V_STRING T_EOL
-            | K_MULTI_SITE_MODS T_EQUALS V_INTEGER T_EOL
-            | K_PEP_ISOTOPE_ERROR T_EQUALS V_INTEGER T_EOL
-            | K_PFA T_EQUALS V_INTEGER T_EOL
-            | K_PRECURSOR T_EQUALS number T_EOL
-            | K_QUANTITATION T_EQUALS V_STRING T_EOL
-            | K_REPORT T_EQUALS report_val T_EOL
-            | K_REPTYPE T_EQUALS V_STRING T_EOL
-            | K_SEARCH T_EQUALS V_STRING T_EOL
-            | K_SEG T_EQUALS number T_EOL
-            | K_TAXONOMY T_EQUALS V_STRING T_EOL
-            | K_TOL T_EQUALS number T_EOL
-            | K_TOLU T_EQUALS V_STRING T_EOL
-            | T_USER V_INTEGER T_EOL
-            | K_USEREMAIL T_EQUALS V_STRING T_EOL
-            | K_USERNAME T_EQUALS V_STRING T_EOL
+headerparam : K_ACCESSION T_EQUALS double_quoted_list T_EOL {driver.header.setAccession(*$3);DEL($3);}
+            | K_CHARGE T_EQUALS charge_list T_EOL {driver.header.setCharge(*$3);DEL($3);}
+            | K_CLE T_EQUALS V_STRING T_EOL {driver.header.setCle(*$3);DEL($3);}
+            | K_COM T_EQUALS V_STRING T_EOL {driver.header.setCom(*$3);DEL($3);}
+            | K_COMP T_EQUALS V_STRING T_EOL {driver.header.setComp(*$3);DEL($3);}
+            | K_CUTOUT T_EQUALS interger_list T_EOL {driver.header.setCutout(*$3);DEL($3);}
+            | K_DB T_EQUALS V_STRING T_EOL {driver.header.setDb(*$3);DEL($3);}
+            | K_DECOY T_EQUALS V_INTEGER T_EOL {driver.header.setDecoy($3);}
+            | K_ERRORTOLERANT T_EQUALS V_INTEGER T_EOL {driver.header.setErrorTolerant($3);}
+            | K_FORMAT T_EQUALS V_STRING T_EOL {driver.header.setFormat(*$3);DEL($3)}
+            | K_FRAMES T_EQUALS interger_list T_EOL {driver.header.setFrames(*$3);DEL($3);}
+            | K_INSTRUMENT T_EQUALS V_STRING T_EOL {driver.header.setInstrument(*$3);DEL($3);}
+            | K_IT_MODS T_EQUALS V_STRING T_EOL {driver.header.setItMods(*$3);DEL($3);}
+            | K_ITOL T_EQUALS V_DOUBLE T_EOL {driver.header.setItOl($3);}
+            | K_ITOLU T_EQUALS V_STRING T_EOL {driver.header.setItOlU(*$3);DEL($3);}
+            | K_MASS T_EQUALS V_STRING  T_EOL {driver.header.setMass(*$3);DEL($3);}
+            | K_MODS T_EQUALS V_STRING T_EOL {driver.header.setMods(*$3);DEL($3);}
+            | K_MULTI_SITE_MODS T_EQUALS V_INTEGER T_EOL {driver.header.setMultiSiteMods($3);}
+            | K_PEP_ISOTOPE_ERROR T_EQUALS V_INTEGER T_EOL {driver.header.setPepIsotopeError($3);}
+            | K_PFA T_EQUALS V_INTEGER T_EOL {driver.header.setPfa($3);}
+            | K_PRECURSOR T_EQUALS number T_EOL {driver.header.setPrecursor($3);}
+            | K_QUANTITATION T_EQUALS V_STRING T_EOL {driver.header.setQuantitation(*$3);DEL($3);}
+            | K_REPORT T_EQUALS report_val T_EOL {driver.header.setRepport($3);}
+            | K_REPTYPE T_EQUALS V_STRING T_EOL {driver.header.setReptype(*$3);DEL($3);}
+            | K_SEARCH T_EQUALS V_STRING T_EOL {driver.header.setSearch(*$3);DEL($3);}
+            | K_SEG T_EQUALS number T_EOL {driver.header.setSeg($3);}
+            | K_TAXONOMY T_EQUALS V_STRING T_EOL {driver.header.setTaxonomy(*$3);DEL($3);}
+            | K_TOL T_EQUALS number T_EOL {driver.header.setTol($3);}
+            | K_TOLU T_EQUALS V_STRING T_EOL {driver.header.setTolU(*$3);DEL($3);}
+            | T_USER V_INTEGER T_EOL {driver.header.setUser($2);}
+            | K_USEREMAIL T_EQUALS V_STRING T_EOL {driver.header.setUserMail(*$3);DEL($3);}
+            | K_USERNAME T_EQUALS V_STRING T_EOL {driver.header.setUserName(*$3);DEL($3);}
             | T_EOL
             ;
 
@@ -249,7 +255,7 @@ ions : ions ion {$1->push_back($2);$$=$1;$1=nullptr;}
      | ion      {auto l=MGF_NEW_ION_LIST;l->push_back($1);$$=l;}
      ;
 
-block : T_BEGIN_IONS T_EOL blockparams ions T_END_IONS T_EOL    {std::cout<<"Pep"<<std::endl;}
+block : T_BEGIN_IONS T_EOL blockparams ions T_END_IONS T_EOL    {std::cout<<"Pep"<<std::endl;DEL($4);}
       | T_BEGIN_IONS T_EOL blockparams T_END_IONS T_EOL         {std::cout<<"Empty pep"<<std::endl;}
       ;
 
@@ -259,22 +265,22 @@ blocks : /* empty */
        ;
 
 blockparam  : K_CHARGE T_EQUALS charge T_EOL
-            | K_COMP T_EQUALS V_STRING T_EOL
-            | K_ETAG T_EQUALS string_list T_EOL
-            | K_INSTRUMENT T_EQUALS V_STRING T_EOL
-            | K_IT_MODS T_EQUALS V_STRING T_EOL
-            | K_LOCUS T_EQUALS V_STRING T_EOL
+            | K_COMP T_EQUALS V_STRING T_EOL {DEL($3);}
+            | K_ETAG T_EQUALS string_list T_EOL {DEL($3);}
+            | K_INSTRUMENT T_EQUALS V_STRING T_EOL {DEL($3);}
+            | K_IT_MODS T_EQUALS V_STRING T_EOL {DEL($3);}
+            | K_LOCUS T_EQUALS V_STRING T_EOL {DEL($3);}
             | K_PEPMASS T_EQUALS number T_EOL
             | K_PEPMASS T_EQUALS number number T_EOL
-            | K_RAWFILE T_EQUALS V_STRING T_EOL
+            | K_RAWFILE T_EQUALS V_STRING T_EOL {DEL($3);}
             | K_RAWSCANS T_EQUALS raw T_EOL
             | K_RTINSECONDS T_EQUALS number_range T_EOL
             | K_SCANS T_EQUALS number_range T_EOL
-            | K_SEQ T_EQUALS string_list T_EOL
-            | K_TAG T_EQUALS string_list T_EOL
-            | K_TITLE T_EQUALS string_st T_EOL
+            | K_SEQ T_EQUALS string_list T_EOL {DEL($3);}
+            | K_TAG T_EQUALS string_list T_EOL {DEL($3);}
+            | K_TITLE T_EQUALS string_st T_EOL {DEL($3);}
             | K_TOL T_EQUALS number T_EOL
-            | K_TOLU T_EQUALS V_STRING T_EOL
+            | K_TOLU T_EQUALS V_STRING T_EOL {DEL($3);}
             | T_EOL
             ;
 
@@ -297,6 +303,7 @@ void mgf::Parser::error(const mgf::Parser::location_type &loc,const std::string 
  
 /*Now that we have the Parser declared, we can declare the Scanner and implement the yylex function*/
 #include <mgf/Scanner.hpp>
+#include <mgf/Driver.hpp>
 static int yylex( mgf::Parser::semantic_type *yylval,mgf::Scanner& scanner)
 {
     return scanner.yylex(yylval);

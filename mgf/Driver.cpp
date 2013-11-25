@@ -8,7 +8,7 @@
 namespace mgf
 {
 
-    Driver::Driver(std::istream& in) : scanner(in), parser(scanner)
+    Driver::Driver(std::istream& in) : scanner(in), parser(scanner,*this)
     {
     }
 
