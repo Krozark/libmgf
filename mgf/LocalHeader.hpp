@@ -3,6 +3,7 @@
 
 #include <string>
 #include <list>
+#include <iostream> 
 
 namespace mgf
 {
@@ -12,6 +13,8 @@ namespace mgf
             LocalHeader();
             LocalHeader(const LocalHeader&) = delete;
             LocalHeader& operator=(const LocalHeader&) = delete;
+
+            LocalHeader(LocalHeader&& tmp) = default;
 
             void setCharge(int i);
             void setComp(std::string& s);
@@ -29,6 +32,8 @@ namespace mgf
             void setTitle(std::string& s);
             void setTol(double d);
             void setTolU(std::string& s);
+
+            void __print__(std::ostream& stream);
 
         protected:
 

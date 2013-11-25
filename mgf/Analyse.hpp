@@ -2,6 +2,7 @@
 #define MGF_ANALYSE_HPP
 
 #include <list>
+#include <iostream>
 
 #include <mgf/GlobalHeader.hpp>
 
@@ -17,12 +18,15 @@ namespace mgf
             Analyse& operator=(const Analyse&) = delete;
 
             Analyse();
-            Analyse(Analyse&& tmp);
+            Analyse(Analyse&& tmp) = default;
             ~Analyse();
 
             void clear();
 
             void push(Spectrum* spect);
+            inline unsigned int size(){return spectrums.size();}
+
+            void __print__(std::ostream& stream);
 
 
         private:

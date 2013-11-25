@@ -3,6 +3,7 @@
 
 #include <string>
 #include <list>
+#include <iostream> 
 
 namespace mgf
 {
@@ -13,7 +14,7 @@ namespace mgf
             GlobalHeader& operator=(const GlobalHeader&) = delete;
 
             GlobalHeader();
-            GlobalHeader(GlobalHeader&& tmp);
+            GlobalHeader(GlobalHeader&& tmp) = default;
 
             void setAccession(std::list<double>& l);
             void setCharge(std::list<int>& l);
@@ -48,6 +49,8 @@ namespace mgf
             void setUserMail(std::string& s);
             void setUserName(std::string& s);
             
+            void __print__(std::ostream& stream);
+
         protected:
 
         private:

@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <iostream>
 
 #include <mgf/LocalHeader.hpp>
 
@@ -18,21 +19,20 @@ namespace mgf
             Spectrum& operator=(const Spectrum&) = delete;
 
             Spectrum();
-            Spectrum(Spectrum&& tmp);
+            Spectrum(Spectrum&& tmp) = default;
 
-            void push(double mz,double it,int charge);
+            void push(double mz,double it,char charge);
+            
+            void __print__(std::ostream& stream);
 
         private:
             friend class Parser;
 
-            double intensity,
-                   masse,
-                   mz;
-            unsigned char charge;
-            std::string title;
+            //char charge;
+
             //std::vector<peaks*> peaks;
 
-            std::shared_ptr<std::vector<std::string>> real_solutions;
+            //std::shared_ptr<std::vector<std::string>> real_solutions;
 
             LocalHeader header;
         

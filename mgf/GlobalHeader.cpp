@@ -1,6 +1,5 @@
 #include <mgf/GlobalHeader.hpp>
 
-#include <iostream>
 #include <mgf/defines.hpp>
 
 
@@ -11,9 +10,9 @@ namespace mgf
     {
     }
 
-    GlobalHeader::GlobalHeader(GlobalHeader&& tmp)
+    /*GlobalHeader::GlobalHeader(GlobalHeader&& tmp)
     {
-    }
+    }*/
 
     void GlobalHeader::setAccession(std::list<double>& l)
     {
@@ -173,5 +172,12 @@ namespace mgf
     void GlobalHeader::setUserName(std::string& s)
     {
         MGF_IGNORED("GlobalHeader::setUserName");
+    }
+
+    void GlobalHeader::__print__(std::ostream& stream)
+    {
+        stream<<"GlobalHeader:\n";
+        stream<<"End GlobalHeader:\n";
+
     }
 }

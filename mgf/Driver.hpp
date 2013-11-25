@@ -23,15 +23,15 @@ namespace mgf
 
             ~Driver();
 
-            int parse();
+            Analyse parse();
 
-            /*Spectrum* next();
+            Spectrum* next();
 
             static Analyse parse(std::istream& in);
             static int parse(std::istream& in,Analyse& a);
             
             static Analyse parse_file(const std::string& filename);
-            static int parse_file(const std::string& filename,Analyse& a);*/
+            static int parse_file(const std::string& filename,Analyse& a);
 
              
         private:
@@ -40,7 +40,7 @@ namespace mgf
             Scanner scanner;
             Parser parser;
 
-            mgf::Analyse analyse;
+            mgf::GlobalHeader header;
             mgf::Spectrum currentSpectrum;
 
             void clearCurrentSpectrum();

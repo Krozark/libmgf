@@ -5,16 +5,16 @@
 
 int main(int argc,char* argv[])
 {
-    int r=1;
+    int r=0;
     std::ifstream file(argv[1], std::ifstream::in);
     if (file.good())
     {
         mgf::Driver driver(file);
-        r = driver.parse();
+        mgf::Analyse a = driver.parse();
         file.close();
+
+        r = a.size();
+        a.__print__(std::cout);
     }
     return r;
-
-    mgf::Driver driver(std::cin);
-    return driver.parse();
 }

@@ -13,8 +13,6 @@ int mgf_line_no = 1;
 /* define yyterminate as this instead of NULL */
 #define yyterminate() return token::T_END;
 
-#define MGF_TOKEN_DEBUG(val) std::cout<<"token: "<<MGF_BLEU<<val<<MGF_BLANC<<std::endl
- 
 /* msvc2010 requires that we exclude this header file. */
 #define YY_NO_UNISTD_H
 

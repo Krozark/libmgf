@@ -19,22 +19,29 @@ namespace mgf
     }
 
     
-    int Driver::parse()
+    Analyse Driver::parse()
     {
-        /*int r;
-        while ((r = parser.parse())!=0)
+        mgf::Analyse analyse;
+        while (parser.parse() == MGF_END_IONS)
         {
-            std::cout<<"parse:"<<r<<std::endl;
+            analyse.push(new Spectrum(std::move(currentSpectrum)));
+            clearCurrentSpectrum();
         }
-        return r;*/
-        return parser.parse();
+
+        return analyse;
     }
 
-    /*Spectrum* Driver::next()
+    Spectrum* Driver::next()
     {
-        return nullptr;
+        mgf::Spectrum* r = nullptr;
+        if (parser.parse() == MGF_END_IONS)
+        {
+            r = new Spectrum(std::move(currentSpectrum));
+            clearCurrentSpectrum();
+        }
+        return r;
     }
-:w
+
     Analyse Driver::parse(std::istream& in)
     {
         Analyse res;
@@ -72,7 +79,7 @@ namespace mgf
             file.close();
         }
         return res;
-    }*/
+    }
 
     void Driver::clearCurrentSpectrum()
     {

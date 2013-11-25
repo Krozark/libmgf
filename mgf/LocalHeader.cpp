@@ -1,6 +1,5 @@
 #include <mgf/LocalHeader.hpp>
 
-#include <iostream>
 #include <mgf/defines.hpp>
 
 namespace mgf
@@ -88,5 +87,12 @@ namespace mgf
     void LocalHeader::setTolU(std::string& s)
     {
         MGF_IGNORED("LocalHeader::setTolU");
+    }
+
+    void LocalHeader::__print__(std::ostream& stream)
+    {
+        stream<<"LocalHeader:\n";
+        stream<<"End LocalHeader:\n";
+
     }
 }
