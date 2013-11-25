@@ -207,38 +207,38 @@ report_val : V_INTEGER  {$$=$1;}
            ;
 
 
-headerparam : K_ACCESSION T_EQUALS double_quoted_list T_EOL {driver.header.setAccession(*$3);DEL($3);}
-            | K_CHARGE T_EQUALS charge_list T_EOL {driver.header.setCharge(*$3);DEL($3);}
-            | K_CLE T_EQUALS V_STRING T_EOL {driver.header.setCle(*$3);DEL($3);}
-            | K_COM T_EQUALS V_STRING T_EOL {driver.header.setCom(*$3);DEL($3);}
-            | K_COMP T_EQUALS V_STRING T_EOL {driver.header.setComp(*$3);DEL($3);}
-            | K_CUTOUT T_EQUALS interger_list T_EOL {driver.header.setCutout(*$3);DEL($3);}
-            | K_DB T_EQUALS V_STRING T_EOL {driver.header.setDb(*$3);DEL($3);}
-            | K_DECOY T_EQUALS V_INTEGER T_EOL {driver.header.setDecoy($3);}
-            | K_ERRORTOLERANT T_EQUALS V_INTEGER T_EOL {driver.header.setErrorTolerant($3);}
-            | K_FORMAT T_EQUALS V_STRING T_EOL {driver.header.setFormat(*$3);DEL($3)}
-            | K_FRAMES T_EQUALS interger_list T_EOL {driver.header.setFrames(*$3);DEL($3);}
-            | K_INSTRUMENT T_EQUALS V_STRING T_EOL {driver.header.setInstrument(*$3);DEL($3);}
-            | K_IT_MODS T_EQUALS V_STRING T_EOL {driver.header.setItMods(*$3);DEL($3);}
-            | K_ITOL T_EQUALS V_DOUBLE T_EOL {driver.header.setItOl($3);}
-            | K_ITOLU T_EQUALS V_STRING T_EOL {driver.header.setItOlU(*$3);DEL($3);}
-            | K_MASS T_EQUALS V_STRING  T_EOL {driver.header.setMass(*$3);DEL($3);}
-            | K_MODS T_EQUALS V_STRING T_EOL {driver.header.setMods(*$3);DEL($3);}
-            | K_MULTI_SITE_MODS T_EQUALS V_INTEGER T_EOL {driver.header.setMultiSiteMods($3);}
-            | K_PEP_ISOTOPE_ERROR T_EQUALS V_INTEGER T_EOL {driver.header.setPepIsotopeError($3);}
-            | K_PFA T_EQUALS V_INTEGER T_EOL {driver.header.setPfa($3);}
-            | K_PRECURSOR T_EQUALS number T_EOL {driver.header.setPrecursor($3);}
-            | K_QUANTITATION T_EQUALS V_STRING T_EOL {driver.header.setQuantitation(*$3);DEL($3);}
-            | K_REPORT T_EQUALS report_val T_EOL {driver.header.setRepport($3);}
-            | K_REPTYPE T_EQUALS V_STRING T_EOL {driver.header.setReptype(*$3);DEL($3);}
-            | K_SEARCH T_EQUALS V_STRING T_EOL {driver.header.setSearch(*$3);DEL($3);}
-            | K_SEG T_EQUALS number T_EOL {driver.header.setSeg($3);}
-            | K_TAXONOMY T_EQUALS V_STRING T_EOL {driver.header.setTaxonomy(*$3);DEL($3);}
-            | K_TOL T_EQUALS number T_EOL {driver.header.setTol($3);}
-            | K_TOLU T_EQUALS V_STRING T_EOL {driver.header.setTolU(*$3);DEL($3);}
-            | T_USER V_INTEGER T_EOL {driver.header.setUser($2);}
-            | K_USEREMAIL T_EQUALS V_STRING T_EOL {driver.header.setUserMail(*$3);DEL($3);}
-            | K_USERNAME T_EQUALS V_STRING T_EOL {driver.header.setUserName(*$3);DEL($3);}
+headerparam : K_ACCESSION T_EQUALS double_quoted_list T_EOL {driver.analyse.header.setAccession(*$3);DEL($3);}
+            | K_CHARGE T_EQUALS charge_list T_EOL {driver.analyse.header.setCharge(*$3);DEL($3);}
+            | K_CLE T_EQUALS V_STRING T_EOL {driver.analyse.header.setCle(*$3);DEL($3);}
+            | K_COM T_EQUALS V_STRING T_EOL {driver.analyse.header.setCom(*$3);DEL($3);}
+            | K_COMP T_EQUALS V_STRING T_EOL {driver.analyse.header.setComp(*$3);DEL($3);}
+            | K_CUTOUT T_EQUALS interger_list T_EOL {driver.analyse.header.setCutout(*$3);DEL($3);}
+            | K_DB T_EQUALS V_STRING T_EOL {driver.analyse.header.setDb(*$3);DEL($3);}
+            | K_DECOY T_EQUALS V_INTEGER T_EOL {driver.analyse.header.setDecoy($3);}
+            | K_ERRORTOLERANT T_EQUALS V_INTEGER T_EOL {driver.analyse.header.setErrorTolerant($3);}
+            | K_FORMAT T_EQUALS V_STRING T_EOL {driver.analyse.header.setFormat(*$3);DEL($3)}
+            | K_FRAMES T_EQUALS interger_list T_EOL {driver.analyse.header.setFrames(*$3);DEL($3);}
+            | K_INSTRUMENT T_EQUALS V_STRING T_EOL {driver.analyse.header.setInstrument(*$3);DEL($3);}
+            | K_IT_MODS T_EQUALS V_STRING T_EOL {driver.analyse.header.setItMods(*$3);DEL($3);}
+            | K_ITOL T_EQUALS V_DOUBLE T_EOL {driver.analyse.header.setItOl($3);}
+            | K_ITOLU T_EQUALS V_STRING T_EOL {driver.analyse.header.setItOlU(*$3);DEL($3);}
+            | K_MASS T_EQUALS V_STRING  T_EOL {driver.analyse.header.setMass(*$3);DEL($3);}
+            | K_MODS T_EQUALS V_STRING T_EOL {driver.analyse.header.setMods(*$3);DEL($3);}
+            | K_MULTI_SITE_MODS T_EQUALS V_INTEGER T_EOL {driver.analyse.header.setMultiSiteMods($3);}
+            | K_PEP_ISOTOPE_ERROR T_EQUALS V_INTEGER T_EOL {driver.analyse.header.setPepIsotopeError($3);}
+            | K_PFA T_EQUALS V_INTEGER T_EOL {driver.analyse.header.setPfa($3);}
+            | K_PRECURSOR T_EQUALS number T_EOL {driver.analyse.header.setPrecursor($3);}
+            | K_QUANTITATION T_EQUALS V_STRING T_EOL {driver.analyse.header.setQuantitation(*$3);DEL($3);}
+            | K_REPORT T_EQUALS report_val T_EOL {driver.analyse.header.setRepport($3);}
+            | K_REPTYPE T_EQUALS V_STRING T_EOL {driver.analyse.header.setReptype(*$3);DEL($3);}
+            | K_SEARCH T_EQUALS V_STRING T_EOL {driver.analyse.header.setSearch(*$3);DEL($3);}
+            | K_SEG T_EQUALS number T_EOL {driver.analyse.header.setSeg($3);}
+            | K_TAXONOMY T_EQUALS V_STRING T_EOL {driver.analyse.header.setTaxonomy(*$3);DEL($3);}
+            | K_TOL T_EQUALS number T_EOL {driver.analyse.header.setTol($3);}
+            | K_TOLU T_EQUALS V_STRING T_EOL {driver.analyse.header.setTolU(*$3);DEL($3);}
+            | T_USER V_INTEGER T_EOL {driver.analyse.header.setUser($2);}
+            | K_USEREMAIL T_EQUALS V_STRING T_EOL {driver.analyse.header.setUserMail(*$3);DEL($3);}
+            | K_USERNAME T_EQUALS V_STRING T_EOL {driver.analyse.header.setUserName(*$3);DEL($3);}
             | T_EOL
             ;
 

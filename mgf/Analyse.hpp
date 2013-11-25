@@ -3,6 +3,8 @@
 
 #include <list>
 
+#include <mgf/GlobalHeader.hpp>
+
 namespace mgf
 {
     class Spectrum;
@@ -17,6 +19,8 @@ namespace mgf
             Analyse(Analyse&& tmp);
 
             void push(Spectrum* spect);
+
+            GlobalHeader header;
 
         private:
             std::list<Spectrum*> spectrums;
