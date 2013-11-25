@@ -29,6 +29,8 @@
 
 #endif
 
+#define IGNORED(fn) std::cerr<<MGF_JAUNE<<"Function "<<fn<<" Ignored."<<MGF_BLANC<<std::endl;
+
 
 #define MGF_DEBUG_NO 0
 #define MGF_DEBUG_PARSING 1

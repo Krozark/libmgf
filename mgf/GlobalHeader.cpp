@@ -3,7 +3,6 @@
 #include <iostream>
 #include <mgf/defines.hpp>
 
-#define IGNORED(fn) std::cerr<<MGF_JAUNE<<"Function GlobalHeader::"<<fn<<" Ignored."<<MGF_BLANC<<std::endl;
 
 namespace mgf
 {
@@ -14,161 +13,161 @@ namespace mgf
 
     void GlobalHeader::setAccession(std::list<double>& l)
     {
-        IGNORED("setAccession");
+        IGNORED("GlobalHeader::setAccession");
     }
 
     void GlobalHeader::setCharge(std::list<int>& l)
     {
-        IGNORED("setCharge");
+        IGNORED("GlobalHeader::setCharge");
     }
 
     void GlobalHeader::setCle(std::string& s)
     {
-        IGNORED("setCle");
+        IGNORED("GlobalHeader::setCle");
     }
 
     void GlobalHeader::setCom(std::string& s)
     {
-        IGNORED("setCom");
+        IGNORED("GlobalHeader::setCom");
     }
 
     void GlobalHeader::setComp(std::string& s)
     {
-        IGNORED("setComp");
+        IGNORED("GlobalHeader::setComp");
     }
 
     void GlobalHeader::setCutout(std::list<int>& l)
     {
-        IGNORED("setCutout");
+        IGNORED("GlobalHeader::setCutout");
     }
 
     void GlobalHeader::setDb(std::string& s)
     {
-        IGNORED("setDb");
+        IGNORED("GlobalHeader::setDb");
     }
 
     void GlobalHeader::setDecoy(int i)
     {
-        IGNORED("setDecoy");
+        IGNORED("GlobalHeader::setDecoy");
     }
 
     void GlobalHeader::setErrorTolerant(int i)
     {
-        IGNORED("setErrorTolerant");
+        IGNORED("GlobalHeader::setErrorTolerant");
     }
 
     void GlobalHeader::setFormat(std::string& s)
     {
-        IGNORED("setFormat");
+        IGNORED("GlobalHeader::setFormat");
     }
 
     void GlobalHeader::setFrames(std::list<int>& l)
     {
-        IGNORED("setFrames");
+        IGNORED("GlobalHeader::setFrames");
     }
 
     void GlobalHeader::setInstrument(std::string& s)
     {
-        IGNORED("setInstrument");
+        IGNORED("GlobalHeader::setInstrument");
     }
 
     void GlobalHeader::setItMods(std::string& s)
     {
-        IGNORED("setMods");
+        IGNORED("GlobalHeader::setMods");
     }
 
     void GlobalHeader::setItOl(double d)
     {
-        IGNORED("setItOl");
+        IGNORED("GlobalHeader::setItOl");
     }
 
     void GlobalHeader::setItOlU(std::string& s)
     {
-        IGNORED("setItOlU");
+        IGNORED("GlobalHeader::setItOlU");
     }
 
     void GlobalHeader::setMass(std::string& s)
     {
-        IGNORED("setMass");
+        IGNORED("GlobalHeader::setMass");
     }
 
     void GlobalHeader::setMods(std::string& s)
     {
-        IGNORED("setMods");
+        IGNORED("GlobalHeader::setMods");
     }
 
     void GlobalHeader::setMultiSiteMods(int i)
     {
-        IGNORED("setMultiSiteMods");
+        IGNORED("GlobalHeader::setMultiSiteMods");
     }
 
     void GlobalHeader::setPepIsotopeError(int i)
     {
-        IGNORED("setPepIsotopeError");
+        IGNORED("GlobalHeader::setPepIsotopeError");
     }
 
     void GlobalHeader::setPfa(int i)
     {
-        IGNORED("setPfa");
+        IGNORED("GlobalHeader::setPfa");
     }
 
     void GlobalHeader::setPrecursor(double d)
     {
-        IGNORED("setPrecursor");
+        IGNORED("GlobalHeader::setPrecursor");
     }
 
     void GlobalHeader::setQuantitation(std::string& s)
     {
-        IGNORED("setQuantitation");
+        IGNORED("GlobalHeader::setQuantitation");
     }
 
     void GlobalHeader::setRepport(int i)
     {
-        IGNORED("setRepport");
+        IGNORED("GlobalHeader::setRepport");
     }
 
     void GlobalHeader::setReptype(std::string& s)
     {
-        IGNORED("setReptype");
+        IGNORED("GlobalHeader::setReptype");
     }
 
     void GlobalHeader::setSearch(std::string& s)
     {
-        IGNORED("setSearch");
+        IGNORED("GlobalHeader::setSearch");
     }
 
     void GlobalHeader::setSeg(double d)
     {
-        IGNORED("setSeg");
+        IGNORED("GlobalHeader::setSeg");
     }
 
     void GlobalHeader::setTaxonomy(std::string& s)
     {
-        IGNORED("setTaxonomy");
+        IGNORED("GlobalHeader::setTaxonomy");
     }
 
     void GlobalHeader::setTol(double d)
     {
-        IGNORED("setTol");
+        IGNORED("GlobalHeader::setTol");
     }
 
     void GlobalHeader::setTolU(std::string& s)
     {
-        IGNORED("setTolU");
+        IGNORED("GlobalHeader::setTolU");
     }
 
     void GlobalHeader::setUser(int i)
     {
-        IGNORED("setUser");
+        IGNORED("GlobalHeader::setUser");
     }
 
     void GlobalHeader::setUserMail(std::string& s)
     {
-        IGNORED("setUserMail");
+        IGNORED("GlobalHeader::setUserMail");
     }
 
     void GlobalHeader::setUserName(std::string& s)
     {
-        IGNORED("setUserName");
+        IGNORED("GlobalHeader::setUserName");
     }
 }

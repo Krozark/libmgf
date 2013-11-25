@@ -247,8 +247,8 @@ headerparams : /* empty */
              ;
 
 
-ion : number number  T_EOL  {$$.mz=$1;$$.it=$2;$$.charge=0;}
-    | number number charge T_EOL    {$$.mz=$1;$$.it=$2;$$.charge=$3;}
+ion : number number  T_EOL {$$.mz=$1;$$.it=$2;$$.charge=0;}
+    | number number charge T_EOL {$$.mz=$1;$$.it=$2;$$.charge=$3;}
     ;
 
 ions : ions ion {$1->push_back($2);$$=$1;$1=nullptr;}
