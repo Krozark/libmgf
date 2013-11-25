@@ -8,6 +8,7 @@
 namespace mgf
 {
     class Spectrum;
+    class Parser;
     
     class Analyse
     {
@@ -17,13 +18,18 @@ namespace mgf
 
             Analyse();
             Analyse(Analyse&& tmp);
+            ~Analyse();
+
+            void clear();
 
             void push(Spectrum* spect);
 
-            GlobalHeader header;
 
         private:
+            friend class Parser;
+
             std::list<Spectrum*> spectrums;
+            GlobalHeader header;
 
     };
 }

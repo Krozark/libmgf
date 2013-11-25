@@ -28,8 +28,8 @@
 
     namespace mgf {
 
-        struct s_range {double min,max;bool s_min,s_max;};
-        struct s_i_range {double min,max;bool s_min,s_max;};
+        struct s_range {double min,max;};
+        struct s_i_range {double min,max;};
         struct s_ion {double mz,it;int charge;};
 
         class Scanner;
@@ -40,7 +40,9 @@
  
  
 %code{
+    #include <utility>
     #include <mgf/Driver.hpp>
+    #include <mgf/Spectrum.hpp>
 	/*Prototype for the yylex function*/
 	static int yylex(mgf::Parser::semantic_type* yylval, mgf::Scanner& scanner);
 
@@ -57,8 +59,6 @@
     std::list<std::string>*     v_string_list;
     mgf::s_range                v_d_range;
     mgf::s_i_range              v_i_range;
-    mgf::s_ion                  v_ion;
-    std::list<mgf::s_ion>*      v_ion_list;
 }
  
 
@@ -122,11 +122,6 @@
 
 /*\see http://www.matrixscience.com/help/data_file_help.html for more details*/
 
-/*%destructor { if($$) delete $$;$$=nullptr; } <v_string> <v_double_list> <v_interger_list> <v_string_list> <v_ion_list>*/
-
-/* destructor rule for <sval> objects */
-/*%destructor { if ($$) { delete ($$); ($$) = nullptr; } } <sval>*/
- 
 /*YYACCEPT pour stoper lex*/
 
 
@@ -144,8 +139,6 @@
 %type <v_d_range>           number_range
 %type <v_i_range>           raw
 %type <v_integer>           report_val
-%type <v_ion>               ion
-%type <v_ion_list>          ions
 
 
 /*ignored : T_EOL
@@ -182,24 +175,24 @@ string_list : string_list T_COMA V_STRING  {$1->push_back(*$3);$$=$1;$1=nullptr;
             | V_STRING  {auto l = MGF_NEW_STRING_LIST;l->push_back(*$1);$$=l;}
             ;
 
-string_st : V_STRING {DEL($1);}
-          | string_st V_STRING  {DEL($2);}
-          | string_st number
-          | string_st T_COMA
-          | string_st T_PLUS
-          | string_st T_MINUS
+string_st : V_STRING {$$=$1;$1=nullptr;}
+          | string_st V_STRING  {*$1+=*$2;DEL($2);$$=$1;$1=nullptr;}
+          | string_st number {*$1+=std::to_string($2);$$=$1;$1=nullptr;}
+          | string_st T_COMA {*$1+=",";$$=$1;$1=nullptr;}
+          | string_st T_PLUS {*$1+="+";$$=$1;$1=nullptr;}
+          | string_st T_MINUS {*$1+="-";$$=$1;$1=nullptr;}
           ;
 
 number : V_INTEGER  {$$=$1;}
        | V_DOUBLE   {$$=$1;}
        ;
 
-number_range : number   {$$.min=$1;$$.s_min=true,$$.s_max=false;}
-             | number T_MINUS number {$$.min=$1;$$.max=$3;$$.s_min=$$.s_max=true;}
+number_range : number   {$$.min=$1;$$.max=-1;}
+             | number T_MINUS number {$$.min=$1;$$.max=$3;}
              ;
 
-raw : V_INTEGER {$$.min=$1;$$.s_min=true,$$.s_max=false;}
-    | V_INTEGER ':' V_INTEGER {$$.min=$1;$$.max=$3;$$.s_min=$$.s_max=true;}
+raw : V_INTEGER {$$.min=$1;$$.max=-1;}
+    | V_INTEGER ':' V_INTEGER {$$.min=$1;$$.max=$3;}
     ;
 
 report_val : V_INTEGER  {$$=$1;}
@@ -247,16 +240,16 @@ headerparams : /* empty */
              ;
 
 
-ion : number number  T_EOL {$$.mz=$1;$$.it=$2;$$.charge=0;}
-    | number number charge T_EOL {$$.mz=$1;$$.it=$2;$$.charge=$3;}
+ion : number number  T_EOL {driver.currentSpectrum.push($1,$2,0);}
+    | number number charge T_EOL {driver.currentSpectrum.push($1,$2,$3);}
     ;
 
-ions : ions ion {$1->push_back($2);$$=$1;$1=nullptr;}
-     | ion      {auto l=MGF_NEW_ION_LIST;l->push_back($1);$$=l;}
+ions : ions ion 
+     | ion      
      ;
 
-block : T_BEGIN_IONS T_EOL blockparams ions T_END_IONS T_EOL    {std::cout<<"Pep"<<std::endl;DEL($4);}
-      | T_BEGIN_IONS T_EOL blockparams T_END_IONS T_EOL         {std::cout<<"Empty pep"<<std::endl;}
+block : T_BEGIN_IONS T_EOL blockparams ions T_END_IONS T_EOL    {std::cout<<"Pep"<<std::endl;driver.analyse.push(new mgf::Spectrum(std::move(driver.currentSpectrum)));driver.clearCurrentSpectrum();}
+      | T_BEGIN_IONS T_EOL blockparams T_END_IONS T_EOL         {std::cout<<"Empty pep"<<std::endl;driver.clearCurrentSpectrum();}
       ;
 
 blocks : /* empty */
@@ -264,23 +257,23 @@ blocks : /* empty */
        | blocks T_EOL block
        ;
 
-blockparam  : K_CHARGE T_EQUALS charge T_EOL
-            | K_COMP T_EQUALS V_STRING T_EOL {DEL($3);}
-            | K_ETAG T_EQUALS string_list T_EOL {DEL($3);}
-            | K_INSTRUMENT T_EQUALS V_STRING T_EOL {DEL($3);}
-            | K_IT_MODS T_EQUALS V_STRING T_EOL {DEL($3);}
-            | K_LOCUS T_EQUALS V_STRING T_EOL {DEL($3);}
-            | K_PEPMASS T_EQUALS number T_EOL
-            | K_PEPMASS T_EQUALS number number T_EOL
-            | K_RAWFILE T_EQUALS V_STRING T_EOL {DEL($3);}
-            | K_RAWSCANS T_EQUALS raw T_EOL
-            | K_RTINSECONDS T_EQUALS number_range T_EOL
-            | K_SCANS T_EQUALS number_range T_EOL
-            | K_SEQ T_EQUALS string_list T_EOL {DEL($3);}
-            | K_TAG T_EQUALS string_list T_EOL {DEL($3);}
-            | K_TITLE T_EQUALS string_st T_EOL {DEL($3);}
-            | K_TOL T_EQUALS number T_EOL
-            | K_TOLU T_EQUALS V_STRING T_EOL {DEL($3);}
+blockparam  : K_CHARGE T_EQUALS charge T_EOL {driver.currentSpectrum.header.setCharge($3);}
+            | K_COMP T_EQUALS V_STRING T_EOL {driver.currentSpectrum.header.setComp(*$3);DEL($3);}
+            | K_ETAG T_EQUALS string_list T_EOL {driver.currentSpectrum.header.setEtag(*$3);DEL($3);}
+            | K_INSTRUMENT T_EQUALS V_STRING T_EOL {driver.currentSpectrum.header.setInstrument(*$3);DEL($3);}
+            | K_IT_MODS T_EQUALS V_STRING T_EOL {driver.currentSpectrum.header.setItMods(*$3);DEL($3);}
+            | K_LOCUS T_EQUALS V_STRING T_EOL {driver.currentSpectrum.header.setLocus(*$3);DEL($3);}
+            | K_PEPMASS T_EQUALS number T_EOL {driver.currentSpectrum.header.setPepMass($3,0);}
+            | K_PEPMASS T_EQUALS number number T_EOL {driver.currentSpectrum.header.setPepMass($3,$4);}
+            | K_RAWFILE T_EQUALS V_STRING T_EOL {driver.currentSpectrum.header.setRawFile(*$3);DEL($3);}
+            | K_RAWSCANS T_EQUALS raw T_EOL {driver.currentSpectrum.header.setRawScans($3.min,$3.max);}
+            | K_RTINSECONDS T_EQUALS number_range T_EOL {driver.currentSpectrum.header.setRtinSeconds($3.min,$3.max);}
+            | K_SCANS T_EQUALS number_range T_EOL {driver.currentSpectrum.header.setScans($3.min,$3.max);}
+            | K_SEQ T_EQUALS string_list T_EOL {driver.currentSpectrum.header.setSeq(*$3);DEL($3);}
+            | K_TAG T_EQUALS string_list T_EOL {driver.currentSpectrum.header.setTag(*$3);DEL($3);}
+            | K_TITLE T_EQUALS string_st T_EOL {driver.currentSpectrum.header.setTitle(*$3);DEL($3);}
+            | K_TOL T_EQUALS number T_EOL {driver.currentSpectrum.header.setTol($3);}
+            | K_TOLU T_EQUALS V_STRING T_EOL {driver.currentSpectrum.header.setTolU(*$3);DEL($3);}
             | T_EOL
             ;
 

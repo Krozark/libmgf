@@ -9,9 +9,11 @@ namespace mgf
     class GlobalHeader
     {
         public:
-            GlobalHeader();
             GlobalHeader(const GlobalHeader&) = delete;
             GlobalHeader& operator=(const GlobalHeader&) = delete;
+
+            GlobalHeader();
+            GlobalHeader(GlobalHeader&& tmp);
 
             void setAccession(std::list<double>& l);
             void setCharge(std::list<int>& l);

@@ -11,4 +11,8 @@ namespace mgf
     {
 
     }
+
+    void Spectrum::push(double mz,double it,int charge)
+    {
+    }
 }

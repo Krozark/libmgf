@@ -3,7 +3,10 @@
 
 #include <iostream>
 
+#include <mgf/Spectrum.hpp>
+#include <mgf/GlobalHeader.hpp>
 #include <mgf/Analyse.hpp>
+
 #include <mgf/Scanner.hpp>
 
 namespace mgf
@@ -37,7 +40,10 @@ namespace mgf
             Scanner scanner;
             Parser parser;
 
-            Analyse analyse;
+            mgf::Analyse analyse;
+            mgf::Spectrum currentSpectrum;
+
+            void clearCurrentSpectrum();
     };
 }
 #endif

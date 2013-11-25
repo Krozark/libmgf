@@ -11,6 +11,10 @@ namespace mgf
     {
     }
 
+    GlobalHeader::GlobalHeader(GlobalHeader&& tmp)
+    {
+    }
+
     void GlobalHeader::setAccession(std::list<double>& l)
     {
         MGF_IGNORED("GlobalHeader::setAccession");

@@ -2,6 +2,8 @@
 
 #include <fstream>
 
+#include <mgf/defines.hpp>
+
 //#include <mgf/Spectrum.hpp>
 
 
@@ -71,4 +73,9 @@ namespace mgf
         }
         return res;
     }*/
+
+    void Driver::clearCurrentSpectrum()
+    {
+        MGF_IGNORED("Driver::clearCurrentSpectrum");
+    }
 }
