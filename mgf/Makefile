@@ -31,6 +31,7 @@ Lexer: Lexer.lex
 clean:
 	@rm -f *.o
 	@rm -f *.exe
-	@rm *.cc
-	@rm *.hh
+	@rm -f *.cc
+	@rm -f *.hh
+	@rm -f *.output
 
