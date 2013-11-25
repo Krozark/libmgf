@@ -24,6 +24,7 @@ int mgf_line_no = 1;
     token::V_ => value
     token::K_ => key word
 */
+
 %}
  
 %option c++
@@ -33,7 +34,7 @@ int mgf_line_no = 1;
  
 %%
 
-\n {
+\n+ {
     MGF_TOKEN_DEBUG("T_EOL");
     ++mgf_line_no;
     return token::T_EOL;

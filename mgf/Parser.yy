@@ -60,7 +60,7 @@
 
 %token              T_END  0            "end of file"
 %token              T_EOL               "end of line"
-%token              T_COMMENT           "comment"
+/*%token              T_COMMENT           "comment"*/
 %token              T_PLUS              "plus symbol"
 %token              T_MINUS             "minus symbol"
 %token              T_EQUALS            "equals symbol"
@@ -142,6 +142,13 @@
 %type <v_ion>               ion
 %type <v_ion_list>          ions
 
+/*ignored : T_EOL
+        ;
+
+ignoreds : ignored
+         | ignoreds ignored
+         ;*/
+
 %%
 
 charge : V_INTEGER T_PLUS   {$$=$1;}
@@ -193,17 +200,11 @@ report_val : V_INTEGER  {$$=$1;}
            | "AUTO"     {$$=-1;}
            ;
 
-ignored : T_EOL
-        /*| T_COMMENT T_EOL*/
-        ;
-
-ignoreds : ignored
-         | ignoreds ignored
-         ;
 
 headerparam : K_ACCESSION T_EQUALS double_quoted_list T_EOL
             | K_CHARGE T_EQUALS charge_list T_EOL
             | K_CLE T_EQUALS V_STRING T_EOL
+            | K_COM T_EQUALS V_STRING T_EOL
             | K_COMP T_EQUALS V_STRING T_EOL
             | K_CUTOUT T_EQUALS interger_list T_EOL
             | K_DB T_EQUALS V_STRING T_EOL
@@ -232,7 +233,7 @@ headerparam : K_ACCESSION T_EQUALS double_quoted_list T_EOL
             | T_USER V_INTEGER T_EOL
             | K_USEREMAIL T_EQUALS V_STRING T_EOL
             | K_USERNAME T_EQUALS V_STRING T_EOL
-            | ignoreds
+            | T_EOL
             ;
 
 headerparams : /* empty */
@@ -254,7 +255,7 @@ block : T_BEGIN_IONS T_EOL blockparams ions T_END_IONS T_EOL    {std::cout<<"Pep
 
 blocks : /* empty */
        | blocks block
-       | blocks ignoreds block
+       | blocks T_EOL block
        ;
 
 blockparam  : K_CHARGE T_EQUALS charge T_EOL
@@ -274,7 +275,7 @@ blockparam  : K_CHARGE T_EQUALS charge T_EOL
             | K_TITLE T_EQUALS string_st T_EOL
             | K_TOL T_EQUALS number T_EOL
             | K_TOLU T_EQUALS V_STRING T_EOL
-            | ignoreds
+            | T_EOL
             ;
 
 blockparams : /* empty */

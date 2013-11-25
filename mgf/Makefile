@@ -13,7 +13,7 @@ all: Parser Lexer $(OBJ)
 	@cp $@ "$(OBJ_DIR)"
 
 Parser: Parser.yy
-	bison Parser.yy
+	bison -v Parser.yy
 	$(CC) $(FLAGS) -o "$@.o" -c "$@.tab.cc" 
 	@cp "$@.o" "$(OBJ_DIR)"
 
