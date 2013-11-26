@@ -13,7 +13,7 @@ namespace mgf
 
     void Peak::calc_masse(Spectrum& parent)
     {
-        if (charge<=0)
+        if (charge==0)
         {
             charge = 1;
             calc_masse();

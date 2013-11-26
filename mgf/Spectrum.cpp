@@ -37,8 +37,19 @@ namespace mgf
     void Spectrum::calc_masse_peaks()
     {
         Spectrum& self = *this;
-        for(Peak* p :peaks)
-            p->calc_masse(self);
+
+        std::vector<Peak*>::iterator i=peaks.begin();
+        while(i != peaks.end())
+        {
+            (*i)->calc_masse(self);
+            if ((*i)->masse > masse) //supression des truc impossible à etre en lien avec le peptide
+            {
+                delete (*i);
+                i = peaks.erase(i);
+            }
+            else
+                ++i;
+        }
     }
 
     void Spectrum::prepare()
