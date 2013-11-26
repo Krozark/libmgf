@@ -174,7 +174,7 @@ namespace mgf
         MGF_IGNORED("GlobalHeader::setUserName");
     }
 
-    void GlobalHeader::__print__(std::ostream& stream)
+    void GlobalHeader::__print__(std::ostream& stream)const
     {
         stream<<"GlobalHeader:\n";
         stream<<"End GlobalHeader:\n";

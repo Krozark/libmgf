@@ -1,6 +1,7 @@
 #ifndef MGF_DEFINES_HPP
 #define MGF_DEFINES_HPP
 
+/************************ COLORS *****************************/
 #ifdef COLORS
 
 #define MGF_ROUGE  	"\033[31m" ///< couleur rouge pour le terminal
@@ -26,17 +27,22 @@
 #define MGF_BLANC 	""
 
 #endif
-
 #endif
 
+/***************** MATH ***********************************/
+#define MAX(x,y) (x>y?x:y) ///< fonction mathématique max 
+#define MIN(x,y) (x<y?x:y) ///< fonction mathématique min
+
+/*************************** DEBUG PRINT ************************/
 #define MGF_TOKEN_DEBUG(val) std::cout<<"token: "<<MGF_BLEU<<val<<MGF_BLANC<<std::endl
 
 #define MGF_IGNORED(fn) std::cerr<<MGF_JAUNE<<"Function "<<fn<<" Ignored."<<MGF_BLANC<<std::endl;
 
-
+/****************** DEFINES ***********************************/
 #define MGF_END_IONS 3
 
 
+/*********************** DEBUG MODS *************************/
 #define MGF_DEBUG_NO 0
 #define MGF_DEBUG_PARSING 1
 

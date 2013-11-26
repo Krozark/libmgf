@@ -25,7 +25,8 @@ namespace mgf
         while (parser.parse() == MGF_END_IONS)
         {
             analyse.push(new Spectrum(std::move(currentSpectrum)));
-            clearCurrentSpectrum();
+            currentSpectrum.reset();
+            analyse.back().prepare();
         }
 
         return analyse;
@@ -37,7 +38,8 @@ namespace mgf
         if (parser.parse() == MGF_END_IONS)
         {
             r = new Spectrum(std::move(currentSpectrum));
-            clearCurrentSpectrum();
+            r->prepare();
+            currentSpectrum.clear();
         }
         return r;
     }
@@ -79,10 +81,5 @@ namespace mgf
             file.close();
         }
         return res;
-    }
-
-    void Driver::clearCurrentSpectrum()
-    {
-        MGF_IGNORED("Driver::clearCurrentSpectrum");
     }
 }

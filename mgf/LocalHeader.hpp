@@ -7,6 +7,9 @@
 
 namespace mgf
 {
+    class Peak;
+    class Spectrum;
+
     class LocalHeader
     {
         public:
@@ -16,13 +19,13 @@ namespace mgf
 
             LocalHeader(LocalHeader&& tmp) = default;
 
-            void setCharge(int i);
+            void setCharge(const int i);
             void setComp(std::string& s);
             void setEtag(std::list<std::string>& l);
             void setInstrument(std::string& s);
             void setItMods(std::string& s);
             void setLocus(std::string& s);
-            void setPepMass(double masse,double it);
+            void setPepMass(const double masse,const double it);
             void setRawFile(std::string& s);
             void setRawScans(int min,int max);
             void setRtinSeconds(double min, double max);
@@ -33,11 +36,19 @@ namespace mgf
             void setTol(double d);
             void setTolU(std::string& s);
 
-            void __print__(std::ostream& stream);
+            void __print__(std::ostream& stream)const;
+
+            void reset();
 
         protected:
 
         private:
+            friend class Peak;
+            friend class Spectrum;
+
+            char charge;
+            double mz;
+            double intensity;
     };
 }
 #endif

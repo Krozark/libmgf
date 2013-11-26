@@ -13,15 +13,14 @@ namespace mgf
 
     Analyse::~Analyse()
     {
-        clear();
     }
 
-    void Analyse::clear()
+    /*void Analyse::clear()
     {
         for(Spectrum* s : spectrums)
             delete s;
         spectrums.clear();
-    }
+    }*/
 
     void Analyse::push(Spectrum* spect)
     {
@@ -29,7 +28,7 @@ namespace mgf
     }
 
 
-    void Analyse::__print__(std::ostream& stream)
+    void Analyse::__print__(std::ostream& stream)const
     {
         stream<<"Analyse:\n";
         header.__print__(stream);

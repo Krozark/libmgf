@@ -49,7 +49,7 @@ namespace mgf
             void setUserMail(std::string& s);
             void setUserName(std::string& s);
             
-            void __print__(std::ostream& stream);
+            void __print__(std::ostream& stream)const;
 
         protected:
 

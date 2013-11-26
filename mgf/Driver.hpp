@@ -42,8 +42,6 @@ namespace mgf
 
             mgf::GlobalHeader header;
             mgf::Spectrum currentSpectrum;
-
-            void clearCurrentSpectrum();
     };
 }
 #endif

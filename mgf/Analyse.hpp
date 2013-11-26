@@ -21,12 +21,13 @@ namespace mgf
             Analyse(Analyse&& tmp) = default;
             ~Analyse();
 
-            void clear();
+            //void clear();
 
             void push(Spectrum* spect);
             inline unsigned int size(){return spectrums.size();}
+            inline Spectrum& back(){return *spectrums.back();}
 
-            void __print__(std::ostream& stream);
+            void __print__(std::ostream& stream)const;
 
 
         private:

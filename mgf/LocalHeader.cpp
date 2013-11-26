@@ -5,13 +5,13 @@
 namespace mgf
 {
     
-    LocalHeader::LocalHeader()
+    LocalHeader::LocalHeader() /*charge(0),mz(0),intensity(0)*/
     {
     }
 
-    void LocalHeader::setCharge(int i)
+    void LocalHeader::setCharge(const int i)
     {
-        MGF_IGNORED("LocalHeader::setCharge");
+        charge = i;
     }
 
     void LocalHeader::setComp(std::string& s)
@@ -39,9 +39,10 @@ namespace mgf
         MGF_IGNORED("LocalHeader::setLocus");
     }
 
-    void LocalHeader::setPepMass(double masse,double it)
+    void LocalHeader::setPepMass(const double masse,const double it)
     {
-        MGF_IGNORED("LocalHeader::setPepMass");
+        mz = masse;
+        intensity = it;
     }
 
     void LocalHeader::setRawFile(std::string& s)
@@ -89,10 +90,18 @@ namespace mgf
         MGF_IGNORED("LocalHeader::setTolU");
     }
 
-    void LocalHeader::__print__(std::ostream& stream)
+    void LocalHeader::__print__(std::ostream& stream)const
     {
-        stream<<"LocalHeader:\n";
-        stream<<"End LocalHeader:\n";
+        stream<<"LocalHeader:"
+            <<"\nCharge:"<<(short int)charge
+            <<"\nIntensity:"<<intensity
+            <<"\nMz:"<<mz
+            <<"End LocalHeader:\n";
 
+    }
+
+    void LocalHeader::reset()
+    {
+        MGF_IGNORED("LocalHeader::reset");
     }
 }
