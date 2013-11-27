@@ -12,8 +12,8 @@ namespace mgf
 
     /**
      * \brief Header for Spectrum. Contain meta data from MGF.
-     * Note : Not all data are save (for not use), eaven if there is function to set them.
-     * A message is print in tha case
+     * Note : Not all data are save (not use), even if there is function to set them.
+     * A message is print in that case
      */
     class LocalHeader
     {
