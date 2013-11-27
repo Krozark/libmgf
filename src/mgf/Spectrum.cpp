@@ -82,12 +82,14 @@ namespace mgf
 
     void Spectrum::prepare()
     {
-        normalize_intensitee();
-        calc_masse();
-        calc_masse_peaks();
-        add_specials_peaks();
-        sort();
-        peaks.shrink_to_fit();
+        calc_masse(); // calc spectrum masse
+
+        normalize_intensitee(); // normalize intensity of peaks (before calc_masse_peaks to make less call)
+        calc_masse_peaks(); // calc peaks masse
+        add_specials_peaks(); // add artificials peaks
+        sort(); // sort peaks
+
+        peaks.shrink_to_fit(); //reduce vector to minimal size
     }
 
     
