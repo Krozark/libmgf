@@ -25,7 +25,9 @@ CLEANDIRS = $(SUBDIRS:%=clean-%)
 
 all: mgf $(OBJ) obj
 
-doc :
+doc : doc/html 
+
+doc/html :
 	cd doc && doxygen
 
 mgf:
