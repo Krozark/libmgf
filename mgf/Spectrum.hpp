@@ -13,20 +13,39 @@ namespace mgf
     class Parser;
     class Peak;
 
+    /**
+     * \brief A class to represent a MS/MS spectrum
+     */
     class Spectrum
     {
         public:
             Spectrum(const Spectrum&) = delete;
             Spectrum& operator=(const Spectrum&) = delete;
 
+            /**
+             * \brief Constructor
+             */
             Spectrum();
+
+            /**
+             * \brief Move constructor
+             */
             Spectrum(Spectrum&& tmp) = default;
+
+            /**
+             * \brief Desctuctor. Delete all peaks stored.
+             */
             ~Spectrum();
 
-            void push(double mz,double it,char charge);
 
+            /**
+             * \brief Prepare the spectum for analyse.
+             * Use this function before any analyse. It set the masse, and performe
+             * some others tasks.
+             */
             void prepare();
             
+
             void __print__(std::ostream& stream) const;
             void clear();
             void reset();
@@ -43,6 +62,7 @@ namespace mgf
 
             //std::shared_ptr<std::vector<std::string>> real_solutions;
 
+            void push(double mz,double it,char charge);
 
             void sort();
             void calc_masse();
