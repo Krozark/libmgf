@@ -3,7 +3,6 @@ INCPATH = -I$(CURDIR)/include -I$(CURDIR)/src
 LIBS =
 #-lpthread 
 #-lmysqlcppconn 
-
 export DEFINES = -DCOLORS -DNDEBUG
 export FLAGS = -Wall -o3 -std=c++0x $(INCPATH) $(LIBS) $(DEFINES)
 export TOP = $(CURDIR)
@@ -15,6 +14,9 @@ OBJ = $(SRC:.cpp=.o) $(SRC:*.cpp=.o)
 SUBDIRS = src obj
 
 export EXEC = Mgf
+export LIB  = libmgf
+export STATIC = $(LIB).a
+export SHARED = $(LIB).so
 
 
 CLEANDIRS = $(SUBDIRS:%=clean-%)
@@ -24,8 +26,23 @@ CLEANDIRS = $(SUBDIRS:%=clean-%)
 
 all: src $(OBJ) obj
 
-lib : src
-	$(MAKE) lib -C obj
+static : src
+	$(MAKE) static -C obj
+
+shared :
+	$(MAKE) -C src FLAGS="$(FLAGS) -fPIC"
+	$(MAKE) shared -C obj
+
+
+install :
+	cp $(STATIC) /usr/local/lib/$(STATIC) >/dev/null
+	cp $(SHARED) /usr/local/lib/$(SHARED) >/dev/null
+	cp -r include/mgf/ /usr/local/include/mgf
+
+uninstall:
+	rm -f /usr/local/lib/$(STATIC)
+	rm -f /usr/local/lib/$(SHARED)
+	rm -rf /usr/local/include/mgf
 
 doc : doc/html 
 
@@ -52,6 +69,7 @@ clean: $(CLEANDIRS)
 $(CLEANDIRS): 
 	$(MAKE) -C $(@:clean-%=%) clean
 	@rm -f *.o
-	@rm -f *.a
+	#@rm -f $(SHARED)
+	#@rm -f $(STATIC)
 	@rm -f $(EXEC)
 
