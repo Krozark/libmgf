@@ -14,6 +14,8 @@ all: Parser Lexer $(OBJ)
 
 Parser: Parser.yy
 	bison -v Parser.yy
+#mv Parser.tab.hh $(TOP)/include/mgf/
+#ln -s $(TOP)/include/mgf/Parser.tab.hh Parser.tab.hh
 	$(CC) $(FLAGS) -o "$@.o" -c "$@.tab.cc" 
 	@cp "$@.o" "$(OBJ_DIR)"
 
