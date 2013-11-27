@@ -25,6 +25,9 @@ CLEANDIRS = $(SUBDIRS:%=clean-%)
 
 all: mgf $(OBJ) obj
 
+lib : mgf
+	$(MAKE) lib -C obj
+
 doc : doc/html 
 
 doc/html :
@@ -35,7 +38,6 @@ mgf:
 
 obj:
 	$(MAKE) -C $@
-
 
 .cpp.o:
 	$(CC) $(FLAGS) -o $@ -c $^;
@@ -51,5 +53,6 @@ clean: $(CLEANDIRS)
 $(CLEANDIRS): 
 	$(MAKE) -C $(@:clean-%=%) clean
 	@rm -f *.o
+	@rm -f *.a
 	@rm -f $(EXEC)
 
