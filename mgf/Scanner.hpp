@@ -17,7 +17,7 @@ namespace mgf
     class Parser;
     //typename Parser::semantic_type;
 
-    /***
+    /**
      * \brief The lexer that tokenize the input
      */
     class Scanner : public yyFlexLexer
