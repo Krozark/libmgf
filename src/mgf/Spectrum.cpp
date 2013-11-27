@@ -52,7 +52,32 @@ namespace mgf
             else
                 ++i;
         }
-        peaks.shrink_to_fit();
+    }
+
+    void Spectrum::add_specials_peaks()
+    {
+        /********* EXTREMITÉES ****************/
+        Peak* p = new Peak(0,1,-1);
+        p->masse = 0;
+        peaks.emplace_back(p);
+        special_peaks[SPECIAL::DEBUT] = p;
+
+        p = new Peak(0,1,-1);
+        p->masse = this->masse;
+        peaks.emplace_back(p);
+        special_peaks[SPECIAL::FIN] = p;
+        
+        /***************** H2O *******************/
+
+        p = new Peak(0,1,-1); 
+        p->masse = mgf::Convert::MH2O; 
+        peaks.emplace_back(p);
+        special_peaks[SPECIAL::DEBUT_H2O] = p;
+
+        p = new Peak(0,1,-1);
+        p->masse = this->masse - mgf::Convert::MH2O;
+        peaks.emplace_back(p);
+        special_peaks[SPECIAL::FIN_H2O] = p;
     }
 
     void Spectrum::prepare()
@@ -60,7 +85,9 @@ namespace mgf
         normalize_intensitee();
         calc_masse();
         calc_masse_peaks();
+        add_specials_peaks();
         sort();
+        peaks.shrink_to_fit();
     }
 
     

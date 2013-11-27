@@ -78,12 +78,20 @@ namespace mgf
             void sort(); ///< sort peaks by there masse
             void calc_masse();///< calc the spectrum masse
             void calc_masse_peaks();///< calc all the peaks mass. It can add some new peaks, and delete others that have a masse greater than the specrum mass.
+            void add_specials_peaks();///< add specials peaks
             
             /**
              * \brief Normalize les intensitée entre 0 et 1.
              * 1 sera l'intensité du pic le plus intense
              **/
             void normalize_intensitee();
+
+            enum SPECIAL {DEBUT=0, ///< masse = 0
+                DEBUT_H2O, ///< masse = MH2O
+                FIN_H2O, ///< masse = fin - MH2O
+                FIN, ///< mass = tout
+                SIZE} special_peaks_keys;
+            Peak* special_peaks[SPECIAL::SIZE];
         
     };
 }
