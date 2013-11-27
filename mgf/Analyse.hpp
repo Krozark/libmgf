@@ -11,14 +11,28 @@ namespace mgf
     class Spectrum;
     class Parser;
     
+    /**
+     * \brief Class For manage a single MGF file
+     */
     class Analyse
     {
         public:
             Analyse(const Analyse&) = delete;
             Analyse& operator=(const Analyse&) = delete;
 
+            /**
+             * \brief Construct a Analyse
+             */
             Analyse();
+
+            /**
+             * \brief default move constructor
+             */
             Analyse(Analyse&& tmp) = default;
+
+            /**
+             * \brief Destructor, delete all Spectrum in memory
+             */
             ~Analyse();
 
             //void clear();

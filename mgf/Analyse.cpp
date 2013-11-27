@@ -7,20 +7,11 @@ namespace mgf
     {
     }
 
-    /*Analyse::Analyse(Analyse&& tmp)
-    {
-    }*/
-
     Analyse::~Analyse()
     {
-    }
-
-    /*void Analyse::clear()
-    {
-        for(Spectrum* s : spectrums)
+        for (Spectrum*s : spectrums)
             delete s;
-        spectrums.clear();
-    }*/
+    }
 
     void Analyse::push(Spectrum* spect)
     {
