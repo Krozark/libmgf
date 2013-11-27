@@ -10,34 +10,117 @@ namespace mgf
     class Peak;
     class Spectrum;
 
+    /**
+     * \brief Header for Spectrum. Contain meta data from MGF.
+     * Note : Not all data are save (for not use), eaven if there is function to set them.
+     * A message is print in tha case
+     */
     class LocalHeader
     {
         public:
-            LocalHeader();
             LocalHeader(const LocalHeader&) = delete;
             LocalHeader& operator=(const LocalHeader&) = delete;
+            
+            /**
+             * \brief Constructor. Do not initialize value with default value
+             */
+            LocalHeader();
 
             LocalHeader(LocalHeader&& tmp) = default;
 
-            void setCharge(const int i);
+            /**
+             * \brief Set the Charge
+             * \param charge the charge
+             */
+            void setCharge(const int charge);
+
+            /**
+             * \brief Not used
+             */
             void setComp(std::string& s);
+
+            /**
+             * \brief Not used
+             */
             void setEtag(std::list<std::string>& l);
+
+            /**
+             * \brief Not used
+             */
             void setInstrument(std::string& s);
+
+            /**
+             * \brief Not used
+             */
             void setItMods(std::string& s);
+
+            /**
+             * \brief Not used
+             */
             void setLocus(std::string& s);
-            void setPepMass(const double masse,const double it);
+
+            /**
+             * \brief Set the mz and intensity
+             * \param mz The M/Z ratio
+             * \param itensity intensity
+             */
+            void setPepMass(const double masse,const double itensity);
+
+            /**
+             * \brief Not used
+             */
             void setRawFile(std::string& s);
+
+            /**
+             * \brief Not used
+             */
             void setRawScans(int min,int max);
+
+            /**
+             * \brief Not used
+             */
             void setRtinSeconds(double min, double max);
+
+            /**
+             * \brief Not used
+             */
             void setScans(int min,int max);
+
+            /**
+             * \brief Not used
+             */
             void setSeq(std::list<std::string>& s);
+
+            /**
+             * \brief Not used
+             */
             void setTag(std::list<std::string>&s);
-            void setTitle(std::string& s);
+
+            /**
+             * \brief Set the Title
+             * \param title The title of the spectrum
+             */
+            void setTitle(std::string& title);
+
+            /**
+             * \brief Not used
+             */
             void setTol(double d);
+
+            /**
+             * \brief Not used
+             */
             void setTolU(std::string& s);
 
+            
+            /**
+             * \brief Debug print. Print all the data used
+             */
             void __print__(std::ostream& stream)const;
 
+            /**
+             * \brief Reset all datas to zero for numbers, and empty string for string
+             */
             void reset();
 
         protected:
@@ -46,10 +129,10 @@ namespace mgf
             friend class Peak;
             friend class Spectrum;
 
-            char charge;
-            double mz;
-            double intensity;
-            std::string title;
+            char charge; ///< the charge
+            double mz; ///< the M/Z ratio
+            double intensity; ///< the intensity
+            std::string title; ///< the title
     };
 }
 #endif
