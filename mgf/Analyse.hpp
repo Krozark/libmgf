@@ -70,7 +70,7 @@ namespace mgf
             void push(Spectrum* spect);
 
             std::list<Spectrum*> spectrums; ///< spectrums to store
-            GlobalHeader header; ///< global datas
+            GlobalHeader header; ///< meta datas
 
     };
 }
