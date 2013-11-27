@@ -4,8 +4,6 @@ language: cpp
 
 compiler: gcc
 
-script : make
-        && make clean
-        && make shared
-        && make clean
-        && make static
+script : ./build.sh 
+        && make install 
+        && make uninstall
