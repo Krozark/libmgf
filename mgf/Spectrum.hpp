@@ -45,9 +45,19 @@ namespace mgf
              */
             void prepare();
             
-
+            /**
+             * \brief Debug print. Print all the ms/ms peaks and meta data of the spectrum
+             */
             void __print__(std::ostream& stream) const;
+
+            /**
+             * \brief Delete all the MS/MS peaks
+             */
             void clear();
+
+            /**
+             * \brief reset the object as a new one.
+             */
             void reset();
         
 
@@ -55,18 +65,19 @@ namespace mgf
             friend class Parser;
             friend class Peak;
 
-            LocalHeader header;
+            LocalHeader header; ///< meta datas
 
-            double masse;
-            std::vector<Peak*> peaks;
+            double masse;///< masse in Da
+
+            std::vector<Peak*> peaks; ///< peaks list
 
             //std::shared_ptr<std::vector<std::string>> real_solutions;
 
-            void push(double mz,double it,char charge);
+            void push(double mz,double it,char charge);///< add e new peak in the list
 
-            void sort();
-            void calc_masse();
-            void calc_masse_peaks();
+            void sort(); ///< sort peaks by there masse
+            void calc_masse();///< calc the spectrum masse
+            void calc_masse_peaks();///< calc all the peaks mass. It can add some new peaks, and delete others that have a masse greater than the specrum mass.
             
             /**
              * \brief Normalize les intensitée entre 0 et 1.
