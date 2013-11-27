@@ -25,6 +25,9 @@ CLEANDIRS = $(SUBDIRS:%=clean-%)
 
 all: mgf $(OBJ) obj
 
+doc :
+	cd doc && doxygen
+
 mgf:
 	$(MAKE) -C $@
 
