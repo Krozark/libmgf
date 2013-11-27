@@ -1,19 +1,18 @@
 export CC = g++
-INCPATH = -I$(CURDIR) 
+INCPATH = -I$(CURDIR)/include -I$(CURDIR)/src 
 LIBS =
 #-lpthread 
 #-lmysqlcppconn 
 
-export DEFINES = -DCOLORS 
-#export DEFINES = -DNDEBUG
-export FLAGS = -g -Wall -std=c++0x $(INCPATH) $(LIBS) $(DEFINES)
+export DEFINES = -DCOLORS -DNDEBUG
+export FLAGS = -Wall -o3 -std=c++0x $(INCPATH) $(LIBS) $(DEFINES)
 export TOP = $(CURDIR)
 export OBJ_DIR = $(TOP)/obj
 
 SRC = $(wildcard *.c*)
 OBJ = $(SRC:.cpp=.o) $(SRC:*.cpp=.o)
 
-SUBDIRS = mgf obj
+SUBDIRS = src obj
 
 export EXEC = Mgf
 
@@ -23,9 +22,9 @@ CLEANDIRS = $(SUBDIRS:%=clean-%)
 .PHONY: subdirs $(SUBDIRS)
 .PHONY: subdirs $(CLEANDIRS)
 
-all: mgf $(OBJ) obj
+all: src $(OBJ) obj
 
-lib : mgf
+lib : src
 	$(MAKE) lib -C obj
 
 doc : doc/html 
@@ -33,7 +32,7 @@ doc : doc/html
 doc/html :
 	cd doc && doxygen
 
-mgf:
+src:
 	$(MAKE) -C $@
 
 obj:
