@@ -35,8 +35,8 @@ shared :
 
 
 install :
-	cp $(STATIC) /usr/local/lib/$(STATIC) >/dev/null
-	cp $(SHARED) /usr/local/lib/$(SHARED) >/dev/null
+	cp -f $(STATIC) /usr/local/lib/$(STATIC) >/dev/null
+	cp -f $(SHARED) /usr/local/lib/$(SHARED) >/dev/null
 	cp -rf include/mgf/ /usr/local/include/mgf
 
 uninstall:
