@@ -21,9 +21,15 @@ namespace mgf
             const char max = parent.header.charge;
             for (char i=2; i<=max;++i)
             {
-                Peak* p = new Peak(mz,intensity,i);
-                parent.peaks.emplace_back(p);
-                p->calc_masse();
+                double tmp_masse = mgf::Convert::mz_to_masse(mz,i);
+                if (tmp_masse <=parent.masse)
+                {
+                    Peak* p = new Peak(mz,intensity,i);
+                    p->masse = tmp_masse;
+                    parent.peaks.emplace_back(p);
+                }
+                else
+                    break;
             }
         }
         else

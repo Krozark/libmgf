@@ -176,8 +176,8 @@ namespace mgf
 
     void GlobalHeader::__print__(std::ostream& stream)const
     {
-        stream<<"GlobalHeader:\n";
-        stream<<"End GlobalHeader:\n";
+        stream<<"GlobalHeader:";
+        stream<<"\nEnd GlobalHeader:\n";
 
     }
 }

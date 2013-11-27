@@ -33,10 +33,6 @@
 #define MAX(x,y) (x>y?x:y) ///< fonction mathématique max 
 #define MIN(x,y) (x<y?x:y) ///< fonction mathématique min
 
-/*************************** DEBUG PRINT ************************/
-#define MGF_TOKEN_DEBUG(val) std::cout<<"token: "<<MGF_BLEU<<val<<MGF_BLANC<<std::endl
-
-#define MGF_IGNORED(fn) std::cerr<<MGF_JAUNE<<"Function "<<fn<<" Ignored."<<MGF_BLANC<<std::endl;
 
 /****************** DEFINES ***********************************/
 #define MGF_END_IONS 3
@@ -44,8 +40,17 @@
 
 /*********************** DEBUG MODS *************************/
 #define MGF_DEBUG_NO 0
-#define MGF_DEBUG_PARSING 1
+#define MGF_DEBUG_LEXER 1<<1
 
 #define MGF_DEBUG_FULL 0xFFFFFFFFFFFFFF
 
-#define MGF_DEBUG MGF_DEBUG_FULL
+#define MGF_DEBUG MGF_DEBUG_NO
+
+/*************************** DEBUG PRINT ************************/
+#if MGF_DEBUG & MGF_DEBUG_LEXER
+#define MGF_TOKEN_DEBUG(val) std::cout<<"token: "<<MGF_BLEU<<val<<MGF_BLANC<<std::endl
+#else
+#define MGF_TOKEN_DEBUG(val) 
+#endif
+
+#define MGF_IGNORED(fn) std::cerr<<MGF_JAUNE<<"Function "<<fn<<" Ignored."<<MGF_BLANC<<std::endl;

@@ -38,18 +38,21 @@ namespace mgf
     {
         Spectrum& self = *this;
 
-        std::vector<Peak*>::iterator i=peaks.begin();
-        while(i != peaks.end())
+        unsigned int size =peaks.size();
+        unsigned int i=0;
+        while(i<size)
         {
-            (*i)->calc_masse(self);
-            if ((*i)->masse > masse) //supression des truc impossible à etre en lien avec le peptide
+            peaks.at(i)->calc_masse(self);
+            if (peaks.at(i)->masse > masse) //supression des truc impossible à etre en lien avec le peptide
             {
-                delete (*i);
-                i = peaks.erase(i);
+                delete peaks.at(i);
+                peaks.erase(peaks.begin()+i);
+                --size;
             }
             else
                 ++i;
         }
+        peaks.shrink_to_fit();
     }
 
     void Spectrum::prepare()
@@ -63,11 +66,12 @@ namespace mgf
     
     void Spectrum::__print__(std::ostream& stream)const
     {
-        stream<<"Spectrum:\n";
+        stream<<"Spectrum:\n"
+            <<"\tMasse: "<<masse<<"\n";
         header.__print__(stream);
         for(Peak* p :peaks)
             p->__print__(stream);
-        stream<<"end Spectrum\n";
+        stream<<"end Spectrum\n\n";
 
     }
 

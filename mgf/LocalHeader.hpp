@@ -49,6 +49,7 @@ namespace mgf
             char charge;
             double mz;
             double intensity;
+            std::string title;
     };
 }
 #endif

@@ -77,7 +77,7 @@ namespace mgf
 
     void LocalHeader::setTitle(std::string& s)
     {
-        MGF_IGNORED("LocalHeader::setTitle");
+        title = s;
     }
 
     void LocalHeader::setTol(double d)
@@ -93,15 +93,19 @@ namespace mgf
     void LocalHeader::__print__(std::ostream& stream)const
     {
         stream<<"LocalHeader:"
-            <<"\nCharge:"<<(short int)charge
-            <<"\nIntensity:"<<intensity
-            <<"\nMz:"<<mz
-            <<"End LocalHeader:\n";
+            <<"\n\tTitle: "<<title
+            <<"\n\tCharge: "<<(short int)charge
+            <<"\n\tIntensity: "<<intensity
+            <<"\n\tMz: "<<mz
+            <<"\nEnd LocalHeader:\n";
 
     }
 
     void LocalHeader::reset()
     {
-        MGF_IGNORED("LocalHeader::reset");
+        charge = 0;
+        mz = 0;
+        intensity = 0;
+        title.clear();
     }
 }
