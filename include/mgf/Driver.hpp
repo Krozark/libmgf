@@ -76,6 +76,13 @@ namespace mgf
              */
             static int parse_file(const std::string& filename,Analyse& a);
 
+
+            /**
+             * \return The header of the MGF file.
+             * Use it if you use next() to get all Spectrum.
+             */
+            inline const mgf::GlobalHeader& getHeader(){return header;}
+
             /**
              * \return true if the stream is a valid MGF format, else, false.
              */
