@@ -10,7 +10,7 @@
 namespace mgf
 {
 
-    Driver::Driver(std::istream& in) : scanner(in), parser(scanner,*this)
+    Driver::Driver(std::istream& in) : scanner(in), parser(scanner,*this), validity(true)
     {
     }
 
@@ -22,12 +22,15 @@ namespace mgf
     Analyse Driver::parse()
     {
         mgf::Analyse analyse;
-        while (parser.parse() == MGF_END_IONS)
+        int status = 0;
+        while ((status = parser.parse()) == MGF_END_IONS)
         {
             analyse.push(new Spectrum(std::move(currentSpectrum)));
             currentSpectrum.reset();
             analyse.back().prepare();
         }
+        if (status == 1)
+            validity = false;
 
         return analyse;
     }
@@ -35,12 +38,15 @@ namespace mgf
     Spectrum* Driver::next()
     {
         mgf::Spectrum* r = nullptr;
-        if (parser.parse() == MGF_END_IONS)
+        int status = 0;
+        if ((status = parser.parse()) == MGF_END_IONS)
         {
             r = new Spectrum(std::move(currentSpectrum));
             r->prepare();
             currentSpectrum.clear();
         }
+        else if ( status == 1)
+            validity = false;
         return r;
     }
 

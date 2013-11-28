@@ -52,6 +52,11 @@ namespace mgf
             inline Spectrum& back(){return *spectrums.back();}
 
             /**
+             * \return The spectrums list
+             */
+            inline const std::list<Spectrum*>& getSpectrums()const{return spectrums;}
+
+            /**
              * \brief Debug print. Print the header and all the spectrums.
              */
             void __print__(std::ostream& stream)const;

@@ -44,6 +44,11 @@ namespace mgf
              * some others tasks.
              */
             void prepare();
+
+            /**
+             * \return The peak list
+             */
+            inline const std::vector<Peak*>& getPeaks()const{return peaks;}
             
             /**
              * \brief Debug print. Print all the ms/ms peaks and meta data of the spectrum

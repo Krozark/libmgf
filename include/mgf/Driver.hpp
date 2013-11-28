@@ -76,6 +76,11 @@ namespace mgf
              */
             static int parse_file(const std::string& filename,Analyse& a);
 
+            /**
+             * \return true if the stream is a valid MGF format, else, false.
+             */
+            inline bool getValitity()const{return validity;}
+
              
         private:
             friend class Parser;
@@ -85,6 +90,7 @@ namespace mgf
 
             mgf::GlobalHeader header; ///< the tmp global header 
             mgf::Spectrum currentSpectrum; ///< the current spectrum parsed
+            bool validity;
     };
 }
 #endif
