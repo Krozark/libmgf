@@ -22,7 +22,21 @@ namespace mgf
              * \param intensity the ion intensity
              * \param charge The charge of the ion. Set 0 if not know
              */
-            Peak(const double mz,const double intensity,const char charge=0);
+            Peak(const double mz,const double intensity,const char charge);
+            
+            /**
+             * \brief Constructor
+             * \param mz the masse/charge ration
+             * \param intensity the ion intensity
+             * \param charge The charge of the ion. Set 0 if not know
+             * \param used init used member.
+             */
+            Peak(const double mz,const double intensity,const char charge,bool* used);
+
+            /**
+             * \brief Destructor. Delete used if original is true
+             */
+            ~Peak();
 
 
             /**
@@ -35,6 +49,17 @@ namespace mgf
              * \return the ion intensity 
              */
             inline double getIntensity()const{return intensity;}
+
+
+            /**
+             * \brief Set the valuse of used
+             */
+            inline void setUsed(bool b){*used = b;}
+
+            /**
+             * \return if ions is used
+             */
+            inline bool isUsed()const{return *used;}
 
             /**
              * \brief Debug print. Print the masse, mz, intensity, charge
@@ -61,6 +86,8 @@ namespace mgf
             double intensity; ///< intensity
             double masse; ///< masse in Da
             char charge; ///< charge
+            bool* used;///< if the peak is used. shared_ptr is used to manage multiple peak with same mz, but different charge.
+            bool original;
     };
 }
 #endif
