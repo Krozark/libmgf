@@ -86,7 +86,7 @@ namespace mgf
             /**
              * \return true if the stream is a valid MGF format, else, false.
              */
-            inline bool getValitity()const{return validity;}
+            inline bool isValid()const{return validity;}
 
              
         private:
