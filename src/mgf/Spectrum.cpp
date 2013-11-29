@@ -98,8 +98,13 @@ namespace mgf
         stream<<"Spectrum:\n"
             <<"\tMasse: "<<masse<<"\n";
         header.__print__(stream);
-        for(Peak* p :peaks)
-            p->__print__(stream);
+
+        const unsigned int size = peaks.size();
+        for(unsigned int i=0;i<size;++i)
+        {
+            stream<<"#"<<i<<" : ";
+            peaks[i]->__print__(stream);
+        }
         stream<<"end Spectrum\n\n";
 
     }
