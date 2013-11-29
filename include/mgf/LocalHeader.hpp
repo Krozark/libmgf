@@ -35,6 +35,12 @@ namespace mgf
             void setCharge(const int charge);
 
             /**
+             * \return the charge
+             */
+            inline char getCharge()const{return charge;}
+
+
+            /**
              * \brief Not used
              */
             void setComp(std::string& s);

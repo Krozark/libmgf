@@ -15,6 +15,8 @@ namespace mgf
         public:
             Peak(const Peak&) = delete;
             Peak& operator=(const Peak&) = delete;
+            //Peak(Peak&&) = default;
+            //Peak& operator=(Peak&&) = default;
 
             /**
              * \brief Constructor
@@ -49,6 +51,16 @@ namespace mgf
              * \return the ion intensity 
              */
             inline double getIntensity()const{return intensity;}
+
+            /**
+             * \return the ion charge
+             */
+            inline char getCharge()const{return charge;}
+
+            /**
+             * \return original
+             */
+            inline bool isOriginal()const{return original;}
 
 
             /**

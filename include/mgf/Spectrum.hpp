@@ -49,6 +49,12 @@ namespace mgf
              * \return The peak list
              */
             inline const std::vector<Peak*>& getPeaks()const{return peaks;}
+
+
+            /**
+             * \return The header
+             */
+            inline const LocalHeader& getHeader()const{return header;}
             
             /**
              * \brief Debug print. Print all the ms/ms peaks and meta data of the spectrum
