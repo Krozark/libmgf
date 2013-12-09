@@ -73,6 +73,11 @@ namespace mgf
             void setPepMass(const double masse,const double itensity);
 
             /**
+             * \result The intensity
+             */
+            inline double getIntensity()const{return intensity;}
+
+            /**
              * \brief Not used
              */
             void setRawFile(std::string& s);
