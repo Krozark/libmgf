@@ -84,8 +84,9 @@ namespace mgf
     {
         calc_masse(); // calc spectrum masse
 
-        normalize_intensitee(); // normalize intensity of peaks (before calc_masse_peaks to make less call)
         calc_masse_peaks(); // calc peaks masse
+
+        normalize_intensitee(); // normalize intensity of peaks (before calc_masse_peaks to make less call)
         add_specials_peaks(); // add artificials peaks
         sort(); // sort peaks
 
@@ -127,10 +128,16 @@ namespace mgf
     {
         const unsigned int size = peaks.size();
         double max = 0;
+
+        meta.intensity_sum = 0.0;
+
         for(unsigned int i=0;i<size;++i)
             max = MAX(max,peaks[i]->intensity);
 
         for(unsigned int i=0;i<size;++i)
+        {
             peaks[i]->intensity/=max;
+            meta.intensity_sum+= peaks[i]->intensity;
+        }
     };
 }

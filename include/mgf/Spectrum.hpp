@@ -70,6 +70,13 @@ namespace mgf
              * \brief reset the object as a new one.
              */
             void reset();
+
+
+            struct Meta {
+                double intensity_sum;
+            };
+
+            inline const Meta& getMeta()const{return meta;}
         
 
         private:
@@ -77,6 +84,7 @@ namespace mgf
             friend class Peak;
 
             LocalHeader header; ///< meta datas
+            Meta meta; ///< precalculated meta
 
             double masse;///< masse in Da
 
