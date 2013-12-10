@@ -17,6 +17,11 @@ namespace mgf
     {
         clear();
     }
+
+    bool Spectrum::is_one_of_h2o(const Peak* p)const
+    {
+        return (p == special_peaks[SPECIAL::DEBUT_H2O]) or (p == special_peaks[SPECIAL::FIN_H2O]);
+    };
     
 
     void Spectrum::push(double z,double it,char ch)

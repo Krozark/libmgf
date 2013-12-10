@@ -77,6 +77,9 @@ namespace mgf
             };
 
             inline const Meta& getMeta()const{return meta;}
+
+
+            bool is_one_of_h2o(const Peak*)const;
         
 
         private:
@@ -109,7 +112,7 @@ namespace mgf
                 DEBUT_H2O, ///< masse = MH2O
                 FIN_H2O, ///< masse = fin - MH2O
                 FIN, ///< mass = tout
-                SIZE} special_peaks_keys;
+                SIZE};
             Peak* special_peaks[SPECIAL::SIZE];
         
     };
