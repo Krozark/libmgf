@@ -55,6 +55,12 @@ namespace mgf
              * \return The header
              */
             inline const LocalHeader& getHeader()const{return header;}
+
+
+            /**
+             * \return the peptide mass
+             */
+            inline double getMasse()const {return masse;}
             
             /**
              * \brief Debug print. Print all the ms/ms peaks and meta data of the spectrum
