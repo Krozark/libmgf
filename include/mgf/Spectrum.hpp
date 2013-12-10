@@ -80,6 +80,7 @@ namespace mgf
 
 
             bool is_one_of_h2o(const Peak*)const;
+            bool is_one_of_specials(const Peak*)const;
         
 
         private:
