@@ -196,6 +196,14 @@ namespace mgf
              */
             void __print__(std::ostream& stream)const;
 
+            /**
+             * \brief Print the Spectrum as MGF format
+             * \stream the outout stream
+             * \param self the GlobalHeader to print
+             * \return stream
+             */
+            friend std::ostream& operator<<(std::ostream& stream,const GlobalHeader& self);
+
         protected:
 
         private:

@@ -79,6 +79,14 @@ namespace mgf
              */
             void __print__(std::ostream& stream)const ;
 
+            /**
+             * \brief Print the Spectrum as MGF format
+             * \stream the outout stream
+             * \param self the Peak to print
+             * \return stream
+             */
+            friend std::ostream& operator<<(std::ostream& stream,const Peak& self);
+
         protected:
             /**
              * \brief set the masse value using mz and charge. Charge have to be greather than zero.

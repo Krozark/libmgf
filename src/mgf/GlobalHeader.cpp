@@ -180,4 +180,10 @@ namespace mgf
         stream<<"\nEnd GlobalHeader:\n";
 
     }
+
+    std::ostream& operator<<(std::ostream& stream,const GlobalHeader& self)
+    {
+        ///\todo TODO
+        return stream;
+    }
 }

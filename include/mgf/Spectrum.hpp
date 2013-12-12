@@ -68,6 +68,14 @@ namespace mgf
             void __print__(std::ostream& stream) const;
 
             /**
+             * \brief Print the Spectrum as MGF format
+             * \stream the outout stream
+             * \param self the Spectrum to print
+             * \return stream
+             */
+            friend std::ostream& operator<<(std::ostream& stream,const Spectrum& self);
+
+            /**
              * \brief Delete all the MS/MS peaks
              */
             void clear();
@@ -77,16 +85,29 @@ namespace mgf
              */
             void reset();
 
-
+            /**
+             * \brief meta data
+             */ 
             struct Meta {
-                double intensity_sum;
+                double intensity_sum; ///< sum of all the peaks intensity
             };
 
+            /**
+             * \return the meta data
+             */
             inline const Meta& getMeta()const{return meta;}
 
-
+            /**
+             * \param p the peak to compare
+             * \return true if p is one of special peaks with H2o decalage
+             */
             bool is_one_of_h2o(const Peak*)const;
-            bool is_one_of_specials(const Peak*)const;
+
+            /**
+             * \param p the peak to compare
+             * \return true if p is one of special peaks
+             */
+            bool is_one_of_specials(const Peak* p)const;
         
 
         private:
@@ -120,7 +141,7 @@ namespace mgf
                 FIN_H2O, ///< masse = fin - MH2O
                 FIN, ///< mass = tout
                 SIZE};
-            Peak* special_peaks[SPECIAL::SIZE];
+            Peak* special_peaks[SPECIAL::SIZE]; ///< store the specials peaks (artificals)
         
     };
 }

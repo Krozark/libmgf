@@ -61,6 +61,14 @@ namespace mgf
              */
             void __print__(std::ostream& stream)const;
 
+            /**
+             * \brief Print the Spectrum as MGF format
+             * \stream the outout stream
+             * \param self the Analyse to print
+             * \return stream
+             */
+            friend std::ostream& operator<<(std::ostream& stream,const Analyse& self);
+
 
         private:
             friend class Parser;

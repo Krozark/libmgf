@@ -27,4 +27,12 @@ namespace mgf
             s->__print__(stream);
         stream<<"End Analyse\n";
     }
+
+    std::ostream& operator<<(std::ostream& stream,const Analyse& self)
+    {
+        stream<<self.header<<std::endl;
+        for(Spectrum* s : self.spectrums)
+            stream<<*s<<std::endl;
+        return stream;
+    }
 }

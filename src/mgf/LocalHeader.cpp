@@ -101,6 +101,12 @@ namespace mgf
 
     }
 
+    std::ostream& operator<<(std::ostream& stream,const LocalHeader& self)
+    {
+        ///\todo TODO
+        return stream;
+    }
+
     void LocalHeader::reset()
     {
         charge = 0;

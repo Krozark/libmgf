@@ -123,6 +123,14 @@ namespace mgf
 
     }
 
+    std::ostream& operator<<(std::ostream& stream,const Spectrum& self)
+    {
+        stream<<self.header;
+        for(Peak* p : self.peaks)
+            stream<<*p<<std::endl;
+        return stream;
+    }
+
     void Spectrum::clear()
     {
         const unsigned int size = peaks.size();

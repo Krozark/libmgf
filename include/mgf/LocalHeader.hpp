@@ -130,6 +130,14 @@ namespace mgf
             void __print__(std::ostream& stream)const;
 
             /**
+             * \brief Print the Spectrum as MGF format
+             * \stream the outout stream
+             * \param self the LocalHeader to print
+             * \return stream
+             */
+            friend std::ostream& operator<<(std::ostream& stream,const LocalHeader& self);
+
+            /**
              * \brief Reset all datas to zero for numbers, and empty string for string
              */
             void reset();
