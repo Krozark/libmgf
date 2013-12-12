@@ -66,7 +66,7 @@ namespace mgf
         stream<<self.mz<<"\t"<<int(self.intensity*10000);
         if(self.charge)
             stream<<"\t"<<(self.charge>0?self.charge:-self.charge)<<(self.charge>0?"+":"-");
-        return stream;
+        return (stream<<std::endl);
     }
 
 }

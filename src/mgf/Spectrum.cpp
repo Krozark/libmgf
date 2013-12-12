@@ -127,7 +127,7 @@ namespace mgf
     {
         stream<<self.header;
         for(Peak* p : self.peaks)
-            stream<<*p<<std::endl;
+            stream<<*p;
         return stream;
     }
 
