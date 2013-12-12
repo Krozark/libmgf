@@ -14,7 +14,8 @@ int main(int argc,char* argv[])
         file.close();
 
         r = a.size();
-        a.__print__(std::cout);
+        std::cout<<a<<std::endl;
+        //a.__print__(std::cout);
     }
     return r;
 }

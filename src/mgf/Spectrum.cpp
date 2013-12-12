@@ -125,10 +125,10 @@ namespace mgf
 
     std::ostream& operator<<(std::ostream& stream,const Spectrum& self)
     {
-        stream<<self.header;
+        stream<<"BEGIN IONS\n"<<self.header;
         for(Peak* p : self.peaks)
             stream<<*p;
-        return stream;
+        return (stream<<"END IONS\n");
     }
 
     void Spectrum::clear()

@@ -5,8 +5,9 @@
 namespace mgf
 {
     
-    LocalHeader::LocalHeader() /*charge(0),mz(0),intensity(0)*/
+    LocalHeader::LocalHeader()
     {
+        reset();
     }
 
     void LocalHeader::setCharge(const int i)
@@ -104,6 +105,18 @@ namespace mgf
     std::ostream& operator<<(std::ostream& stream,const LocalHeader& self)
     {
         ///\todo TODO
+        if(self.title.size())
+            stream<<"TITLE="<<self.title<<"\n";
+        if(self.mz)
+        {
+            stream<<"PEPMASS="<<self.mz;
+            if(self.intensity)
+                stream<<"\t"<<self.intensity;
+            stream<<"\n";
+        }
+
+        if(self.charge)
+            stream<<"CHARGE="<<(self.charge>0?self.charge:-self.charge)<<(self.charge>0?"+":"-")<<"\n";
         return stream;
     }
 
