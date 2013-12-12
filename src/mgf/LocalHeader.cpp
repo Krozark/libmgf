@@ -40,9 +40,9 @@ namespace mgf
         MGF_IGNORED("LocalHeader::setLocus");
     }
 
-    void LocalHeader::setPepMass(const double masse,const double it)
+    void LocalHeader::setPepMass(const double mass,const double it)
     {
-        mz = masse;
+        mz = mass;
         intensity = it;
     }
 

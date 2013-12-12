@@ -40,7 +40,7 @@ namespace mgf
 
             /**
              * \brief Prepare the spectum for analyse.
-             * Use this function before any analyse. It set the masse, and performe
+             * Use this function before any analyse. It set the mass, and performe
              * some others tasks.
              */
             void prepare();
@@ -60,7 +60,7 @@ namespace mgf
             /**
              * \return the peptide mass
              */
-            inline double getMasse()const {return masse;}
+            inline double getMass()const {return mass;}
             
             /**
              * \brief Debug print. Print all the ms/ms peaks and meta data of the spectrum
@@ -117,7 +117,7 @@ namespace mgf
             LocalHeader header; ///< meta datas
             Meta meta; ///< precalculated meta
 
-            double masse;///< masse in Da
+            double mass;///< mass in Da
 
             std::vector<Peak*> peaks; ///< peaks list
 
@@ -125,9 +125,9 @@ namespace mgf
 
             void push(double mz,double it,char charge);///< add e new peak in the list
 
-            void sort(); ///< sort peaks by there masse
-            void calc_masse();///< calc the spectrum masse
-            void calc_masse_peaks();///< calc all the peaks mass. It can add some new peaks, and delete others that have a masse greater than the specrum mass.
+            void sort(); ///< sort peaks by there mass
+            void calc_mass();///< calc the spectrum mass
+            void calc_mass_peaks();///< calc all the peaks mass. It can add some new peaks, and delete others that have a mass greater than the specrum mass.
             void add_specials_peaks();///< add specials peaks
             
             /**
@@ -136,9 +136,9 @@ namespace mgf
              **/
             void normalize_intensitee();
 
-            enum SPECIAL {DEBUT=0, ///< masse = 0
-                DEBUT_H2O, ///< masse = MH2O
-                FIN_H2O, ///< masse = fin - MH2O
+            enum SPECIAL {DEBUT=0, ///< mass = 0
+                DEBUT_H2O, ///< mass = MH2O
+                FIN_H2O, ///< mass = fin - MH2O
                 FIN, ///< mass = tout
                 SIZE};
             Peak* special_peaks[SPECIAL::SIZE]; ///< store the specials peaks (artificals)

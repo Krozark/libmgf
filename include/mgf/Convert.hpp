@@ -23,7 +23,7 @@ namespace mgf
              * \param charge The charge (Z)
              * \return the calculated mass in Da
              */
-            static constexpr double mz_to_masse(const double mz,const int charge){return mz*charge - charge*MH;}
+            static constexpr double mz_to_mass(const double mz,const int charge){return mz*charge - charge*MH;}
 
         private:
     };

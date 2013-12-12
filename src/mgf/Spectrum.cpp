@@ -39,15 +39,15 @@ namespace mgf
 
     void Spectrum::sort()
     {
-        std::sort(this->peaks.begin(),this->peaks.end(),[](const Peak* _1 ,const Peak* _2){return _1->getMasse() < _2->getMasse();});
+        std::sort(this->peaks.begin(),this->peaks.end(),[](const Peak* _1 ,const Peak* _2){return _1->getMass() < _2->getMass();});
     }
 
-    void Spectrum::calc_masse()
+    void Spectrum::calc_mass()
     {
-        masse = mgf::Convert::mz_to_masse(header.mz,header.charge);
+        mass = mgf::Convert::mz_to_mass(header.mz,header.charge);
     }
 
-    void Spectrum::calc_masse_peaks()
+    void Spectrum::calc_mass_peaks()
     {
         Spectrum& self = *this;
 
@@ -55,8 +55,8 @@ namespace mgf
         unsigned int i=0;
         while(i<size)
         {
-            peaks.at(i)->calc_masse(self);
-            if (peaks.at(i)->masse > masse) //supression des truc impossible à etre en lien avec le peptide
+            peaks.at(i)->calc_mass(self);
+            if (peaks.at(i)->mass > mass) //supression des truc impossible à etre en lien avec le peptide
             {
                 delete peaks.at(i);
                 peaks.erase(peaks.begin()+i);
@@ -71,35 +71,35 @@ namespace mgf
     {
         /********* EXTREMITÉES ****************/
         Peak* p = new Peak(0,1,-1);
-        p->masse = 0;
+        p->mass = 0;
         peaks.emplace_back(p);
         special_peaks[SPECIAL::DEBUT] = p;
 
         p = new Peak(0,1,-1);
-        p->masse = this->masse;
+        p->mass = this->mass;
         peaks.emplace_back(p);
         special_peaks[SPECIAL::FIN] = p;
         
         /***************** H2O *******************/
 
         p = new Peak(0,1,-1); 
-        p->masse = mgf::Convert::MH2O; 
+        p->mass = mgf::Convert::MH2O; 
         peaks.emplace_back(p);
         special_peaks[SPECIAL::DEBUT_H2O] = p;
 
         p = new Peak(0,1,-1);
-        p->masse = this->masse - mgf::Convert::MH2O;
+        p->mass = this->mass - mgf::Convert::MH2O;
         peaks.emplace_back(p);
         special_peaks[SPECIAL::FIN_H2O] = p;
     }
 
     void Spectrum::prepare()
     {
-        calc_masse(); // calc spectrum masse
+        calc_mass(); // calc spectrum mass
 
-        calc_masse_peaks(); // calc peaks masse
+        calc_mass_peaks(); // calc peaks mass
 
-        normalize_intensitee(); // normalize intensity of peaks (before calc_masse_peaks to make less call)
+        normalize_intensitee(); // normalize intensity of peaks (before calc_mass_peaks to make less call)
         add_specials_peaks(); // add artificials peaks
         sort(); // sort peaks
 
@@ -110,7 +110,7 @@ namespace mgf
     void Spectrum::__print__(std::ostream& stream)const
     {
         stream<<"Spectrum:\n"
-            <<"\tMasse: "<<masse<<"\n";
+            <<"\tMass: "<<mass<<"\n";
         header.__print__(stream);
 
         const unsigned int size = peaks.size();

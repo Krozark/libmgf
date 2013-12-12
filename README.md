@@ -8,3 +8,12 @@ Current build status :
 version : 0.1
 
 A mgf parser lib
+
+
+See Main.cpp for exemple.
+
+Documentation can be build using doxygen
+
+    make doc
+
+

@@ -23,21 +23,21 @@ namespace mgf
         }
     }
 
-    void Peak::calc_masse(Spectrum& parent)
+    void Peak::calc_mass(Spectrum& parent)
     {
         if (charge==0)
         {
             charge = 1;
-            calc_masse();
+            calc_mass();
 
             const char max = parent.header.charge;
             for (char i=2; i<=max;++i)
             {
-                double tmp_masse = mgf::Convert::mz_to_masse(mz,i);
-                if (tmp_masse <=parent.masse)
+                double tmp_mass = mgf::Convert::mz_to_mass(mz,i);
+                if (tmp_mass <=parent.mass)
                 {
                     Peak* p = new Peak(mz,intensity,i,used);
-                    p->masse = tmp_masse;
+                    p->mass = tmp_mass;
                     parent.peaks.emplace_back(p);
                 }
                 else
@@ -46,18 +46,18 @@ namespace mgf
         }
         else
         {
-            calc_masse();
+            calc_mass();
         }
     }
 
-    void Peak::calc_masse()
+    void Peak::calc_mass()
     {
-        masse = mgf::Convert::mz_to_masse(mz,charge);
+        mass = mgf::Convert::mz_to_mass(mz,charge);
     }
     
     void Peak::__print__(std::ostream& stream) const
     {
-        stream<</*ROUGE<<(bruit?"+":"-")<<*//*VERT<<" <"<<originale<<"> "<<*/MGF_JAUNE<<masse<<MGF_BLEU<<" ("<<mz<<") "<<MGF_ROUGE<<intensity<<" "<<MGF_VERT<<(short int)charge<<"+"<<MGF_BLANC<<std::endl;
+        stream<</*ROUGE<<(bruit?"+":"-")<<*//*VERT<<" <"<<originale<<"> "<<*/MGF_JAUNE<<mass<<MGF_BLEU<<" ("<<mz<<") "<<MGF_ROUGE<<intensity<<" "<<MGF_VERT<<(short int)charge<<"+"<<MGF_BLANC<<std::endl;
             
     }
 

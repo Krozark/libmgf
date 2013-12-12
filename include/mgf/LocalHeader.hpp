@@ -67,10 +67,10 @@ namespace mgf
 
             /**
              * \brief Set the mz and intensity
-             * \param mz The M/Z ratio
+             * \param mass The M/Z ratio
              * \param itensity intensity
              */
-            void setPepMass(const double masse,const double itensity);
+            void setPepMass(const double mass,const double itensity);
 
             /**
              * \return The intensity

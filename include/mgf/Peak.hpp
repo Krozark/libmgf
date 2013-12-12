@@ -20,7 +20,7 @@ namespace mgf
 
             /**
              * \brief Constructor
-             * \param mz the masse/charge ration
+             * \param mz the mass/charge ration
              * \param intensity the ion intensity
              * \param charge The charge of the ion. Set 0 if not know
              */
@@ -28,7 +28,7 @@ namespace mgf
             
             /**
              * \brief Constructor
-             * \param mz the masse/charge ration
+             * \param mz the mass/charge ration
              * \param intensity the ion intensity
              * \param charge The charge of the ion. Set 0 if not know
              * \param used init used member.
@@ -42,9 +42,9 @@ namespace mgf
 
 
             /**
-             * \return the masse
+             * \return the mass
              */
-            inline double getMasse()const{return masse;}
+            inline double getMass()const{return mass;}
 
 
             /**
@@ -74,7 +74,7 @@ namespace mgf
             inline bool isUsed()const{return *used;}
 
             /**
-             * \brief Debug print. Print the masse, mz, intensity, charge
+             * \brief Debug print. Print the mass, mz, intensity, charge
              * format is : mass (mz) intensity charge
              */
             void __print__(std::ostream& stream)const ;
@@ -89,22 +89,22 @@ namespace mgf
 
         protected:
             /**
-             * \brief set the masse value using mz and charge. Charge have to be greather than zero.
+             * \brief set the mass value using mz and charge. Charge have to be greather than zero.
              */
-            void calc_masse();
+            void calc_mass();
 
         private:
             friend class Spectrum;
 
             /**
-             * \brief Calc the masse using the mz and charge ratio. It can add new peak in the parent list if charge is 0
+             * \brief Calc the mass using the mz and charge ratio. It can add new peak in the parent list if charge is 0
              * \param parent The Parent spectrum.
              */
-            void calc_masse(Spectrum& parent);
+            void calc_mass(Spectrum& parent);
 
-            const double mz; ///< masse / charge ratio
+            const double mz; ///< mass / charge ratio
             double intensity; ///< intensity
-            double masse; ///< masse in Da
+            double mass; ///< mass in Da
             char charge; ///< charge
             bool* used;///< if the peak is used. shared_ptr is used to manage multiple peak with same mz, but different charge.
             bool original;
