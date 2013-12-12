@@ -36,20 +36,20 @@ namespace mgf
 
             /**
              * \brief Parse all the input (until \0)
-             * \result A analyse tha contain all the datas
+             * \return A analyse tha contain all the datas
              */
             Analyse parse();
 
             /**
              * \brief PArse only the next spectrum
-             * \result a pointer to the Spectrum. if nullptr is recive, all the input have been pase. You have to manualy delete the Spectrum
+             * \return a pointer to the Spectrum. if nullptr is recive, all the input have been pase. You have to manualy delete the Spectrum
              */
             Spectrum* next();
 
             /**
              * \brief Parse a input
              * \param in The input stream to parse
-             * \result The analyse tha contain all the datas
+             * \return The analyse tha contain all the datas
              */
             static Analyse parse(std::istream& in);
 
@@ -57,7 +57,7 @@ namespace mgf
              * \brief Parse a input, and add the data parse to the analyse
              * \param in Input to parse
              * \param a Analyse where data will be saves
-             * \result number of spectrum parsed
+             * \return number of spectrum parsed
              */
             static int parse(std::istream& in,Analyse& a);
             
@@ -72,7 +72,7 @@ namespace mgf
              * \brief Parse a file, and store data in the analyse
              * \param filename file to parse
              * \param a Analyse where data will be saved
-             * \result number of spectrum parsed
+             * \return number of spectrum parsed
              */
             static int parse_file(const std::string& filename,Analyse& a);
 

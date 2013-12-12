@@ -40,7 +40,7 @@ namespace mgf
             /**
              * \brief get the number of spectrums
              *
-             * \result The spectrums number
+             * \return The spectrums number
              */
             inline unsigned int size(){return spectrums.size();}
 

@@ -73,7 +73,7 @@ namespace mgf
             void setPepMass(const double masse,const double itensity);
 
             /**
-             * \result The intensity
+             * \return The intensity
              */
             inline double getIntensity()const{return intensity;}
 

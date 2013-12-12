@@ -30,11 +30,10 @@ namespace mgf
             Scanner(std::istream& in);
             Scanner(const Scanner&) = delete;
             Scanner& operator=(const Scanner&) = delete;
-
             /**
-             * \breief save the pointer to yylval so we can change it, and invoke scanner
+             * \breif save the pointer to yylval so we can change it, and invoke scanner
              * \parap lval For Lex/bison
-             * \return 0if all input is parse, MGF_END_IONS if end of ion, else, error
+             * \return 0 if all input is parse, MGF_END_IONS if end of ion, else, error
              */
             int yylex(mgf::Parser::semantic_type *lval);
 
@@ -42,7 +41,7 @@ namespace mgf
 
         private:
             /**
-             * \breief Scanning function created by Flex; make this private to force usage
+             * \breif Scanning function created by Flex; make this private to force usage
              * of the overloaded method so we can get a pointer to Bison's yylval
              */
             int yylex();

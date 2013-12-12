@@ -21,7 +21,7 @@ namespace mgf
              * \brief convert a mz  in mass
              * \param mz the M/Z ratio
              * \param charge The charge (Z)
-             * \result the calculated mass in Da
+             * \return the calculated mass in Da
              */
             static constexpr double mz_to_masse(const double mz,const int charge){return mz*charge - charge*MH;}
 
