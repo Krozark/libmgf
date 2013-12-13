@@ -6,23 +6,23 @@ all: Parser Lexer $(OBJ)
 
 .cpp.o:
 	$(CC) $(FLAGS) -o "$@" -c "$<" 
-	@cp $@ "$(OBJ_DIR)"
+	@mv $@ "$(OBJ_DIR)"
 
 .c.o:
 	$(CC) $(FLAGS) -o "$@" -c "$<"
-	@cp $@ "$(OBJ_DIR)"
+	@mv $@ "$(OBJ_DIR)"
 
 Parser: Parser.yy
 	bison -v Parser.yy
 #mv Parser.tab.hh $(TOP)/include/mgf/
 #ln -s $(TOP)/include/mgf/Parser.tab.hh Parser.tab.hh
 	$(CC) $(FLAGS) -o "$@.o" -c "$@.tab.cc" 
-	@cp "$@.o" "$(OBJ_DIR)"
+	@mv "$@.o" "$(OBJ_DIR)"
 
 Lexer: Lexer.lex
 	flex --outfile=$@.yy.cc $<
 	$(CC) $(FLAGS) -o "$@.o" -c "$@.yy.cc" 
-	@cp "$@.o" "$(OBJ_DIR)"
+	@mv "$@.o" "$(OBJ_DIR)"
 
 
 
