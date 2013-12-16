@@ -331,5 +331,5 @@ int mgf_line_no = 1;
 }
 
 . {
-    std::cerr<<"line "<<mgf_line_no<<"what is that ??? :  <"<<yytext<<">"<<std::endl;
+    std::cerr<<"line "<<mgf_line_no<<" what is that ??? :  <"<<yytext<<">"<<std::endl;
 }
