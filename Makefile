@@ -4,7 +4,7 @@ LIBS =
 #-lpthread 
 #-lmysqlcppconn 
 export DEFINES = -DCOLORS -DNDEBUG
-export FLAGS = -Wall -og -std=c++0x $(INCPATH) $(LIBS) $(DEFINES)
+export FLAGS = -Wall -o3 -std=c++0x $(INCPATH) $(LIBS) $(DEFINES)
 export TOP = $(CURDIR)
 export OBJ_DIR = $(TOP)/obj
 
