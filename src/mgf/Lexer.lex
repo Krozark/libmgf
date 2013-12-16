@@ -324,11 +324,12 @@ int mgf_line_no = 1;
 }
 
 
-
-
 [A-Za-z][:;()A-Za-z0-9_.|]* {
     MGF_TOKEN_DEBUG("V_STRING"<<" (="<<yytext<<")");
     yylval->v_string = new std::string(yytext, yyleng);
     return token::V_STRING;
 }
 
+. {
+    std::cerr<<"line "<<mgf_line_no<<"what is that ??? :  <"<<yytext<<">"<<std::endl;
+}
