@@ -114,6 +114,12 @@ namespace mgf
             void setTitle(std::string& title);
 
             /**
+             * \return The title
+             */
+            const std::string& getTitle()const;
+
+
+            /**
              * \brief Not used
              */
             void setTol(double d);

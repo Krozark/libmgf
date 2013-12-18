@@ -81,6 +81,11 @@ namespace mgf
         title = s;
     }
 
+    const std::string& LocalHeader::getTitle()const
+    {
+        return title;
+    }
+
     void LocalHeader::setTol(double d)
     {
         MGF_IGNORED("LocalHeader::setTol");
