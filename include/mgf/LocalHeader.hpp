@@ -115,11 +115,6 @@ namespace mgf
 
 
             /**
-             * \return the Title
-             */
-            const std::string& getTitle()const;
-
-            /**
              * \return The title
              */
             const std::string& getTitle()const;
