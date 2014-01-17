@@ -44,6 +44,12 @@ int mgf_line_no = 1;
     /*return token::T_COMMENT;*/
 }
 
+^[#;!/][^\n]*\0 {
+    MGF_TOKEN_DEBUG("T_COMMENT");
+    ++mgf_line_no;
+    return token::T_END;
+}
+
 [[:space:]] {}
 
 
