@@ -39,11 +39,18 @@ namespace mgf
 
     void Spectrum::sort()
     {
-        std::sort(this->peaks.begin(),this->peaks.end(),[](const Peak* _1 ,const Peak* _2){return _1->getMass() < _2->getMass();});
+        std::sort(this->peaks.begin(),
+                  this->peaks.end(),
+                  [](const Peak* _1 ,const Peak* _2){
+                    return _1->getMass() < _2->getMass();
+                  });
     }
 
     void Spectrum::calc_mass()
     {
+        if(header.charge<=0)
+            header.charge = 1;
+
         mass = mgf::Convert::mz_to_mass(header.mz,header.charge);
     }
 
@@ -71,24 +78,24 @@ namespace mgf
     {
         /********* EXTREMITÉES ****************/
         Peak* p = new Peak(0,1,-1);
-        p->mass = 0;
+        p->mass = p->mz;
         peaks.emplace_back(p);
         special_peaks[SPECIAL::DEBUT] = p;
 
-        p = new Peak(0,1,-1);
-        p->mass = this->mass;
+        p = new Peak(this->mass,1,-1);
+        p->mass = p->mz;
         peaks.emplace_back(p);
         special_peaks[SPECIAL::FIN] = p;
         
         /***************** H2O *******************/
 
-        p = new Peak(0,1,-1); 
-        p->mass = mgf::Convert::MH2O; 
+        p = new Peak(mgf::Convert::MH2O,1,-1); 
+        p->mass = p->mz;
         peaks.emplace_back(p);
         special_peaks[SPECIAL::DEBUT_H2O] = p;
 
-        p = new Peak(0,1,-1);
-        p->mass = this->mass - mgf::Convert::MH2O;
+        p = new Peak(this->mass - mgf::Convert::MH2O,1,-1);
+        p->mass = p->mz;
         peaks.emplace_back(p);
         special_peaks[SPECIAL::FIN_H2O] = p;
     }
@@ -96,13 +103,10 @@ namespace mgf
     void Spectrum::prepare()
     {
         calc_mass(); // calc spectrum mass
-
         calc_mass_peaks(); // calc peaks mass
-
         normalize_intensitee(); // normalize intensity of peaks (before calc_mass_peaks to make less call)
         add_specials_peaks(); // add artificials peaks
         sort(); // sort peaks
-
         peaks.shrink_to_fit(); //reduce vector to minimal size
     }
 
