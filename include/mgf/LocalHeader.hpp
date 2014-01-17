@@ -73,6 +73,11 @@ namespace mgf
             void setPepMass(const double mass,const double itensity);
 
             /**
+             * \return get the mz
+             */
+            inline double getMz() const {return mz;};
+
+            /**
              * \return The intensity
              */
             inline double getIntensity()const{return intensity;}
