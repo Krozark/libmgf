@@ -38,12 +38,22 @@ namespace mgf
             ~Spectrum();
 
 
+            enum PrepareFlags {
+                CalcMass = 1 << 1,
+                CalcMassPeaks = 1<<2,
+                NormalizeIntensitee = 1 << 3,
+                AddSpecialsPeaks = 1<<4,
+                Sort = 1 << 5,
+                All = 0xFFFFFFFF
+            };
+
+
             /**
              * \brief Prepare the spectum for analyse.
              * Use this function before any analyse. It set the mass, and performe
              * some others tasks.
              */
-            void prepare();
+            void prepare(const int flags = PrepareFlags::All);
 
             /**
              * \return The peak list

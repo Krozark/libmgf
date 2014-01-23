@@ -19,7 +19,7 @@ namespace mgf
     }
 
     
-    Analyse Driver::parse()
+    Analyse Driver::parse(const int prepare_flags)
     {
         mgf::Analyse analyse;
         int status = 0;
@@ -27,7 +27,7 @@ namespace mgf
         {
             analyse.push(new Spectrum(std::move(currentSpectrum)));
             currentSpectrum.reset();
-            analyse.back().prepare();
+            analyse.back().prepare(prepare_flags);
         }
         if (status == 1)
             validity = false;
@@ -35,14 +35,14 @@ namespace mgf
         return analyse;
     }
 
-    Spectrum* Driver::next()
+    Spectrum* Driver::next(const int prepare_flags)
     {
         mgf::Spectrum* r = nullptr;
         int status = 0;
         if ((status = parser.parse()) == MGF_END_IONS)
         {
             r = new Spectrum(std::move(currentSpectrum));
-            r->prepare();
+            r->prepare(prepare_flags);
             currentSpectrum.clear();
         }
         else if ( status == 1)
@@ -50,19 +50,19 @@ namespace mgf
         return r;
     }
 
-    Analyse Driver::parse(std::istream& in)
+    Analyse Driver::parse(std::istream& in,const int prepare_flags)
     {
         Analyse res;
-        Driver::parse(in,res);
+        Driver::parse(in,res,prepare_flags);
         return res;
     }
 
-    int Driver::parse(std::istream& in,Analyse& a)
+    int Driver::parse(std::istream& in,Analyse& a,const int prepare_flags)
     {
         int res = 0;
         Driver driver(in);
         Spectrum* spectrum = nullptr;
-        while((spectrum = driver.next())!= nullptr)
+        while((spectrum = driver.next(prepare_flags))!= nullptr)
         {
             a.push(spectrum);
             ++res;
@@ -70,20 +70,20 @@ namespace mgf
         return res;
     }
 
-    Analyse Driver::parse_file(const std::string& filename)
+    Analyse Driver::parse_file(const std::string& filename,const int prepare_flags)
     {
         Analyse res;
-        Driver::parse_file(filename,res);
+        Driver::parse_file(filename,res,prepare_flags);
         return res;
     }
 
-    int Driver::parse_file(const std::string& filename,Analyse& a)
+    int Driver::parse_file(const std::string& filename,Analyse& a,const int prepare_flags)
     {
         int res = -1;
         std::ifstream file(filename, std::ifstream::in);
         if (file.good())
         {
-            res = Driver::parse(file,a);
+            res = Driver::parse(file,a,prepare_flags);
             file.close();
         }
         return res;

@@ -100,13 +100,23 @@ namespace mgf
         special_peaks[SPECIAL::FIN_H2O] = p;
     }
 
-    void Spectrum::prepare()
+    void Spectrum::prepare(const int flags)
     {
-        calc_mass(); // calc spectrum mass
-        calc_mass_peaks(); // calc peaks mass
-        normalize_intensitee(); // normalize intensity of peaks (before calc_mass_peaks to make less call)
-        add_specials_peaks(); // add artificials peaks
-        sort(); // sort peaks
+        if(flags & PrepareFlags::CalcMass)
+            calc_mass(); // calc spectrum mass
+
+        if(flags & PrepareFlags::CalcMassPeaks)
+            calc_mass_peaks(); // calc peaks mass
+
+        if(flags & PrepareFlags::NormalizeIntensitee)
+            normalize_intensitee(); // normalize intensity of peaks (before calc_mass_peaks to make less call)
+
+        if(flags & PrepareFlags::AddSpecialsPeaks)
+            add_specials_peaks(); // add artificials peaks
+
+        if(flags & PrepareFlags::Sort)
+            sort(); // sort peaks
+
         peaks.shrink_to_fit(); //reduce vector to minimal size
     }
 

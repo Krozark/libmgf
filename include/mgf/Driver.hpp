@@ -38,20 +38,20 @@ namespace mgf
              * \brief Parse all the input (until \0)
              * \return A analyse tha contain all the datas
              */
-            Analyse parse();
+            Analyse parse(const int prepare_flags = Spectrum::PrepareFlags::All);
 
             /**
              * \brief PArse only the next spectrum
              * \return a pointer to the Spectrum. if nullptr is recive, all the input have been pase. You have to manualy delete the Spectrum
              */
-            Spectrum* next();
+            Spectrum* next(const int prepare_flags = Spectrum::PrepareFlags::All);
 
             /**
              * \brief Parse a input
              * \param in The input stream to parse
              * \return The analyse tha contain all the datas
              */
-            static Analyse parse(std::istream& in);
+            static Analyse parse(std::istream& in,const int prepare_flags = Spectrum::PrepareFlags::All);
 
             /**
              * \brief Parse a input, and add the data parse to the analyse
@@ -59,14 +59,14 @@ namespace mgf
              * \param a Analyse where data will be saves
              * \return number of spectrum parsed
              */
-            static int parse(std::istream& in,Analyse& a);
+            static int parse(std::istream& in,Analyse& a,const int prepare_flags = Spectrum::PrepareFlags::All);
             
             /**
              * \brief Parse a file and return a Analyse
              * \param filename the mgf file name
              * \return A Analyse tha contain all the datas parsed
              */
-            static Analyse parse_file(const std::string& filename);
+            static Analyse parse_file(const std::string& filename,const int prepare_flags = Spectrum::PrepareFlags::All);
 
             /**
              * \brief Parse a file, and store data in the analyse
@@ -74,7 +74,7 @@ namespace mgf
              * \param a Analyse where data will be saved
              * \return number of spectrum parsed
              */
-            static int parse_file(const std::string& filename,Analyse& a);
+            static int parse_file(const std::string& filename,Analyse& a,const int prepare_flags = Spectrum::PrepareFlags::All);
 
 
             /**
