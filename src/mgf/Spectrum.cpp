@@ -162,9 +162,9 @@ namespace mgf
     void Spectrum::normalize_intensitee()
     {
         const unsigned int size = peaks.size();
-        double max = 0;
+        double max = 1;
 
-        meta.intensity_sum = 0.0;
+        meta.intensity_sum = SPECIAL::SIZE;
 
         for(unsigned int i=0;i<size;++i)
             max = MAX(max,peaks[i]->intensity);
