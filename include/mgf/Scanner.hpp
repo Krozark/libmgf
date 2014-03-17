@@ -10,7 +10,7 @@
 #define YY_DECL int mgf::Scanner::yylex()
 
 // Include Bison for types / tokens
-#include <mgf/Parser.tab.hh>
+#include <mgf/Parser.hpp>
 
 namespace mgf
 {
