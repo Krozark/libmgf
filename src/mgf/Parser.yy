@@ -154,6 +154,7 @@ ignoreds : ignored
 
 charge : V_INTEGER T_PLUS   {$$=$1;}
        | V_INTEGER T_MINUS  {$$=-$1;}
+       | V_INTEGER {$$=$1;}
        ;
 
 charge_list : charge    {auto l=MGF_NEW_INTEGER_LIST;l->push_back($1);$$=l;}

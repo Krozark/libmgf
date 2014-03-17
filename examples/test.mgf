@@ -1,0 +1,108 @@
+CHARGE=1+, 2+ and 3+
+###	
+###	D:\Data\Rabah\120105\4945RG.d\analysis.baf(4945RG.d)
+###	Instrument: micrOTOF-Q
+###    Bsa 1uM (AA 10%)
+###    PeakWidth 3.00, MiniumIntensity 20, S/N 1
+###    Retain Residuals no, Create neutrally no,
+###    FullScan Parameters: AdductIon (+)+H (-)-H, LowMass 250, HighMass 8000, MaxCharge charge decon 4, MinPeaks 3
+###    Perf. isotope decon yes, Max Charge Istopic decon 6, MW agreement 5.00, Abund. cutoff 2.00, Envelope cutoff 75.00
+###    MaxRes   Parameters: AdductIon (+)+H (-)-H, LowMass 100, HighMass 3000 
+###    Perf. isotope decon yes, Max Charge Istopic decon 3, Abund. cutoff 2.00
+###    MSn      Parameters: AdductIon (+)+H (-)-H, LowMass 50, HighMass 5000 
+###    Perf. isotope decon yes, Max Charge Istopic decon 6, Abund. cutoff 0.50
+###    Global Charge Limit: yes 3, Prefer FullScan Result: yes, Export what: 2 (0=non deconv/1=deconv only/2=mixed), NoMSMSSignals: 50, Intensity threshold: 20, NoMSSignals (deconv): 2, NoMSSignals (non-deconv): 0, NormalizeData: no, SingleCharged: no
+###FS:    #m/z: 417.2108 #charge   3
+###MaxRes:#m/z:   0.0000 #charge-128
+###MS: 1086/
+###MSMS: 1087/
+
+
+BEGIN IONS
+TITLE= Cmpd 1, +MSn(417.2108), 10.0 min
+PEPMASS=417.21083	35173
+CHARGE=3+
+123.79550	20	
+285.16455	56	
+302.14335	146	1+
+316.11683	99	
+322.17322	71	
+332.13336	112	
+369.15572	77	
+374.15347	75	
+378.13253	374	1+
+391.19413	174	1+
+396.15816	220	
+407.15391	106	
+414.17326	135	
+418.13776	123	
+425.16813	406	
+431.23843	402	1+
+435.16507	103	
+453.17054	507	
+515.22206	84	
+526.26568	104	
+538.26623	164	
+560.27970	218	1+
+566.27289	75	
+572.25047	261	1+
+576.24944	65	
+600.25217	243	1+
+653.28300	74	
+681.28219	174	1+
+685.31985	70	
+746.34391	439	1+
+781.37414	55	
+801.36467	49	
+892.43427	38	
+1098.01793	31	
+END IONS
+
+###FS:    #m/z: 625.3126 #charge   2
+###MaxRes:#m/z:   0.0000 #charge-128
+###MS: 1086/
+###MSMS: 1088/
+BEGIN IONS
+TITLE= Cmpd 2, +MSn(625.3126), 10.0 min
+PEPMASS=625.31260	18123
+CHARGE=2+
+373.17323	180	1+
+378.12913	70	
+385.24110	78	
+391.19428	344	1+
+413.21456	81	
+414.17661	198	1+
+425.17094	163	
+431.23188	442	
+435.16225	116	
+453.16397	244	
+464.71076	110	
+507.22984	130	
+526.20113	73	
+538.24981	103	
+542.26101	75	
+543.23055	184	1+
+551.78127	78	
+560.28464	227	1+
+566.25591	136	
+572.23503	168	
+594.25081	81	
+600.24245	124	
+618.23773	147	1+
+637.25838	94	
+653.28028	436	1+
+681.27131	578	1+
+685.33219	89	
+689.33421	90	
+714.28906	73	
+746.32896	165	
+800.35873	81	
+809.36092	96	
+828.34720	159	
+859.43300	307	1+
+956.41452	140	1+
+974.46017	411	1+
+1102.53547	26	
+1103.52506	26	
+1113.45050	30	
+END IONS
