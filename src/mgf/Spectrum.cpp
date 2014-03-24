@@ -54,7 +54,7 @@ namespace mgf
         mass = mgf::Convert::mz_to_mass(header.mz,header.charge);
     }
 
-    void Spectrum::calc_mass_peaks()
+    void Spectrum::calc_mass_peaks(const int max_charge)
     {
         Spectrum& self = *this;
 
@@ -62,10 +62,11 @@ namespace mgf
         unsigned int i=0;
         while(i<size)
         {
-            peaks.at(i)->calc_mass(self);
-            if (peaks.at(i)->mass > mass) //supression des truc impossible à etre en lien avec le peptide
+            auto p = peaks.at(i);
+            p->calc_mass(self);
+            if (p->mass > mass or (max_charge != 0 and max_charge > p->charge)) //supression des truc impossible à etre en lien avec le peptide
             {
-                delete peaks.at(i);
+                delete p;
                 peaks.erase(peaks.begin()+i);
                 --size;
             }
@@ -100,13 +101,13 @@ namespace mgf
         special_peaks[SPECIAL::FIN_H2O] = p;
     }
 
-    void Spectrum::prepare(const int flags)
+    void Spectrum::prepare(const int max_charge,const int flags)
     {
         if(flags & PrepareFlags::CalcMass)
             calc_mass(); // calc spectrum mass
 
         if(flags & PrepareFlags::CalcMassPeaks)
-            calc_mass_peaks(); // calc peaks mass
+            calc_mass_peaks(max_charge); // calc peaks mass
 
         if(flags & PrepareFlags::NormalizeIntensitee)
             normalize_intensitee(); // normalize intensity of peaks (before calc_mass_peaks to make less call)

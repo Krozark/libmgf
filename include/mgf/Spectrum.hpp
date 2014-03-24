@@ -53,7 +53,7 @@ namespace mgf
              * Use this function before any analyse. It set the mass, and performe
              * some others tasks.
              */
-            void prepare(const int flags = PrepareFlags::All);
+            void prepare(const int max_charge=0,const int flags = PrepareFlags::All);
 
             /**
              * \return The peak list
@@ -137,7 +137,7 @@ namespace mgf
 
             void sort(); ///< sort peaks by there mass
             void calc_mass();///< calc the spectrum mass
-            void calc_mass_peaks();///< calc all the peaks mass. It can add some new peaks, and delete others that have a mass greater than the specrum mass.
+            void calc_mass_peaks(const int max_charge=0);///< calc all the peaks mass. It can add some new peaks, and delete others that have a mass greater than the specrum mass.
             void add_specials_peaks();///< add specials peaks
             
             /**
