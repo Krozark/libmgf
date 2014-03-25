@@ -46,6 +46,7 @@
 
     #include <list>
 	#include <string>
+	#include <mgf/stdfx.hpp>
     #include <mgf/defines.hpp>
 
     #define MGF_NEW_INTEGER_LIST new std::list<int>

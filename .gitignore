@@ -2,8 +2,7 @@
 *.slo
 *.lo
 *.o
-main
-*.exe
+
 
 # Compiled Dynamic libraries
 *.so
@@ -27,3 +26,4 @@ trunk/mgf/
 *.vim
 build
 lib
+/cmake/cmake_uninstall.cmake
