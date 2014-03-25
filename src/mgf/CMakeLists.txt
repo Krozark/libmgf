@@ -1,34 +1,40 @@
 set(INCROOT ${PROJECT_SOURCE_DIR}/include/${CMAKE_PROJECT_NAME})
 set(SRCROOT ${PROJECT_SOURCE_DIR}/src/${CMAKE_PROJECT_NAME})
 
-FIND_PACKAGE(BISON REQUIRED)
-SET(BisonOutputSrc ${SRCROOT}/Parser.cpp)
-set(BisonOutputInc ${SRCROOT}/Parser.hpp ${SRCROOT}/location.hh ${SRCROOT}/position.hh ${SRCROOT}/stack.hh)
-IF(BISON_FOUND)
-    ADD_CUSTOM_COMMAND(
-        OUTPUT ${BisonOutputSrc} ${BisonOutputInc}
-      COMMAND ${BISON_EXECUTABLE}
-      --output=${BisonOutputSrc}
-              ${SRCROOT}/Parser.yy
-      COMMENT "Generating Parser.cpp"
-    )
-else()
-    message( SEND_ERROR "Bison is required" )
-ENDIF()
+if(UNIX)
+	FIND_PACKAGE(BISON REQUIRED)
+	SET(BisonOutputSrc ${SRCROOT}/Parser.cpp)
+	set(BisonOutputInc ${SRCROOT}/Parser.hpp ${SRCROOT}/location.hh ${SRCROOT}/position.hh ${SRCROOT}/stack.hh)
+	IF(BISON_FOUND)
+		ADD_CUSTOM_COMMAND(
+			OUTPUT ${BisonOutputSrc} ${BisonOutputInc}
+		  COMMAND ${BISON_EXECUTABLE}
+		  --output=${BisonOutputSrc}
+				  ${SRCROOT}/Parser.yy
+		  COMMENT "Generating Parser.cpp"
+		)
+	else()
+		message( SEND_ERROR "Bison is required" )
+	ENDIF()
 
-FIND_PACKAGE(FLEX REQUIRED)
-SET(FlexOutputSrc ${SRCROOT}/Lexer.cpp)
-IF(FLEX_FOUND)
-    ADD_CUSTOM_COMMAND(
-        OUTPUT ${FlexOutputSrc}
-      COMMAND ${FLEX_EXECUTABLE}
-      --outfile=${FlexOutputSrc}
-              ${SRCROOT}/Lexer.lex
-              COMMENT "Generating Lexer.cpp"
-    )
-else()
-    message( SEND_ERROR "Flex is required" )
-ENDIF()
+	FIND_PACKAGE(FLEX REQUIRED)
+	SET(FlexOutputSrc ${SRCROOT}/Lexer.cpp)
+	IF(FLEX_FOUND)
+		ADD_CUSTOM_COMMAND(
+			OUTPUT ${FlexOutputSrc}
+		  COMMAND ${FLEX_EXECUTABLE}
+		  --outfile=${FlexOutputSrc}
+				  ${SRCROOT}/Lexer.lex
+				  COMMENT "Generating Lexer.cpp"
+		)
+	else()
+		message( SEND_ERROR "Flex is required" )
+	ENDIF()
+elseif(WIN32)
+    set(FlexOutputSrc ${SRCROOT}/Win/Lexer.cpp)
+	set(BisonOutputSrc ${SRCROOT}/Win/Parser.cpp)
+	set(BisonOutputInc ${SRCROOT}/Win/Parser.hpp ${SRCROOT}/Win/location.hh ${SRCROOT}/Win/position.hh ${SRCROOT}/Win/stack.hh)
+endif()
 
 #ROOT files
 set(ROOT_SRC
