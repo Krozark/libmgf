@@ -100,8 +100,8 @@ INSTALL(TARGETS ${CMAKE_PROJECT_NAME}-static
 
 #EXEMPLE
 if(BUILD_EXAMPLES)
-    add_executable(basic basic.cpp ${FILES_HEADER} ${FILES_SRC})
-#target_link_libraries(basic ${})
+    add_executable(basic basic.cpp)
+	target_link_libraries(basic ${CMAKE_PROJECT_NAME})
 endif()
 
 #header
