@@ -1,55 +1,51 @@
-// A Bison parser, made by GNU Bison 3.0.
+/* A Bison parser, made by GNU Bison 2.7.12-4996.  */
 
-// Skeleton implementation for Bison LALR(1) parsers in C++
+/* Skeleton implementation for Bison LALR(1) parsers in C++
+   
+      Copyright (C) 2002-2013 Free Software Foundation, Inc.
+   
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
-// Copyright (C) 2002-2013 Free Software Foundation, Inc.
-
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-// As a special exception, you may create a larger work that contains
-// part or all of the Bison parser skeleton and distribute that work
-// under terms of your choice, so long as that work isn't itself a
-// parser generator using the skeleton or a modified version thereof
-// as a parser skeleton.  Alternatively, if you modify or redistribute
-// the parser skeleton itself, you may (at your option) remove this
-// special exception, which will cause the skeleton and the resulting
-// Bison output files to be licensed under the GNU General Public
-// License without this special exception.
-
-// This special exception was added by the Free Software Foundation in
-// version 2.2 of Bison.
+/* As a special exception, you may create a larger work that contains
+   part or all of the Bison parser skeleton and distribute that work
+   under terms of your choice, so long as that work isn't itself a
+   parser generator using the skeleton or a modified version thereof
+   as a parser skeleton.  Alternatively, if you modify or redistribute
+   the parser skeleton itself, you may (at your option) remove this
+   special exception, which will cause the skeleton and the resulting
+   Bison output files to be licensed under the GNU General Public
+   License without this special exception.
+   
+   This special exception was added by the Free Software Foundation in
+   version 2.2 of Bison.  */
 
 
-// First part of user declarations.
+/* First part of user declarations.  */
 
-#line 37 "Parser.cpp" // lalr1.cc:398
+/* Line 283 of lalr1.cc  */
+#line 38 "Parser.cpp"
 
-# ifndef YY_NULL
-#  if defined __cplusplus && 201103L <= __cplusplus
-#   define YY_NULL nullptr
-#  else
-#   define YY_NULL 0
-#  endif
-# endif
 
 #include "Parser.hpp"
 
-// User implementation prologue.
+/* User implementation prologue.  */
 
-#line 51 "Parser.cpp" // lalr1.cc:406
-// Unqualified %code blocks.
-#line 45 "Parser.yy" // lalr1.cc:407
+/* Line 289 of lalr1.cc  */
+#line 46 "Parser.cpp"
+/* Unqualified %code blocks.  */
+/* Line 290 of lalr1.cc  */
+#line 45 "Parser.yy"
 
     #include <utility>
     #include <mgf/Driver.hpp>
@@ -59,13 +55,23 @@
 
     #define DEL(x) delete x; x=nullptr;
 
-#line 63 "Parser.cpp" // lalr1.cc:407
 
+/* Line 290 of lalr1.cc  */
+#line 61 "Parser.cpp"
+
+
+# ifndef YY_NULL
+#  if defined __cplusplus && 201103L <= __cplusplus
+#   define YY_NULL nullptr
+#  else
+#   define YY_NULL 0
+#  endif
+# endif
 
 #ifndef YY_
 # if defined YYENABLE_NLS && YYENABLE_NLS
 #  if ENABLE_NLS
-#   include <libintl.h> // FIXME: INFRINGES ON USER NAME SPACE.
+#   include <libintl.h> /* FIXME: INFRINGES ON USER NAME SPACE */
 #   define YY_(msgid) dgettext ("bison-runtime", msgid)
 #  endif
 # endif
@@ -74,59 +80,80 @@
 # endif
 #endif
 
+#define YYRHSLOC(Rhs, K) ((Rhs)[K])
+/* YYLLOC_DEFAULT -- Set CURRENT to span from RHS[1] to RHS[N].
+   If N is 0, then set CURRENT to the empty location which ends
+   the previous symbol: RHS[0] (always defined).  */
+
+# ifndef YYLLOC_DEFAULT
+#  define YYLLOC_DEFAULT(Current, Rhs, N)                               \
+    do                                                                  \
+      if (N)                                                            \
+        {                                                               \
+          (Current).begin  = YYRHSLOC (Rhs, 1).begin;                   \
+          (Current).end    = YYRHSLOC (Rhs, N).end;                     \
+        }                                                               \
+      else                                                              \
+        {                                                               \
+          (Current).begin = (Current).end = YYRHSLOC (Rhs, 0).end;      \
+        }                                                               \
+    while (/*CONSTCOND*/ false)
+# endif
 
 
-// Suppress unused-variable warnings by "using" E.
-#define YYUSE(E) ((void) (E))
+/* Suppress unused-variable warnings by "using" E.  */
+#define YYUSE(e) ((void) (e))
 
-// Enable debugging if requested.
+/* Enable debugging if requested.  */
 #if YYDEBUG
 
-// A pseudo ostream that takes yydebug_ into account.
+/* A pseudo ostream that takes yydebug_ into account.  */
 # define YYCDEBUG if (yydebug_) (*yycdebug_)
 
-# define YY_SYMBOL_PRINT(Title, Symbol)         \
-  do {                                          \
-    if (yydebug_)                               \
-    {                                           \
-      *yycdebug_ << Title << ' ';               \
-      yy_print_ (*yycdebug_, Symbol);           \
-      *yycdebug_ << std::endl;                  \
-    }                                           \
-  } while (false)
+# define YY_SYMBOL_PRINT(Title, Type, Value, Location)	\
+do {							\
+  if (yydebug_)						\
+    {							\
+      *yycdebug_ << Title << ' ';			\
+      yy_symbol_print_ ((Type), (Value), (Location));	\
+      *yycdebug_ << std::endl;				\
+    }							\
+} while (false)
 
-# define YY_REDUCE_PRINT(Rule)          \
-  do {                                  \
-    if (yydebug_)                       \
-      yy_reduce_print_ (Rule);          \
-  } while (false)
+# define YY_REDUCE_PRINT(Rule)		\
+do {					\
+  if (yydebug_)				\
+    yy_reduce_print_ (Rule);		\
+} while (false)
 
-# define YY_STACK_PRINT()               \
-  do {                                  \
-    if (yydebug_)                       \
-      yystack_print_ ();                \
-  } while (false)
+# define YY_STACK_PRINT()		\
+do {					\
+  if (yydebug_)				\
+    yystack_print_ ();			\
+} while (false)
 
-#else // !YYDEBUG
+#else /* !YYDEBUG */
 
 # define YYCDEBUG if (false) std::cerr
-# define YY_SYMBOL_PRINT(Title, Symbol)  YYUSE(Symbol)
-# define YY_REDUCE_PRINT(Rule)           static_cast<void>(0)
-# define YY_STACK_PRINT()                static_cast<void>(0)
+# define YY_SYMBOL_PRINT(Title, Type, Value, Location) YYUSE(Type)
+# define YY_REDUCE_PRINT(Rule)        static_cast<void>(0)
+# define YY_STACK_PRINT()             static_cast<void>(0)
 
-#endif // !YYDEBUG
+#endif /* !YYDEBUG */
 
-#define yyerrok         (yyerrstatus_ = 0)
-#define yyclearin       (yyempty = true)
+#define yyerrok		(yyerrstatus_ = 0)
+#define yyclearin	(yychar = yyempty_)
 
-#define YYACCEPT        goto yyacceptlab
-#define YYABORT         goto yyabortlab
-#define YYERROR         goto yyerrorlab
+#define YYACCEPT	goto yyacceptlab
+#define YYABORT		goto yyabortlab
+#define YYERROR		goto yyerrorlab
 #define YYRECOVERING()  (!!yyerrstatus_)
 
-#line 10 "Parser.yy" // lalr1.cc:473
+/* Line 357 of lalr1.cc  */
+#line 10 "Parser.yy"
 namespace mgf {
-#line 130 "Parser.cpp" // lalr1.cc:473
+/* Line 357 of lalr1.cc  */
+#line 157 "Parser.cpp"
 
   /* Return YYSTR after stripping away unnecessary quotes and
      backslashes, so that it's suitable for yyerror.  The heuristic is
@@ -151,7 +178,7 @@ namespace mgf {
             case '\\':
               if (*++yyp != '\\')
                 goto do_not_strip_quotes;
-              // Fall through.
+              /* Fall through.  */
             default:
               yyr += *yyp;
               break;
@@ -175,206 +202,63 @@ namespace mgf {
 #endif
       scanner (scanner_yyarg),
       driver (driver_yyarg)
-  {}
+  {
+  }
 
   Parser::~Parser ()
-  {}
-
-
-  /*---------------.
-  | Symbol types.  |
-  `---------------*/
-
-  inline
-  Parser::syntax_error::syntax_error (const std::string& m)
-    : std::runtime_error (m)
-  {}
-
-  // basic_symbol.
-  template <typename Base>
-  inline
-  Parser::basic_symbol<Base>::basic_symbol ()
-    : value ()
-  {}
-
-  template <typename Base>
-  inline
-  Parser::basic_symbol<Base>::basic_symbol (const basic_symbol& other)
-    : Base (other)
-    , value ()
   {
-    value = other.value;
-  }
-
-
-  template <typename Base>
-  inline
-  Parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const semantic_type& v)
-    : Base (t)
-    , value (v)
-  {}
-
-
-  /// Constructor for valueless symbols.
-  template <typename Base>
-  inline
-  Parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t)
-    : Base (t)
-    , value ()
-  {}
-
-  template <typename Base>
-  inline
-  Parser::basic_symbol<Base>::~basic_symbol ()
-  {
-  }
-
-  template <typename Base>
-  inline
-  void
-  Parser::basic_symbol<Base>::move (basic_symbol& s)
-  {
-    super_type::move(s);
-    value = s.value;
-  }
-
-  // by_type.
-  inline
-  Parser::by_type::by_type ()
-     : type (empty)
-  {}
-
-  inline
-  Parser::by_type::by_type (const by_type& other)
-    : type (other.type)
-  {}
-
-  inline
-  Parser::by_type::by_type (token_type t)
-    : type (yytranslate_ (t))
-  {}
-
-  inline
-  void
-  Parser::by_type::move (by_type& that)
-  {
-    type = that.type;
-    that.type = empty;
-  }
-
-  inline
-  int
-  Parser::by_type::type_get () const
-  {
-    return type;
-  }
-
-
-  // by_state.
-  inline
-  Parser::by_state::by_state ()
-    : state (empty)
-  {}
-
-  inline
-  Parser::by_state::by_state (const by_state& other)
-    : state (other.state)
-  {}
-
-  inline
-  void
-  Parser::by_state::move (by_state& that)
-  {
-    state = that.state;
-    that.state = empty;
-  }
-
-  inline
-  Parser::by_state::by_state (state_type s)
-    : state (s)
-  {}
-
-  inline
-  Parser::symbol_number_type
-  Parser::by_state::type_get () const
-  {
-    return state == empty ? 0 : yystos_[state];
-  }
-
-  inline
-  Parser::stack_symbol_type::stack_symbol_type ()
-  {}
-
-
-  inline
-  Parser::stack_symbol_type::stack_symbol_type (state_type s, symbol_type& that)
-    : super_type (s)
-  {
-    value = that.value;
-    // that is emptied.
-    that.type = empty;
-  }
-
-  inline
-  Parser::stack_symbol_type&
-  Parser::stack_symbol_type::operator= (const stack_symbol_type& that)
-  {
-    state = that.state;
-    value = that.value;
-    return *this;
-  }
-
-
-  template <typename Base>
-  inline
-  void
-  Parser::yy_destroy_ (const char* yymsg, basic_symbol<Base>& yysym) const
-  {
-    if (yymsg)
-      YY_SYMBOL_PRINT (yymsg, yysym);
-
-    // User destructor.
-    YYUSE (yysym.type_get ());
   }
 
 #if YYDEBUG
-  template <typename Base>
-  void
-  Parser::yy_print_ (std::ostream& yyo,
-                                     const basic_symbol<Base>& yysym) const
+  /*--------------------------------.
+  | Print this symbol on YYOUTPUT.  |
+  `--------------------------------*/
+
+  inline void
+  Parser::yy_symbol_value_print_ (int yytype,
+			   const semantic_type* yyvaluep, const location_type* yylocationp)
   {
+    YYUSE (yylocationp);
+    YYUSE (yyvaluep);
+    std::ostream& yyo = debug_stream ();
     std::ostream& yyoutput = yyo;
     YYUSE (yyoutput);
-    symbol_number_type yytype = yysym.type_get ();
-    yyo << (yytype < yyntokens_ ? "token" : "nterm")
-        << ' ' << yytname_[yytype] << " (";
     YYUSE (yytype);
-    yyo << ')';
+  }
+
+
+  void
+  Parser::yy_symbol_print_ (int yytype,
+			   const semantic_type* yyvaluep, const location_type* yylocationp)
+  {
+    *yycdebug_ << (yytype < yyntokens_ ? "token" : "nterm")
+	       << ' ' << yytname_[yytype] << " ("
+	       << *yylocationp << ": ";
+    yy_symbol_value_print_ (yytype, yyvaluep, yylocationp);
+    *yycdebug_ << ')';
   }
 #endif
 
-  inline
   void
-  Parser::yypush_ (const char* m, state_type s, symbol_type& sym)
+  Parser::yydestruct_ (const char* yymsg,
+			   int yytype, semantic_type* yyvaluep, location_type* yylocationp)
   {
-    stack_symbol_type t (s, sym);
-    yypush_ (m, t);
+    YYUSE (yylocationp);
+    YYUSE (yymsg);
+    YYUSE (yyvaluep);
+
+    if (yymsg)
+      YY_SYMBOL_PRINT (yymsg, yytype, yyvaluep, yylocationp);
+
+    YYUSE (yytype);
   }
 
-  inline
-  void
-  Parser::yypush_ (const char* m, stack_symbol_type& s)
-  {
-    if (m)
-      YY_SYMBOL_PRINT (m, s);
-    yystack_.push (s);
-  }
-
-  inline
   void
   Parser::yypop_ (unsigned int n)
   {
-    yystack_.pop (n);
+    yystate_stack_.pop (n);
+    yysemantic_stack_.pop (n);
+    yylocation_stack_.pop (n);
   }
 
 #if YYDEBUG
@@ -402,17 +286,7 @@ namespace mgf {
   {
     yydebug_ = l;
   }
-#endif // YYDEBUG
-
-  inline Parser::state_type
-  Parser::yy_lr_goto_state_ (state_type yystate, int yylhs)
-  {
-    int yyr = yypgoto_[yylhs - yyntokens_] + yystate;
-    if (0 <= yyr && yyr <= yylast_ && yycheck_[yyr] == yystate)
-      return yytable_[yyr];
-    else
-      return yydefgoto_[yylhs - yyntokens_];
-  }
+#endif
 
   inline bool
   Parser::yy_pact_value_is_default_ (int yyvalue)
@@ -429,24 +303,32 @@ namespace mgf {
   int
   Parser::parse ()
   {
-    /// Whether yyla contains a lookahead.
-    bool yyempty = true;
+    /// Lookahead and lookahead in internal form.
+    int yychar = yyempty_;
+    int yytoken = 0;
 
     // State.
     int yyn;
     int yylen = 0;
+    int yystate = 0;
 
     // Error handling.
     int yynerrs_ = 0;
     int yyerrstatus_ = 0;
 
-    /// The lookahead symbol.
-    symbol_type yyla;
+    /// Semantic value of the lookahead.
+    static semantic_type yyval_default;
+    semantic_type yylval = yyval_default;
+    /// Location of the lookahead.
+    location_type yylloc;
+    /// The locations where the error started and ended.
+    location_type yyerror_range[3];
 
-    /// $$ and @$.
-    stack_symbol_type yylhs;
+    /// $$.
+    semantic_type yyval;
+    /// @$.
+    location_type yyloc;
 
-    /// The return value of parse ().
     int yyresult;
 
     // FIXME: This shoud be completely indented.  It is not yet to
@@ -456,80 +338,92 @@ namespace mgf {
     YYCDEBUG << "Starting parse" << std::endl;
 
 
-    /* Initialize the stack.  The initial state will be set in
+    /* Initialize the stacks.  The initial state will be pushed in
        yynewstate, since the latter expects the semantical and the
        location values to have been already stored, initialize these
        stacks with a primary value.  */
-    yystack_.clear ();
-    yypush_ (YY_NULL, 0, yyla);
+    yystate_stack_.clear ();
+    yysemantic_stack_.clear ();
+    yylocation_stack_.clear ();
+    yysemantic_stack_.push (yylval);
+    yylocation_stack_.push (yylloc);
 
-    // A new symbol was pushed on the stack.
+    /* New state.  */
   yynewstate:
-    YYCDEBUG << "Entering state " << yystack_[0].state << std::endl;
+    yystate_stack_.push (yystate);
+    YYCDEBUG << "Entering state " << yystate << std::endl;
 
-    // Accept?
-    if (yystack_[0].state == yyfinal_)
+    /* Accept?  */
+    if (yystate == yyfinal_)
       goto yyacceptlab;
 
     goto yybackup;
 
-    // Backup.
+    /* Backup.  */
   yybackup:
 
-    // Try to take a decision without lookahead.
-    yyn = yypact_[yystack_[0].state];
+    /* Try to take a decision without lookahead.  */
+    yyn = yypact_[yystate];
     if (yy_pact_value_is_default_ (yyn))
       goto yydefault;
 
-    // Read a lookahead token.
-    if (yyempty)
+    /* Read a lookahead token.  */
+    if (yychar == yyempty_)
       {
         YYCDEBUG << "Reading a token: ";
-        try
-          {
-            yyla.type = yytranslate_ (yylex (&yyla.value, scanner));
-          }
-        catch (const syntax_error& yyexc)
-          {
-            error (yyexc);
-            goto yyerrlab1;
-          }
-        yyempty = false;
+        yychar = yylex (&yylval, scanner);
       }
-    YY_SYMBOL_PRINT ("Next token is", yyla);
 
-    /* If the proper action on seeing token YYLA.TYPE is to reduce or
-       to detect an error, take that action.  */
-    yyn += yyla.type_get ();
-    if (yyn < 0 || yylast_ < yyn || yycheck_[yyn] != yyla.type_get ())
+    /* Convert token to internal form.  */
+    if (yychar <= yyeof_)
+      {
+	yychar = yytoken = yyeof_;
+	YYCDEBUG << "Now at end of input." << std::endl;
+      }
+    else
+      {
+	yytoken = yytranslate_ (yychar);
+	YY_SYMBOL_PRINT ("Next token is", yytoken, &yylval, &yylloc);
+      }
+
+    /* If the proper action on seeing token YYTOKEN is to reduce or to
+       detect an error, take that action.  */
+    yyn += yytoken;
+    if (yyn < 0 || yylast_ < yyn || yycheck_[yyn] != yytoken)
       goto yydefault;
 
-    // Reduce or error.
+    /* Reduce or error.  */
     yyn = yytable_[yyn];
     if (yyn <= 0)
       {
-        if (yy_table_value_is_error_ (yyn))
-          goto yyerrlab;
-        yyn = -yyn;
-        goto yyreduce;
+	if (yy_table_value_is_error_ (yyn))
+	  goto yyerrlab;
+	yyn = -yyn;
+	goto yyreduce;
       }
 
-    // Discard the token being shifted.
-    yyempty = true;
+    /* Shift the lookahead token.  */
+    YY_SYMBOL_PRINT ("Shifting", yytoken, &yylval, &yylloc);
 
-    // Count tokens shifted since error; after three, turn off error status.
+    /* Discard the token being shifted.  */
+    yychar = yyempty_;
+
+    yysemantic_stack_.push (yylval);
+    yylocation_stack_.push (yylloc);
+
+    /* Count tokens shifted since error; after three, turn off error
+       status.  */
     if (yyerrstatus_)
       --yyerrstatus_;
 
-    // Shift the lookahead token.
-    yypush_ ("Shifting", yyn, yyla);
+    yystate = yyn;
     goto yynewstate;
 
   /*-----------------------------------------------------------.
   | yydefault -- do the default action for the current state.  |
   `-----------------------------------------------------------*/
   yydefault:
-    yyn = yydefact_[yystack_[0].state];
+    yyn = yydefact_[yystate];
     if (yyn == 0)
       goto yyerrlab;
     goto yyreduce;
@@ -539,554 +433,581 @@ namespace mgf {
   `-----------------------------*/
   yyreduce:
     yylen = yyr2_[yyn];
-    yylhs.state = yy_lr_goto_state_(yystack_[yylen].state, yyr1_[yyn]);
     /* If YYLEN is nonzero, implement the default value of the action:
-       '$$ = $1'.  Otherwise, use the top of the stack.
+       `$$ = $1'.  Otherwise, use the top of the stack.
 
-       Otherwise, the following line sets YYLHS.VALUE to garbage.
+       Otherwise, the following line sets YYVAL to garbage.
        This behavior is undocumented and Bison
        users should not rely upon it.  */
     if (yylen)
-      yylhs.value = yystack_[yylen - 1].value;
+      yyval = yysemantic_stack_[yylen - 1];
     else
-      yylhs.value = yystack_[0].value;
+      yyval = yysemantic_stack_[0];
 
+    // Compute the default @$.
+    {
+      slice<location_type, location_stack_type> slice (yylocation_stack_, yylen);
+      YYLLOC_DEFAULT (yyloc, slice, yylen);
+    }
 
     // Perform the reduction.
     YY_REDUCE_PRINT (yyn);
-    try
+    switch (yyn)
       {
-        switch (yyn)
-          {
-  case 2:
-#line 156 "Parser.yy" // lalr1.cc:846
-    {(yylhs.value.v_integer)=(yystack_[1].value.v_integer);}
-#line 565 "Parser.cpp" // lalr1.cc:846
+          case 2:
+/* Line 664 of lalr1.cc  */
+#line 156 "Parser.yy"
+    {(yyval.v_integer)=(yysemantic_stack_[(2) - (1)].v_integer);}
     break;
 
   case 3:
-#line 157 "Parser.yy" // lalr1.cc:846
-    {(yylhs.value.v_integer)=-(yystack_[1].value.v_integer);}
-#line 571 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 157 "Parser.yy"
+    {(yyval.v_integer)=-(yysemantic_stack_[(2) - (1)].v_integer);}
     break;
 
   case 4:
-#line 158 "Parser.yy" // lalr1.cc:846
-    {(yylhs.value.v_integer)=(yystack_[0].value.v_integer);}
-#line 577 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 158 "Parser.yy"
+    {(yyval.v_integer)=(yysemantic_stack_[(1) - (1)].v_integer);}
     break;
 
   case 5:
-#line 161 "Parser.yy" // lalr1.cc:846
-    {auto l=MGF_NEW_INTEGER_LIST;l->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=l;}
-#line 583 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 161 "Parser.yy"
+    {auto l=MGF_NEW_INTEGER_LIST;l->push_back((yysemantic_stack_[(1) - (1)].v_integer));(yyval.v_interger_list)=l;}
     break;
 
   case 6:
-#line 162 "Parser.yy" // lalr1.cc:846
-    {(yystack_[2].value.v_interger_list)->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=(yystack_[2].value.v_interger_list);(yystack_[2].value.v_interger_list)=nullptr;}
-#line 589 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 162 "Parser.yy"
+    {(yysemantic_stack_[(3) - (1)].v_interger_list)->push_back((yysemantic_stack_[(3) - (3)].v_integer));(yyval.v_interger_list)=(yysemantic_stack_[(3) - (1)].v_interger_list);(yysemantic_stack_[(3) - (1)].v_interger_list)=nullptr;}
     break;
 
   case 7:
-#line 163 "Parser.yy" // lalr1.cc:846
-    {(yystack_[2].value.v_interger_list)->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=(yystack_[2].value.v_interger_list);(yystack_[2].value.v_interger_list)=nullptr;}
-#line 595 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 163 "Parser.yy"
+    {(yysemantic_stack_[(3) - (1)].v_interger_list)->push_back((yysemantic_stack_[(3) - (3)].v_integer));(yyval.v_interger_list)=(yysemantic_stack_[(3) - (1)].v_interger_list);(yysemantic_stack_[(3) - (1)].v_interger_list)=nullptr;}
     break;
 
   case 8:
-#line 166 "Parser.yy" // lalr1.cc:846
-    {(yylhs.value.v_double)=(yystack_[1].value.v_double);}
-#line 601 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 166 "Parser.yy"
+    {(yyval.v_double)=(yysemantic_stack_[(3) - (2)].v_double);}
     break;
 
   case 9:
-#line 169 "Parser.yy" // lalr1.cc:846
-    { (yystack_[2].value.v_double_list)->push_back((yystack_[0].value.v_double));(yylhs.value.v_double_list)=(yystack_[2].value.v_double_list);(yystack_[2].value.v_double_list)=nullptr;}
-#line 607 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 169 "Parser.yy"
+    { (yysemantic_stack_[(3) - (1)].v_double_list)->push_back((yysemantic_stack_[(3) - (3)].v_double));(yyval.v_double_list)=(yysemantic_stack_[(3) - (1)].v_double_list);(yysemantic_stack_[(3) - (1)].v_double_list)=nullptr;}
     break;
 
   case 10:
-#line 170 "Parser.yy" // lalr1.cc:846
-    {auto l = MGF_NEW_DOUBLE_LIST;l->push_back((yystack_[0].value.v_double));(yylhs.value.v_double_list)=l;}
-#line 613 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 170 "Parser.yy"
+    {auto l = MGF_NEW_DOUBLE_LIST;l->push_back((yysemantic_stack_[(1) - (1)].v_double));(yyval.v_double_list)=l;}
     break;
 
   case 11:
-#line 174 "Parser.yy" // lalr1.cc:846
-    {(yystack_[2].value.v_interger_list)->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=(yystack_[2].value.v_interger_list);(yystack_[2].value.v_interger_list)=nullptr;}
-#line 619 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 174 "Parser.yy"
+    {(yysemantic_stack_[(3) - (1)].v_interger_list)->push_back((yysemantic_stack_[(3) - (3)].v_integer));(yyval.v_interger_list)=(yysemantic_stack_[(3) - (1)].v_interger_list);(yysemantic_stack_[(3) - (1)].v_interger_list)=nullptr;}
     break;
 
   case 12:
-#line 175 "Parser.yy" // lalr1.cc:846
-    {auto l = MGF_NEW_INTEGER_LIST;l->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=l;}
-#line 625 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 175 "Parser.yy"
+    {auto l = MGF_NEW_INTEGER_LIST;l->push_back((yysemantic_stack_[(1) - (1)].v_integer));(yyval.v_interger_list)=l;}
     break;
 
   case 13:
-#line 178 "Parser.yy" // lalr1.cc:846
-    {(yystack_[2].value.v_string_list)->push_back(*(yystack_[0].value.v_string));(yylhs.value.v_string_list)=(yystack_[2].value.v_string_list);(yystack_[2].value.v_string_list)=nullptr;DEL((yystack_[0].value.v_string));}
-#line 631 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 178 "Parser.yy"
+    {(yysemantic_stack_[(3) - (1)].v_string_list)->push_back(*(yysemantic_stack_[(3) - (3)].v_string));(yyval.v_string_list)=(yysemantic_stack_[(3) - (1)].v_string_list);(yysemantic_stack_[(3) - (1)].v_string_list)=nullptr;DEL((yysemantic_stack_[(3) - (3)].v_string));}
     break;
 
   case 14:
-#line 179 "Parser.yy" // lalr1.cc:846
-    {auto l = MGF_NEW_STRING_LIST;l->push_back(*(yystack_[0].value.v_string));(yylhs.value.v_string_list)=l;}
-#line 637 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 179 "Parser.yy"
+    {auto l = MGF_NEW_STRING_LIST;l->push_back(*(yysemantic_stack_[(1) - (1)].v_string));(yyval.v_string_list)=l;}
     break;
 
   case 15:
-#line 182 "Parser.yy" // lalr1.cc:846
-    {(yylhs.value.v_string)=(yystack_[0].value.v_string);(yystack_[0].value.v_string)=nullptr;}
-#line 643 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 182 "Parser.yy"
+    {(yyval.v_string)=(yysemantic_stack_[(1) - (1)].v_string);(yysemantic_stack_[(1) - (1)].v_string)=nullptr;}
     break;
 
   case 16:
-#line 183 "Parser.yy" // lalr1.cc:846
-    {*(yystack_[1].value.v_string)+=*(yystack_[0].value.v_string);DEL((yystack_[0].value.v_string));(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 649 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 183 "Parser.yy"
+    {*(yysemantic_stack_[(2) - (1)].v_string)+=*(yysemantic_stack_[(2) - (2)].v_string);DEL((yysemantic_stack_[(2) - (2)].v_string));(yyval.v_string)=(yysemantic_stack_[(2) - (1)].v_string);(yysemantic_stack_[(2) - (1)].v_string)=nullptr;}
     break;
 
   case 17:
-#line 184 "Parser.yy" // lalr1.cc:846
-    {*(yystack_[1].value.v_string)+=std::to_string((yystack_[0].value.v_double));(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 655 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 184 "Parser.yy"
+    {*(yysemantic_stack_[(2) - (1)].v_string)+=std::to_string((yysemantic_stack_[(2) - (2)].v_double));(yyval.v_string)=(yysemantic_stack_[(2) - (1)].v_string);(yysemantic_stack_[(2) - (1)].v_string)=nullptr;}
     break;
 
   case 18:
-#line 185 "Parser.yy" // lalr1.cc:846
-    {*(yystack_[1].value.v_string)+=",";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 661 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 185 "Parser.yy"
+    {*(yysemantic_stack_[(2) - (1)].v_string)+=",";(yyval.v_string)=(yysemantic_stack_[(2) - (1)].v_string);(yysemantic_stack_[(2) - (1)].v_string)=nullptr;}
     break;
 
   case 19:
-#line 186 "Parser.yy" // lalr1.cc:846
-    {*(yystack_[1].value.v_string)+="+";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 667 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 186 "Parser.yy"
+    {*(yysemantic_stack_[(2) - (1)].v_string)+="+";(yyval.v_string)=(yysemantic_stack_[(2) - (1)].v_string);(yysemantic_stack_[(2) - (1)].v_string)=nullptr;}
     break;
 
   case 20:
-#line 187 "Parser.yy" // lalr1.cc:846
-    {*(yystack_[1].value.v_string)+="-";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 673 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 187 "Parser.yy"
+    {*(yysemantic_stack_[(2) - (1)].v_string)+="-";(yyval.v_string)=(yysemantic_stack_[(2) - (1)].v_string);(yysemantic_stack_[(2) - (1)].v_string)=nullptr;}
     break;
 
   case 21:
-#line 190 "Parser.yy" // lalr1.cc:846
-    {(yylhs.value.v_double)=(yystack_[0].value.v_integer);}
-#line 679 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 190 "Parser.yy"
+    {(yyval.v_double)=(yysemantic_stack_[(1) - (1)].v_integer);}
     break;
 
   case 22:
-#line 191 "Parser.yy" // lalr1.cc:846
-    {(yylhs.value.v_double)=(yystack_[0].value.v_double);}
-#line 685 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 191 "Parser.yy"
+    {(yyval.v_double)=(yysemantic_stack_[(1) - (1)].v_double);}
     break;
 
   case 23:
-#line 194 "Parser.yy" // lalr1.cc:846
-    {(yylhs.value.v_d_range).min=(yystack_[0].value.v_double);(yylhs.value.v_d_range).max=-1;}
-#line 691 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 194 "Parser.yy"
+    {(yyval.v_d_range).min=(yysemantic_stack_[(1) - (1)].v_double);(yyval.v_d_range).max=-1;}
     break;
 
   case 24:
-#line 195 "Parser.yy" // lalr1.cc:846
-    {(yylhs.value.v_d_range).min=(yystack_[2].value.v_double);(yylhs.value.v_d_range).max=(yystack_[0].value.v_double);}
-#line 697 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 195 "Parser.yy"
+    {(yyval.v_d_range).min=(yysemantic_stack_[(3) - (1)].v_double);(yyval.v_d_range).max=(yysemantic_stack_[(3) - (3)].v_double);}
     break;
 
   case 25:
-#line 198 "Parser.yy" // lalr1.cc:846
-    {(yylhs.value.v_i_range).min=(yystack_[0].value.v_integer);(yylhs.value.v_i_range).max=-1;}
-#line 703 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 198 "Parser.yy"
+    {(yyval.v_i_range).min=(yysemantic_stack_[(1) - (1)].v_integer);(yyval.v_i_range).max=-1;}
     break;
 
   case 26:
-#line 199 "Parser.yy" // lalr1.cc:846
-    {(yylhs.value.v_i_range).min=(yystack_[2].value.v_integer);(yylhs.value.v_i_range).max=(yystack_[0].value.v_integer);}
-#line 709 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 199 "Parser.yy"
+    {(yyval.v_i_range).min=(yysemantic_stack_[(3) - (1)].v_integer);(yyval.v_i_range).max=(yysemantic_stack_[(3) - (3)].v_integer);}
     break;
 
   case 27:
-#line 202 "Parser.yy" // lalr1.cc:846
-    {(yylhs.value.v_integer)=(yystack_[0].value.v_integer);}
-#line 715 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 202 "Parser.yy"
+    {(yyval.v_integer)=(yysemantic_stack_[(1) - (1)].v_integer);}
     break;
 
   case 28:
-#line 203 "Parser.yy" // lalr1.cc:846
-    {(yylhs.value.v_integer)=-1;}
-#line 721 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 203 "Parser.yy"
+    {(yyval.v_integer)=-1;}
     break;
 
   case 29:
-#line 207 "Parser.yy" // lalr1.cc:846
-    {driver.header.setAccession(*(yystack_[1].value.v_double_list));DEL((yystack_[1].value.v_double_list));}
-#line 727 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 207 "Parser.yy"
+    {driver.header.setAccession(*(yysemantic_stack_[(4) - (3)].v_double_list));DEL((yysemantic_stack_[(4) - (3)].v_double_list));}
     break;
 
   case 30:
-#line 208 "Parser.yy" // lalr1.cc:846
-    {driver.header.setCharge(*(yystack_[1].value.v_interger_list));DEL((yystack_[1].value.v_interger_list));}
-#line 733 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 208 "Parser.yy"
+    {driver.header.setCharge(*(yysemantic_stack_[(4) - (3)].v_interger_list));DEL((yysemantic_stack_[(4) - (3)].v_interger_list));}
     break;
 
   case 31:
-#line 209 "Parser.yy" // lalr1.cc:846
-    {driver.header.setCle(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 739 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 209 "Parser.yy"
+    {driver.header.setCle(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 32:
-#line 210 "Parser.yy" // lalr1.cc:846
-    {driver.header.setCom(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 745 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 210 "Parser.yy"
+    {driver.header.setCom(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 33:
-#line 211 "Parser.yy" // lalr1.cc:846
-    {driver.header.setComp(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 751 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 211 "Parser.yy"
+    {driver.header.setComp(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 34:
-#line 212 "Parser.yy" // lalr1.cc:846
-    {driver.header.setCutout(*(yystack_[1].value.v_interger_list));DEL((yystack_[1].value.v_interger_list));}
-#line 757 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 212 "Parser.yy"
+    {driver.header.setCutout(*(yysemantic_stack_[(4) - (3)].v_interger_list));DEL((yysemantic_stack_[(4) - (3)].v_interger_list));}
     break;
 
   case 35:
-#line 213 "Parser.yy" // lalr1.cc:846
-    {driver.header.setDb(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 763 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 213 "Parser.yy"
+    {driver.header.setDb(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 36:
-#line 214 "Parser.yy" // lalr1.cc:846
-    {driver.header.setDecoy((yystack_[1].value.v_integer));}
-#line 769 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 214 "Parser.yy"
+    {driver.header.setDecoy((yysemantic_stack_[(4) - (3)].v_integer));}
     break;
 
   case 37:
-#line 215 "Parser.yy" // lalr1.cc:846
-    {driver.header.setErrorTolerant((yystack_[1].value.v_integer));}
-#line 775 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 215 "Parser.yy"
+    {driver.header.setErrorTolerant((yysemantic_stack_[(4) - (3)].v_integer));}
     break;
 
   case 38:
-#line 216 "Parser.yy" // lalr1.cc:846
-    {driver.header.setFormat(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string))}
-#line 781 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 216 "Parser.yy"
+    {driver.header.setFormat(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string))}
     break;
 
   case 39:
-#line 217 "Parser.yy" // lalr1.cc:846
-    {driver.header.setFrames(*(yystack_[1].value.v_interger_list));DEL((yystack_[1].value.v_interger_list));}
-#line 787 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 217 "Parser.yy"
+    {driver.header.setFrames(*(yysemantic_stack_[(4) - (3)].v_interger_list));DEL((yysemantic_stack_[(4) - (3)].v_interger_list));}
     break;
 
   case 40:
-#line 218 "Parser.yy" // lalr1.cc:846
-    {driver.header.setInstrument(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 793 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 218 "Parser.yy"
+    {driver.header.setInstrument(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 41:
-#line 219 "Parser.yy" // lalr1.cc:846
-    {driver.header.setItMods(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 799 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 219 "Parser.yy"
+    {driver.header.setItMods(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 42:
-#line 220 "Parser.yy" // lalr1.cc:846
-    {driver.header.setItOl((yystack_[1].value.v_double));}
-#line 805 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 220 "Parser.yy"
+    {driver.header.setItOl((yysemantic_stack_[(4) - (3)].v_double));}
     break;
 
   case 43:
-#line 221 "Parser.yy" // lalr1.cc:846
-    {driver.header.setItOlU(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 811 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 221 "Parser.yy"
+    {driver.header.setItOlU(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 44:
-#line 222 "Parser.yy" // lalr1.cc:846
-    {driver.header.setMass(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 817 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 222 "Parser.yy"
+    {driver.header.setMass(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 45:
-#line 223 "Parser.yy" // lalr1.cc:846
-    {driver.header.setMods(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 823 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 223 "Parser.yy"
+    {driver.header.setMods(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 46:
-#line 224 "Parser.yy" // lalr1.cc:846
-    {driver.header.setMultiSiteMods((yystack_[1].value.v_integer));}
-#line 829 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 224 "Parser.yy"
+    {driver.header.setMultiSiteMods((yysemantic_stack_[(4) - (3)].v_integer));}
     break;
 
   case 47:
-#line 225 "Parser.yy" // lalr1.cc:846
-    {driver.header.setPepIsotopeError((yystack_[1].value.v_integer));}
-#line 835 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 225 "Parser.yy"
+    {driver.header.setPepIsotopeError((yysemantic_stack_[(4) - (3)].v_integer));}
     break;
 
   case 48:
-#line 226 "Parser.yy" // lalr1.cc:846
-    {driver.header.setPfa((yystack_[1].value.v_integer));}
-#line 841 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 226 "Parser.yy"
+    {driver.header.setPfa((yysemantic_stack_[(4) - (3)].v_integer));}
     break;
 
   case 49:
-#line 227 "Parser.yy" // lalr1.cc:846
-    {driver.header.setPrecursor((yystack_[1].value.v_double));}
-#line 847 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 227 "Parser.yy"
+    {driver.header.setPrecursor((yysemantic_stack_[(4) - (3)].v_double));}
     break;
 
   case 50:
-#line 228 "Parser.yy" // lalr1.cc:846
-    {driver.header.setQuantitation(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 853 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 228 "Parser.yy"
+    {driver.header.setQuantitation(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 51:
-#line 229 "Parser.yy" // lalr1.cc:846
-    {driver.header.setRepport((yystack_[1].value.v_integer));}
-#line 859 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 229 "Parser.yy"
+    {driver.header.setRepport((yysemantic_stack_[(4) - (3)].v_integer));}
     break;
 
   case 52:
-#line 230 "Parser.yy" // lalr1.cc:846
-    {driver.header.setReptype(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 865 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 230 "Parser.yy"
+    {driver.header.setReptype(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 53:
-#line 231 "Parser.yy" // lalr1.cc:846
-    {driver.header.setSearch(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 871 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 231 "Parser.yy"
+    {driver.header.setSearch(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 54:
-#line 232 "Parser.yy" // lalr1.cc:846
-    {driver.header.setSeg((yystack_[1].value.v_double));}
-#line 877 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 232 "Parser.yy"
+    {driver.header.setSeg((yysemantic_stack_[(4) - (3)].v_double));}
     break;
 
   case 55:
-#line 233 "Parser.yy" // lalr1.cc:846
-    {driver.header.setTaxonomy(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 883 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 233 "Parser.yy"
+    {driver.header.setTaxonomy(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 56:
-#line 234 "Parser.yy" // lalr1.cc:846
-    {driver.header.setTol((yystack_[1].value.v_double));}
-#line 889 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 234 "Parser.yy"
+    {driver.header.setTol((yysemantic_stack_[(4) - (3)].v_double));}
     break;
 
   case 57:
-#line 235 "Parser.yy" // lalr1.cc:846
-    {driver.header.setTolU(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 895 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 235 "Parser.yy"
+    {driver.header.setTolU(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 58:
-#line 236 "Parser.yy" // lalr1.cc:846
-    {driver.header.setUser((yystack_[1].value.v_integer));}
-#line 901 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 236 "Parser.yy"
+    {driver.header.setUser((yysemantic_stack_[(3) - (2)].v_integer));}
     break;
 
   case 59:
-#line 237 "Parser.yy" // lalr1.cc:846
-    {driver.header.setUserMail(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 907 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 237 "Parser.yy"
+    {driver.header.setUserMail(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 60:
-#line 238 "Parser.yy" // lalr1.cc:846
-    {driver.header.setUserName(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 913 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 238 "Parser.yy"
+    {driver.header.setUserName(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 64:
-#line 247 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.push((yystack_[2].value.v_double),(yystack_[1].value.v_double),0);}
-#line 919 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 247 "Parser.yy"
+    {driver.currentSpectrum.push((yysemantic_stack_[(3) - (1)].v_double),(yysemantic_stack_[(3) - (2)].v_double),0);}
     break;
 
   case 65:
-#line 248 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.push((yystack_[3].value.v_double),(yystack_[2].value.v_double),(yystack_[1].value.v_integer));}
-#line 925 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 248 "Parser.yy"
+    {driver.currentSpectrum.push((yysemantic_stack_[(4) - (1)].v_double),(yysemantic_stack_[(4) - (2)].v_double),(yysemantic_stack_[(4) - (3)].v_integer));}
     break;
 
   case 68:
-#line 255 "Parser.yy" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 255 "Parser.yy"
     {return MGF_END_IONS;}
-#line 931 "Parser.cpp" // lalr1.cc:846
     break;
 
   case 69:
-#line 256 "Parser.yy" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 256 "Parser.yy"
     {return MGF_END_IONS;}
-#line 937 "Parser.cpp" // lalr1.cc:846
     break;
 
   case 73:
-#line 264 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setCharge((yystack_[1].value.v_integer));}
-#line 943 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 264 "Parser.yy"
+    {driver.currentSpectrum.header.setCharge((yysemantic_stack_[(4) - (3)].v_integer));}
     break;
 
   case 74:
-#line 265 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setComp(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 949 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 265 "Parser.yy"
+    {driver.currentSpectrum.header.setComp(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 75:
-#line 266 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setEtag(*(yystack_[1].value.v_string_list));DEL((yystack_[1].value.v_string_list));}
-#line 955 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 266 "Parser.yy"
+    {driver.currentSpectrum.header.setEtag(*(yysemantic_stack_[(4) - (3)].v_string_list));DEL((yysemantic_stack_[(4) - (3)].v_string_list));}
     break;
 
   case 76:
-#line 267 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setInstrument(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 961 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 267 "Parser.yy"
+    {driver.currentSpectrum.header.setInstrument(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 77:
-#line 268 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setItMods(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 967 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 268 "Parser.yy"
+    {driver.currentSpectrum.header.setItMods(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 78:
-#line 269 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setLocus(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 973 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 269 "Parser.yy"
+    {driver.currentSpectrum.header.setLocus(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 79:
-#line 270 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setPepMass((yystack_[1].value.v_double),0);}
-#line 979 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 270 "Parser.yy"
+    {driver.currentSpectrum.header.setPepMass((yysemantic_stack_[(4) - (3)].v_double),0);}
     break;
 
   case 80:
-#line 271 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setPepMass((yystack_[2].value.v_double),(yystack_[1].value.v_double));}
-#line 985 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 271 "Parser.yy"
+    {driver.currentSpectrum.header.setPepMass((yysemantic_stack_[(5) - (3)].v_double),(yysemantic_stack_[(5) - (4)].v_double));}
     break;
 
   case 81:
-#line 272 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setRawFile(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 991 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 272 "Parser.yy"
+    {driver.currentSpectrum.header.setRawFile(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 82:
-#line 273 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setRawScans((yystack_[1].value.v_i_range).min,(yystack_[1].value.v_i_range).max);}
-#line 997 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 273 "Parser.yy"
+    {driver.currentSpectrum.header.setRawScans((yysemantic_stack_[(4) - (3)].v_i_range).min,(yysemantic_stack_[(4) - (3)].v_i_range).max);}
     break;
 
   case 83:
-#line 274 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setRtinSeconds((yystack_[1].value.v_d_range).min,(yystack_[1].value.v_d_range).max);}
-#line 1003 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 274 "Parser.yy"
+    {driver.currentSpectrum.header.setRtinSeconds((yysemantic_stack_[(4) - (3)].v_d_range).min,(yysemantic_stack_[(4) - (3)].v_d_range).max);}
     break;
 
   case 84:
-#line 275 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setScans((yystack_[1].value.v_d_range).min,(yystack_[1].value.v_d_range).max);}
-#line 1009 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 275 "Parser.yy"
+    {driver.currentSpectrum.header.setScans((yysemantic_stack_[(4) - (3)].v_d_range).min,(yysemantic_stack_[(4) - (3)].v_d_range).max);}
     break;
 
   case 85:
-#line 276 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setSeq(*(yystack_[1].value.v_string_list));DEL((yystack_[1].value.v_string_list));}
-#line 1015 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 276 "Parser.yy"
+    {driver.currentSpectrum.header.setSeq(*(yysemantic_stack_[(4) - (3)].v_string_list));DEL((yysemantic_stack_[(4) - (3)].v_string_list));}
     break;
 
   case 86:
-#line 277 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setTag(*(yystack_[1].value.v_string_list));DEL((yystack_[1].value.v_string_list));}
-#line 1021 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 277 "Parser.yy"
+    {driver.currentSpectrum.header.setTag(*(yysemantic_stack_[(4) - (3)].v_string_list));DEL((yysemantic_stack_[(4) - (3)].v_string_list));}
     break;
 
   case 87:
-#line 278 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setTitle(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 1027 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 278 "Parser.yy"
+    {driver.currentSpectrum.header.setTitle(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
   case 88:
-#line 279 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setTol((yystack_[1].value.v_double));}
-#line 1033 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 279 "Parser.yy"
+    {driver.currentSpectrum.header.setTol((yysemantic_stack_[(4) - (3)].v_double));}
     break;
 
   case 89:
-#line 280 "Parser.yy" // lalr1.cc:846
-    {driver.currentSpectrum.header.setTolU(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 1039 "Parser.cpp" // lalr1.cc:846
+/* Line 664 of lalr1.cc  */
+#line 280 "Parser.yy"
+    {driver.currentSpectrum.header.setTolU(*(yysemantic_stack_[(4) - (3)].v_string));DEL((yysemantic_stack_[(4) - (3)].v_string));}
     break;
 
 
-#line 1043 "Parser.cpp" // lalr1.cc:846
-          default:
-            break;
-          }
+/* Line 664 of lalr1.cc  */
+#line 940 "Parser.cpp"
+      default:
+        break;
       }
-    catch (const syntax_error& yyexc)
-      {
-        error (yyexc);
-        YYERROR;
-      }
-    YY_SYMBOL_PRINT ("-> $$ =", yylhs);
+
+    /* User semantic actions sometimes alter yychar, and that requires
+       that yytoken be updated with the new translation.  We take the
+       approach of translating immediately before every use of yytoken.
+       One alternative is translating here after every semantic action,
+       but that translation would be missed if the semantic action
+       invokes YYABORT, YYACCEPT, or YYERROR immediately after altering
+       yychar.  In the case of YYABORT or YYACCEPT, an incorrect
+       destructor might then be invoked immediately.  In the case of
+       YYERROR, subsequent parser actions might lead to an incorrect
+       destructor call or verbose syntax error message before the
+       lookahead is translated.  */
+    YY_SYMBOL_PRINT ("-> $$ =", yyr1_[yyn], &yyval, &yyloc);
+
     yypop_ (yylen);
     yylen = 0;
     YY_STACK_PRINT ();
 
-    // Shift the result of the reduction.
-    yypush_ (YY_NULL, yylhs);
+    yysemantic_stack_.push (yyval);
+    yylocation_stack_.push (yyloc);
+
+    /* Shift the result of the reduction.  */
+    yyn = yyr1_[yyn];
+    yystate = yypgoto_[yyn - yyntokens_] + yystate_stack_[0];
+    if (0 <= yystate && yystate <= yylast_
+	&& yycheck_[yystate] == yystate_stack_[0])
+      yystate = yytable_[yystate];
+    else
+      yystate = yydefgoto_[yyn - yyntokens_];
     goto yynewstate;
 
-  /*--------------------------------------.
-  | yyerrlab -- here on detecting error.  |
-  `--------------------------------------*/
+  /*------------------------------------.
+  | yyerrlab -- here on detecting error |
+  `------------------------------------*/
   yyerrlab:
-    // If not already recovering from an error, report this error.
+    /* Make sure we have latest lookahead translation.  See comments at
+       user semantic actions for why this is necessary.  */
+    yytoken = yytranslate_ (yychar);
+
+    /* If not already recovering from an error, report this error.  */
     if (!yyerrstatus_)
       {
-        ++yynerrs_;
-        error (yysyntax_error_ (yystack_[0].state,
-                                           yyempty ? yyempty_ : yyla.type_get ()));
+	++yynerrs_;
+	if (yychar == yyempty_)
+	  yytoken = yyempty_;
+	error (yylloc, yysyntax_error_ (yystate, yytoken));
       }
 
-
+    yyerror_range[1] = yylloc;
     if (yyerrstatus_ == 3)
       {
         /* If just tried and failed to reuse lookahead token after an
            error, discard it.  */
-
-        // Return failure if at end of input.
-        if (yyla.type_get () == yyeof_)
-          YYABORT;
-        else if (!yyempty)
+        if (yychar <= yyeof_)
           {
-            yy_destroy_ ("Error: discarding", yyla);
-            yyempty = true;
+            /* Return failure if at end of input.  */
+            if (yychar == yyeof_)
+              YYABORT;
+          }
+        else
+          {
+            yydestruct_ ("Error: discarding", yytoken, &yylval, &yylloc);
+            yychar = yyempty_;
           }
       }
 
-    // Else will try to reuse lookahead token after shifting the error token.
+    /* Else will try to reuse lookahead token after shifting the error
+       token.  */
     goto yyerrlab1;
 
 
@@ -1100,101 +1021,126 @@ namespace mgf {
        code.  */
     if (false)
       goto yyerrorlab;
-    /* Do not reclaim the symbols of the rule whose action triggered
+
+    yyerror_range[1] = yylocation_stack_[yylen - 1];
+    /* Do not reclaim the symbols of the rule which action triggered
        this YYERROR.  */
     yypop_ (yylen);
     yylen = 0;
+    yystate = yystate_stack_[0];
     goto yyerrlab1;
 
   /*-------------------------------------------------------------.
   | yyerrlab1 -- common code for both syntax error and YYERROR.  |
   `-------------------------------------------------------------*/
   yyerrlab1:
-    yyerrstatus_ = 3;   // Each real token shifted decrements this.
-    {
-      stack_symbol_type error_token;
-      for (;;)
-        {
-          yyn = yypact_[yystack_[0].state];
-          if (!yy_pact_value_is_default_ (yyn))
-            {
-              yyn += yyterror_;
-              if (0 <= yyn && yyn <= yylast_ && yycheck_[yyn] == yyterror_)
-                {
-                  yyn = yytable_[yyn];
-                  if (0 < yyn)
-                    break;
-                }
-            }
+    yyerrstatus_ = 3;	/* Each real token shifted decrements this.  */
 
-          // Pop the current state because it cannot handle the error token.
-          if (yystack_.size () == 1)
-            YYABORT;
+    for (;;)
+      {
+	yyn = yypact_[yystate];
+	if (!yy_pact_value_is_default_ (yyn))
+	{
+	  yyn += yyterror_;
+	  if (0 <= yyn && yyn <= yylast_ && yycheck_[yyn] == yyterror_)
+	    {
+	      yyn = yytable_[yyn];
+	      if (0 < yyn)
+		break;
+	    }
+	}
 
-          yy_destroy_ ("Error: popping", yystack_[0]);
-          yypop_ ();
-          YY_STACK_PRINT ();
-        }
+	/* Pop the current state because it cannot handle the error token.  */
+	if (yystate_stack_.height () == 1)
+	  YYABORT;
 
+	yyerror_range[1] = yylocation_stack_[0];
+	yydestruct_ ("Error: popping",
+		     yystos_[yystate],
+		     &yysemantic_stack_[0], &yylocation_stack_[0]);
+	yypop_ ();
+	yystate = yystate_stack_[0];
+	YY_STACK_PRINT ();
+      }
 
-      // Shift the error token.
-      error_token.state = yyn;
-      yypush_ ("Shifting", error_token);
-    }
+    yyerror_range[2] = yylloc;
+    // Using YYLLOC is tempting, but would change the location of
+    // the lookahead.  YYLOC is available though.
+    YYLLOC_DEFAULT (yyloc, yyerror_range, 2);
+    yysemantic_stack_.push (yylval);
+    yylocation_stack_.push (yyloc);
+
+    /* Shift the error token.  */
+    YY_SYMBOL_PRINT ("Shifting", yystos_[yyn],
+		     &yysemantic_stack_[0], &yylocation_stack_[0]);
+
+    yystate = yyn;
     goto yynewstate;
 
-    // Accept.
+    /* Accept.  */
   yyacceptlab:
     yyresult = 0;
     goto yyreturn;
 
-    // Abort.
+    /* Abort.  */
   yyabortlab:
     yyresult = 1;
     goto yyreturn;
 
   yyreturn:
-    if (!yyempty)
-      yy_destroy_ ("Cleanup: discarding lookahead", yyla);
+    if (yychar != yyempty_)
+      {
+        /* Make sure we have latest lookahead translation.  See comments
+           at user semantic actions for why this is necessary.  */
+        yytoken = yytranslate_ (yychar);
+        yydestruct_ ("Cleanup: discarding lookahead", yytoken, &yylval,
+                     &yylloc);
+      }
 
-    /* Do not reclaim the symbols of the rule whose action triggered
+    /* Do not reclaim the symbols of the rule which action triggered
        this YYABORT or YYACCEPT.  */
     yypop_ (yylen);
-    while (1 < yystack_.size ())
+    while (1 < yystate_stack_.height ())
       {
-        yy_destroy_ ("Cleanup: popping", yystack_[0]);
+        yydestruct_ ("Cleanup: popping",
+                     yystos_[yystate_stack_[0]],
+                     &yysemantic_stack_[0],
+                     &yylocation_stack_[0]);
         yypop_ ();
       }
 
     return yyresult;
-  }
+    }
     catch (...)
       {
         YYCDEBUG << "Exception caught: cleaning lookahead and stack"
                  << std::endl;
         // Do not try to display the values of the reclaimed symbols,
         // as their printer might throw an exception.
-        if (!yyempty)
-          yy_destroy_ (YY_NULL, yyla);
-
-        while (1 < yystack_.size ())
+        if (yychar != yyempty_)
           {
-            yy_destroy_ (YY_NULL, yystack_[0]);
+            /* Make sure we have latest lookahead translation.  See
+               comments at user semantic actions for why this is
+               necessary.  */
+            yytoken = yytranslate_ (yychar);
+            yydestruct_ (YY_NULL, yytoken, &yylval, &yylloc);
+          }
+
+        while (1 < yystate_stack_.height ())
+          {
+            yydestruct_ (YY_NULL,
+                         yystos_[yystate_stack_[0]],
+                         &yysemantic_stack_[0],
+                         &yylocation_stack_[0]);
             yypop_ ();
           }
         throw;
       }
   }
 
-  void
-  Parser::error (const syntax_error& yyexc)
-  {
-    error (yyexc.what());
-  }
-
   // Generate an error message.
   std::string
-  Parser::yysyntax_error_ (state_type yystate, symbol_number_type yytoken) const
+  Parser::yysyntax_error_ (int yystate, int yytoken)
   {
     std::string yyres;
     // Number of reported tokens (one for the "unexpected", one per
@@ -1219,7 +1165,7 @@ namespace mgf {
          a consistent state with a default action.  There might have
          been a previous inconsistent state, consistent state with a
          non-default action, or user semantic action that manipulated
-         yyla.  (However, yyla is currently not documented for users.)
+         yychar.
        - Of course, the expected token list depends on states to have
          correct lookahead information, and it depends on the parser not
          to perform extra reductions after fetching a lookahead from the
@@ -1240,7 +1186,7 @@ namespace mgf {
                YYCHECK.  In other words, skip the first -YYN actions for
                this state because they are default actions.  */
             int yyxbegin = yyn < 0 ? -yyn : 0;
-            // Stay within bounds of both yycheck and yytname.
+            /* Stay within bounds of both yycheck and yytname.  */
             int yychecklim = yylast_ - yyn + 1;
             int yyxend = yychecklim < yyntokens_ ? yychecklim : yyntokens_;
             for (int yyx = yyxbegin; yyx < yyxend; ++yyx)
@@ -1288,14 +1234,13 @@ namespace mgf {
   }
 
 
+  /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
+     STATE-NUM.  */
   const signed char Parser::yypact_ninf_ = -124;
-
-  const signed char Parser::yytable_ninf_ = -1;
-
   const short int
   Parser::yypact_[] =
   {
-    -124,     0,     4,  -124,     2,    18,    30,    62,    71,    76,
+      -124,     0,     4,  -124,     2,    18,    30,    62,    71,    76,
       78,    82,    89,   101,   109,   110,   111,   112,   113,   115,
      116,   117,   118,   119,   120,   121,   122,   123,   124,   126,
      127,   130,   131,   132,   134,   135,  -124,    41,  -124,    63,
@@ -1323,10 +1268,13 @@ namespace mgf {
     -124,  -124,  -124,  -124,  -124,  -124,  -124
   };
 
+  /* YYDEFACT[S] -- default reduction number in state S.  Performed when
+     YYTABLE doesn't specify something else to do.  Zero means the
+     default is an error.  */
   const unsigned char
   Parser::yydefact_[] =
   {
-      62,    70,     0,    61,     0,     0,     0,     0,     0,     0,
+        62,    70,     0,    61,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,    63,     0,     1,     0,
@@ -1354,26 +1302,32 @@ namespace mgf {
       88,    89,    65,    13,    80,    26,    24
   };
 
+  /* YYPGOTO[NTERM-NUM].  */
   const short int
   Parser::yypgoto_[] =
   {
-    -124,  -123,  -124,    26,  -124,   176,   -83,  -124,   -60,     8,
+      -124,  -123,  -124,    26,  -124,   176,   -83,  -124,   -60,     8,
     -124,  -124,  -124,  -124,    23,  -124,   206,  -124,  -124,  -124,
     -124
   };
 
+  /* YYDEFGOTO[NTERM-NUM].  */
   const short int
   Parser::yydefgoto_[] =
   {
-      -1,    80,    81,    77,    78,    85,   207,   221,   180,   216,
+        -1,    80,    81,    77,    78,    85,   207,   221,   180,   216,
      214,   107,    36,     1,   181,   182,    74,    37,   183,   156,
        2
   };
 
+  /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
+     positive, shift that token.  If negative, reduce the rule which
+     number is the opposite.  If YYTABLE_NINF_, syntax error.  */
+  const signed char Parser::yytable_ninf_ = -1;
   const unsigned short int
   Parser::yytable_[] =
   {
-     103,   159,   160,     3,    38,   110,   123,   112,   119,     4,
+       103,   159,   160,     3,    38,   110,   123,   112,   119,     4,
      124,   125,   120,   105,    39,     5,     6,     7,     8,     9,
       10,    11,    12,    13,    40,    14,    15,    16,    17,    18,
       19,   224,    20,    21,    22,    23,    41,    24,    25,    26,
@@ -1403,10 +1357,11 @@ namespace mgf {
        0,     0,     0,     0,     0,     0,     0,     0,   116
   };
 
+  /* YYCHECK.  */
   const short int
   Parser::yycheck_[] =
   {
-      60,   124,   125,     3,     0,    65,     3,    67,     3,     9,
+        60,   124,   125,     3,     0,    65,     3,    67,     3,     9,
        7,     8,     7,    12,    12,    15,    16,    17,    18,    19,
       20,    21,    22,    23,     6,    25,    26,    27,    28,    29,
       30,     3,    32,    33,    34,    35,     6,    37,    38,    39,
@@ -1436,10 +1391,12 @@ namespace mgf {
       -1,    -1,    -1,    -1,    -1,    -1,    -1,    -1,    72
   };
 
+  /* STOS_[STATE-NUM] -- The (internal number of the) accessing
+     symbol of state STATE-NUM.  */
   const unsigned char
   Parser::yystos_[] =
   {
-       0,    72,    79,     3,     9,    15,    16,    17,    18,    19,
+         0,    72,    79,     3,     9,    15,    16,    17,    18,    19,
       20,    21,    22,    23,    25,    26,    27,    28,    29,    30,
       32,    33,    34,    35,    37,    38,    39,    42,    43,    46,
       47,    50,    52,    53,    54,    55,    71,    76,     0,    12,
@@ -1467,10 +1424,26 @@ namespace mgf {
        3,     3,     3,    14,     3,    12,    67
   };
 
+#if YYDEBUG
+  /* TOKEN_NUMBER_[YYLEX-NUM] -- Internal symbol number corresponding
+     to YYLEX-NUM.  */
+  const unsigned short int
+  Parser::yytoken_number_[] =
+  {
+         0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
+     265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
+     275,   276,   277,   278,   279,   280,   281,   282,   283,   284,
+     285,   286,   287,   288,   289,   290,   291,   292,   293,   294,
+     295,   296,   297,   298,   299,   300,   301,   302,   303,   304,
+     305,   306,   307,   308,   309,   310,    34,    58,   311
+  };
+#endif
+
+  /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
   const unsigned char
   Parser::yyr1_[] =
   {
-       0,    59,    60,    60,    60,    61,    61,    61,    62,    63,
+         0,    59,    60,    60,    60,    61,    61,    61,    62,    63,
       63,    64,    64,    65,    65,    66,    66,    66,    66,    66,
       66,    67,    67,    68,    68,    69,    69,    70,    70,    71,
       71,    71,    71,    71,    71,    71,    71,    71,    71,    71,
@@ -1482,10 +1455,11 @@ namespace mgf {
       77,    78,    78,    79
   };
 
+  /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
   const unsigned char
   Parser::yyr2_[] =
   {
-       0,     2,     2,     2,     1,     1,     3,     3,     3,     3,
+         0,     2,     2,     2,     1,     1,     3,     3,     3,     3,
        1,     3,     1,     3,     1,     1,     2,     2,     2,     2,
        2,     1,     1,     1,     3,     1,     3,     1,     1,     4,
        4,     4,     4,     4,     4,     4,     4,     4,     4,     4,
@@ -1498,13 +1472,12 @@ namespace mgf {
   };
 
 
-
-  // YYTNAME[SYMBOL-NUM] -- String name of the symbol SYMBOL-NUM.
-  // First, the terminals, then, starting at \a yyntokens_, nonterminals.
+  /* YYTNAME[SYMBOL-NUM] -- String name of the symbol SYMBOL-NUM.
+     First, the terminals, then, starting at \a yyntokens_, nonterminals.  */
   const char*
   const Parser::yytname_[] =
   {
-  "\"end of file\"", "error", "$undefined", "\"end of line\"",
+    "\"end of file\"", "error", "$undefined", "\"end of line\"",
   "\"plus symbol\"", "\"minus symbol\"", "\"equals symbol\"",
   "\"coma symbol\"", "\"and\"", "\"USER token, USER00 to USER12\"",
   "\"BEGIN IONS token\"", "\"END IONS token\"", "\"integer\"",
@@ -1557,10 +1530,72 @@ namespace mgf {
   };
 
 #if YYDEBUG
+  /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
+  const Parser::rhs_number_type
+  Parser::yyrhs_[] =
+  {
+        79,     0,    -1,    12,     4,    -1,    12,     5,    -1,    12,
+      -1,    60,    -1,    61,     7,    60,    -1,    61,     8,    60,
+      -1,    56,    13,    56,    -1,    63,     7,    62,    -1,    62,
+      -1,    64,     7,    12,    -1,    12,    -1,    65,     7,    14,
+      -1,    14,    -1,    14,    -1,    66,    14,    -1,    66,    67,
+      -1,    66,     7,    -1,    66,     4,    -1,    66,     5,    -1,
+      12,    -1,    13,    -1,    67,    -1,    67,     5,    67,    -1,
+      12,    -1,    12,    57,    12,    -1,    12,    -1,    58,    -1,
+      15,     6,    63,     3,    -1,    16,     6,    61,     3,    -1,
+      17,     6,    14,     3,    -1,    18,     6,    14,     3,    -1,
+      20,     6,    14,     3,    -1,    19,     6,    64,     3,    -1,
+      21,     6,    14,     3,    -1,    22,     6,    12,     3,    -1,
+      23,     6,    12,     3,    -1,    25,     6,    14,     3,    -1,
+      26,     6,    64,     3,    -1,    27,     6,    14,     3,    -1,
+      28,     6,    14,     3,    -1,    29,     6,    13,     3,    -1,
+      30,     6,    14,     3,    -1,    32,     6,    14,     3,    -1,
+      33,     6,    14,     3,    -1,    34,     6,    12,     3,    -1,
+      35,     6,    12,     3,    -1,    37,     6,    12,     3,    -1,
+      38,     6,    67,     3,    -1,    39,     6,    14,     3,    -1,
+      42,     6,    70,     3,    -1,    43,     6,    14,     3,    -1,
+      46,     6,    14,     3,    -1,    47,     6,    67,     3,    -1,
+      50,     6,    14,     3,    -1,    52,     6,    67,     3,    -1,
+      53,     6,    14,     3,    -1,     9,    12,     3,    -1,    54,
+       6,    14,     3,    -1,    55,     6,    14,     3,    -1,     3,
+      -1,    -1,    72,    71,    -1,    67,    67,     3,    -1,    67,
+      67,    60,     3,    -1,    74,    73,    -1,    73,    -1,    10,
+       3,    78,    74,    11,     3,    -1,    10,     3,    78,    11,
+       3,    -1,    -1,    76,    75,    -1,    76,     3,    75,    -1,
+      16,     6,    60,     3,    -1,    20,     6,    14,     3,    -1,
+      24,     6,    65,     3,    -1,    27,     6,    14,     3,    -1,
+      28,     6,    14,     3,    -1,    31,     6,    14,     3,    -1,
+      36,     6,    67,     3,    -1,    36,     6,    67,    67,     3,
+      -1,    40,     6,    14,     3,    -1,    41,     6,    69,     3,
+      -1,    44,     6,    68,     3,    -1,    45,     6,    68,     3,
+      -1,    48,     6,    65,     3,    -1,    49,     6,    65,     3,
+      -1,    51,     6,    66,     3,    -1,    52,     6,    67,     3,
+      -1,    53,     6,    14,     3,    -1,     3,    -1,    -1,    78,
+      77,    -1,    72,    76,     0,    -1
+  };
+
+  /* YYPRHS[YYN] -- Index of the first RHS symbol of rule number YYN in
+     YYRHS.  */
+  const unsigned short int
+  Parser::yyprhs_[] =
+  {
+         0,     0,     3,     6,     9,    11,    13,    17,    21,    25,
+      29,    31,    35,    37,    41,    43,    45,    48,    51,    54,
+      57,    60,    62,    64,    66,    70,    72,    76,    78,    80,
+      85,    90,    95,   100,   105,   110,   115,   120,   125,   130,
+     135,   140,   145,   150,   155,   160,   165,   170,   175,   180,
+     185,   190,   195,   200,   205,   210,   215,   220,   225,   229,
+     234,   239,   241,   242,   245,   249,   254,   257,   259,   266,
+     272,   273,   276,   280,   285,   290,   295,   300,   305,   310,
+     315,   321,   326,   331,   336,   341,   346,   351,   356,   361,
+     366,   368,   369,   372
+  };
+
+  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
   const unsigned short int
   Parser::yyrline_[] =
   {
-       0,   156,   156,   157,   158,   161,   162,   163,   166,   169,
+         0,   156,   156,   157,   158,   161,   162,   163,   166,   169,
      170,   174,   175,   178,   179,   182,   183,   184,   185,   186,
      187,   190,   191,   194,   195,   198,   199,   202,   203,   207,
      208,   209,   210,   211,   212,   213,   214,   215,   216,   217,
@@ -1577,11 +1612,9 @@ namespace mgf {
   Parser::yystack_print_ ()
   {
     *yycdebug_ << "Stack now";
-    for (stack_type::const_iterator
-           i = yystack_.begin (),
-           i_end = yystack_.end ();
-         i != i_end; ++i)
-      *yycdebug_ << ' ' << i->state;
+    for (state_stack_type::const_iterator i = yystate_stack_.begin ();
+	 i != yystate_stack_.end (); ++i)
+      *yycdebug_ << ' ' << *i;
     *yycdebug_ << std::endl;
   }
 
@@ -1591,18 +1624,19 @@ namespace mgf {
   {
     unsigned int yylno = yyrline_[yyrule];
     int yynrhs = yyr2_[yyrule];
-    // Print the symbols being reduced, and their result.
+    /* Print the symbols being reduced, and their result.  */
     *yycdebug_ << "Reducing stack by rule " << yyrule - 1
-               << " (line " << yylno << "):" << std::endl;
-    // The symbols being reduced.
+	       << " (line " << yylno << "):" << std::endl;
+    /* The symbols being reduced.  */
     for (int yyi = 0; yyi < yynrhs; yyi++)
       YY_SYMBOL_PRINT ("   $" << yyi + 1 << " =",
-                       yystack_[(yynrhs) - (yyi + 1)]);
+		       yyrhs_[yyprhs_[yyrule] + yyi],
+		       &(yysemantic_stack_[(yynrhs) - (yyi + 1)]),
+		       &(yylocation_stack_[(yynrhs) - (yyi + 1)]));
   }
 #endif // YYDEBUG
 
-  // Symbol number corresponding to token number t.
-  inline
+  /* YYTRANSLATE(YYLEX) -- Bison symbol number corresponding to YYLEX.  */
   Parser::token_number_type
   Parser::yytranslate_ (int t)
   {
@@ -1610,7 +1644,7 @@ namespace mgf {
     const token_number_type
     translate_table[] =
     {
-     0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+           0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,    56,     2,     2,     2,     2,     2,
@@ -1643,21 +1677,31 @@ namespace mgf {
       45,    46,    47,    48,    49,    50,    51,    52,    53,    54,
       55,    58
     };
-    const unsigned int user_token_number_max_ = 311;
-    const token_number_type undef_token_ = 2;
-
-    if (static_cast<int>(t) <= yyeof_)
-      return yyeof_;
-    else if (static_cast<unsigned int> (t) <= user_token_number_max_)
+    if ((unsigned int) t <= yyuser_token_number_max_)
       return translate_table[t];
     else
-      return undef_token_;
+      return yyundef_token_;
   }
 
-#line 10 "Parser.yy" // lalr1.cc:1156
+  const int Parser::yyeof_ = 0;
+  const int Parser::yylast_ = 278;
+  const int Parser::yynnts_ = 21;
+  const int Parser::yyempty_ = -2;
+  const int Parser::yyfinal_ = 38;
+  const int Parser::yyterror_ = 1;
+  const int Parser::yyerrcode_ = 256;
+  const int Parser::yyntokens_ = 59;
+
+  const unsigned int Parser::yyuser_token_number_max_ = 311;
+  const Parser::token_number_type Parser::yyundef_token_ = 2;
+
+/* Line 1135 of lalr1.cc  */
+#line 10 "Parser.yy"
 } // mgf
-#line 1660 "Parser.cpp" // lalr1.cc:1156
-#line 293 "Parser.yy" // lalr1.cc:1157
+/* Line 1135 of lalr1.cc  */
+#line 1703 "Parser.cpp"
+/* Line 1136 of lalr1.cc  */
+#line 293 "Parser.yy"
 
  
  
@@ -1673,7 +1717,3 @@ static int yylex( mgf::Parser::semantic_type *yylval,mgf::Scanner& scanner)
 {
     return scanner.yylex(yylval);
 }
-'_m4eof'
-_m4eof
-'_m4eof'
-_m4eof

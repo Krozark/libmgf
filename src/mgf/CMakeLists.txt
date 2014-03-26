@@ -33,7 +33,7 @@ if(UNIX)
 elseif(WIN32)
     set(FlexOutputSrc ${SRCROOT}/Win/Lexer.cpp)
 	set(BisonOutputSrc ${SRCROOT}/Win/Parser.cpp)
-	set(BisonOutputInc ${SRCROOT}/Win/Parser.hpp ${SRCROOT}/Win/stack.hh)
+	set(BisonOutputInc ${SRCROOT}/Win/Parser.hpp ${SRCROOT}/Win/location.hh ${SRCROOT}/Win/position.hh ${SRCROOT}/Win/stack.hh)
 endif()
 
 #ROOT files
