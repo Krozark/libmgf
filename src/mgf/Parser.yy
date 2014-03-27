@@ -21,6 +21,7 @@
     #include <list>
 	#include <string>
     #include <mgf/defines.hpp>
+    #include <mgf/stdfx.hpp>
 
     #define MGF_NEW_INTEGER_LIST new std::list<int>
     #define MGF_NEW_DOUBLE_LIST new std::list<double>
