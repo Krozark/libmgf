@@ -98,12 +98,6 @@ INSTALL(TARGETS ${CMAKE_PROJECT_NAME}-static
     DESTINATION lib
 )
 
-#EXEMPLE
-if(BUILD_EXAMPLES)
-    add_executable(basic basic.cpp)
-	target_link_libraries(basic ${CMAKE_PROJECT_NAME})
-endif()
-
 #header
 #INSTALL(FILES ${INCROOT}
 #    DESTINATION include
