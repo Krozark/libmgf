@@ -112,9 +112,6 @@ namespace mgf
 
             /**
              * \brief get sequences list
-             *
-             * Note : if setSeq was not be called before or if the object have be reset, it result in undefined beaviour.
-             *
              * \return a ref to the internal value
              */
             const std::list<std::string>& getSeq()const;
@@ -177,7 +174,7 @@ namespace mgf
             double intensity; ///< the intensity
             std::string title; ///< the title
 
-            std::list<std::string>* sequences;
+            std::list<std::string> sequences;
     };
 }
 #endif
