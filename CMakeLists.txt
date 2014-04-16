@@ -34,7 +34,7 @@ set_option(BUILD_DOC TRUE BOOL "TRUE to generate the API documentation, FALSE to
 set(DEFINES "")
 set(LIBS "")
 set(WARNING "-Wall")
-set(FLAGS "-o3 -std=c++11")
+set(FLAGS "-o3 -std=c++0x")
 set(CMAKE_CXX_FLAGS "${DEFINES} ${WARNING} ${FLAGS} ${LIBS}")
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib)
