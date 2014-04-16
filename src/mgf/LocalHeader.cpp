@@ -1,11 +1,14 @@
 #include <mgf/LocalHeader.hpp>
+//#include <algorithm>
+#include <utility>
+
 
 #include <mgf/defines.hpp>
 
 namespace mgf
 {
     
-    LocalHeader::LocalHeader()
+    LocalHeader::LocalHeader() :sequences(nullptr) 
     {
         reset();
     }
@@ -68,7 +71,17 @@ namespace mgf
 
     void LocalHeader::setSeq(std::list<std::string>& s)
     {
-        MGF_IGNORED("LocalHeader::setSeq");
+        if(not sequences)
+            sequences = new std::list<std::string>;
+
+        for(std::string& seq : s)
+            sequences->emplace_back(std::move(seq));
+        s.clear();
+    }
+
+    const std::list<std::string>& LocalHeader::getSeq() const
+    {
+        return *sequences;
     }
 
     void LocalHeader::setTag(std::list<std::string>&s)
@@ -131,5 +144,11 @@ namespace mgf
         mz = 0;
         intensity = 0;
         title.clear();
+
+        if(sequences)
+        {
+            delete sequences;
+            sequences = nullptr;
+        }
     }
 }

@@ -103,9 +103,21 @@ namespace mgf
             void setScans(int min,int max);
 
             /**
-             * \brief Not used
+             * \brief set real sequences
+             * \param s sequence to set.
+             *  It use std::move to copy element, so s is empty at the end of this call
              */
             void setSeq(std::list<std::string>& s);
+
+
+            /**
+             * \brief get sequences list
+             *
+             * Note : if setSeq was not be called before or if the object have be reset, it result in undefined beaviour.
+             *
+             * \return a ref to the internal value
+             */
+            const std::list<std::string>& getSeq()const;
 
             /**
              * \brief Not used
@@ -164,6 +176,8 @@ namespace mgf
             double mz; ///< the M/Z ratio
             double intensity; ///< the intensity
             std::string title; ///< the title
+
+            std::list<std::string>* sequences;
     };
 }
 #endif
