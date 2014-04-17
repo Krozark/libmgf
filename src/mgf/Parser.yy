@@ -139,6 +139,7 @@
 %type <v_interger_list>     interger_list
 %type <v_string_list>       string_list
 %type <v_string>            string_st
+%type <v_string>            title
 %type <v_double>            number
 %type <v_d_range>           number_range
 %type <v_i_range>           raw
@@ -176,17 +177,25 @@ interger_list : interger_list T_COMA V_INTEGER {$1->push_back($3);$$=$1;$1=nullp
               | V_INTEGER   {auto l = MGF_NEW_INTEGER_LIST;l->push_back($1);$$=l;}
               ;
 
-string_list : string_list T_COMA V_STRING  {$1->push_back(*$3);$$=$1;$1=nullptr;DEL($3);}
-            | V_STRING  {auto l = MGF_NEW_STRING_LIST;l->push_back(*$1);$$=l;}
-            ;
-
 string_st : V_STRING {$$=$1;$1=nullptr;}
           | string_st V_STRING  {*$1+=*$2;DEL($2);$$=$1;$1=nullptr;}
           | string_st number {*$1+=std::to_string($2);$$=$1;$1=nullptr;}
-          | string_st T_COMA {*$1+=",";$$=$1;$1=nullptr;}
           | string_st T_PLUS {*$1+="+";$$=$1;$1=nullptr;}
           | string_st T_MINUS {*$1+="-";$$=$1;$1=nullptr;}
           ;
+
+title   : V_STRING {$$=$1;$1=nullptr;}
+        | title V_STRING  {*$1+=*$2;DEL($2);$$=$1;$1=nullptr;}
+        | title number {*$1+=std::to_string($2);$$=$1;$1=nullptr;}
+        | title T_PLUS {*$1+="+";$$=$1;$1=nullptr;}
+        | title T_MINUS {*$1+="-";$$=$1;$1=nullptr;}
+        | title T_COMA {*$1+=",";$$=$1;$1=nullptr;}
+        ;
+
+string_list : string_list T_COMA string_st  {$1->push_back(*$3);$$=$1;$1=nullptr;DEL($3);}
+            | string_st  {auto l = MGF_NEW_STRING_LIST;l->push_back(*$1);$$=l;}
+            ;
+
 
 number : V_INTEGER  {$$=$1;}
        | V_DOUBLE   {$$=$1;}
@@ -276,7 +285,7 @@ blockparam  : K_CHARGE T_EQUALS charge T_EOL {driver.currentSpectrum.header.setC
             | K_SCANS T_EQUALS number_range T_EOL {driver.currentSpectrum.header.setScans($3.min,$3.max);}
             | K_SEQ T_EQUALS string_list T_EOL {driver.currentSpectrum.header.setSeq(*$3);DEL($3);}
             | K_TAG T_EQUALS string_list T_EOL {driver.currentSpectrum.header.setTag(*$3);DEL($3);}
-            | K_TITLE T_EQUALS string_st T_EOL {driver.currentSpectrum.header.setTitle(*$3);DEL($3);}
+            | K_TITLE T_EQUALS title T_EOL {driver.currentSpectrum.header.setTitle(*$3);DEL($3);}
             | K_TOL T_EQUALS number T_EOL {driver.currentSpectrum.header.setTol($3);}
             | K_TOLU T_EQUALS V_STRING T_EOL {driver.currentSpectrum.header.setTolU(*$3);DEL($3);}
             | T_EOL
