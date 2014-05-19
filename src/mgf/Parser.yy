@@ -7,9 +7,9 @@
 /* verbose error messages */
 %error-verbose
 /* namespace to enclose parser in */
-%define namespace "mgf"
+%define api.namespace {mgf}
 /* set the parser's class identifier */
-%define parser_class_name "Parser"
+%define parser_class_name {Parser}
  
 %lex-param { mgf::Scanner& scanner }
 %parse-param { mgf::Scanner& scanner }
@@ -303,7 +303,7 @@ start : headerparams blocks T_END
 %%
  
  
-void mgf::Parser::error(const mgf::Parser::location_type &loc,const std::string &message)
+void mgf::Parser::error(const std::string &message)
 {
    std::cerr<<"Error line "<<mgf_line_no<<" : "<<message<<std::endl;; 
 }

@@ -4,7 +4,7 @@ set(SRCROOT ${PROJECT_SOURCE_DIR}/src/${CMAKE_PROJECT_NAME})
 if(UNIX)
 	FIND_PACKAGE(BISON REQUIRED)
 	SET(BisonOutputSrc ${SRCROOT}/Parser.cpp)
-	set(BisonOutputInc ${SRCROOT}/Parser.hpp ${SRCROOT}/location.hh ${SRCROOT}/position.hh ${SRCROOT}/stack.hh)
+	set(BisonOutputInc ${SRCROOT}/Parser.hpp ${SRCROOT}/stack.hh)
 	IF(BISON_FOUND)
 		ADD_CUSTOM_COMMAND(
 			OUTPUT ${BisonOutputSrc} ${BisonOutputInc}
