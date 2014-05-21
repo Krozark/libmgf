@@ -29,6 +29,7 @@ int mgf_line_no = 1;
 %option yyclass="Scanner"
 %option nodefault
 %option noyywrap
+%option prefix="Mgf"
  
 %%
 

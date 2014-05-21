@@ -2,7 +2,9 @@
 #define MGF_SCANNER_HPP
 
 #if ! defined(yyFlexLexerOnce)
+#define yyFlexLexer MgfFlexLexer
 #include <mgf/FlexLexer.hpp>
+#undef yyFlexLexer
 #endif
 
 // Override the interface for yylex since we namespaced it
@@ -24,7 +26,7 @@ namespace mgf
     /**
      * \brief The lexer that tokenize the input
      */
-    class Scanner : public yyFlexLexer
+    class Scanner : public MgfFlexLexer
     {
         public:
             /**

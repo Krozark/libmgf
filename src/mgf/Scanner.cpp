@@ -3,7 +3,7 @@
 namespace mgf
 {
     
-    Scanner::Scanner(std::istream& in) : yyFlexLexer(&in), yylval(nullptr)
+    Scanner::Scanner(std::istream& in) : MgfFlexLexer(&in), yylval(nullptr)
     {
     }
 
