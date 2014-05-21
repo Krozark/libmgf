@@ -7,7 +7,7 @@ install:
     && wget http://ftp.gnu.org/gnu/bison/bison-3.0.tar.xz
     && unxz -c bison-3.0.tar.xz | tar xv
     && cd bison-3.0
-    && ./configure; make -j2; make install
+    && ./configure; make -j2; sudo make install
     && cd ..
 
 
