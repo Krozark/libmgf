@@ -4,6 +4,12 @@ install:
     && sudo apt-get install libmysqlcppconn-dev libsqlite3-dev g++-4.8
     && sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50
     && sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50
+    && wget http://ftp.gnu.org/gnu/bison/bison-3.0.tar.xz
+    && unxz -c bison-3.0.tar.xz | tar xv
+    && cd bison-3.0
+    && ./configure; make -j2; make install
+    && cd ..
+
 
 language: cpp
 
