@@ -1,6 +1,6 @@
-#line 2 "Lexer.cpp"
+#line 2 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.cpp"
 
-#line 4 "Lexer.cpp"
+#line 4 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -20,7 +20,7 @@
      * We will address this in a future release of flex, or omit the C++ scanner
      * altogether.
      */
-    #define yyFlexLexer yyFlexLexer
+    #define yyFlexLexer MgfFlexLexer
 
 /* First, we deal with  platform-specific or compiler-specific issues. */
 
@@ -38,7 +38,7 @@
 #if defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
 
 /* C99 says to define __STDC_LIMIT_MACROS before including stdint.h,
- * if you want the limit (max/min) macros for int types.
+ * if you want the limit (max/min) macros for int types. 
  */
 #ifndef __STDC_LIMIT_MACROS
 #define __STDC_LIMIT_MACROS 1
@@ -55,7 +55,7 @@ typedef uint32_t flex_uint32_t;
 typedef signed char flex_int8_t;
 typedef short int flex_int16_t;
 typedef int flex_int32_t;
-typedef unsigned char flex_uint8_t;
+typedef unsigned char flex_uint8_t; 
 typedef unsigned short int flex_uint16_t;
 typedef unsigned int flex_uint32_t;
 
@@ -93,7 +93,7 @@ typedef unsigned int flex_uint32_t;
 #endif /* ! FLEXINT_H */
 
 /* begin standard C++ headers. */
-#include <iostream>
+#include <iostream> 
 #include <errno.h>
 #include <cstdlib>
 #include <cstdio>
@@ -181,7 +181,7 @@ extern int yyleng;
 #define EOB_ACT_LAST_MATCH 2
 
     #define YY_LESS_LINENO(n)
-
+    
 /* Return all but the first "n" matched characters back to the input stream. */
 #define yyless(n) \
 	do \
@@ -244,7 +244,7 @@ struct yy_buffer_state
 
     int yy_bs_lineno; /**< The line count. */
     int yy_bs_column; /**< The column count. */
-
+    
 	/* Whether to try to fill the input buffer when we reach the
 	 * end of it.
 	 */
@@ -284,9 +284,9 @@ struct yy_buffer_state
  */
 #define YY_CURRENT_BUFFER_LVALUE (yy_buffer_stack)[(yy_buffer_stack_top)]
 
-void *yyalloc (yy_size_t  );
-void *yyrealloc (void *,yy_size_t  );
-void yyfree (void *  );
+void *Mgfalloc (yy_size_t  );
+void *Mgfrealloc (void *,yy_size_t  );
+void Mgffree (void *  );
 
 #define yy_new_buffer yy_create_buffer
 
@@ -319,7 +319,7 @@ typedef unsigned char YY_CHAR;
 #define yytext_ptr yytext
 #define YY_INTERACTIVE
 
-#include <mgf/FlexLexer.hpp>
+#include <FlexLexer.h>
 
 int yyFlexLexer::yywrap() { return 1; }
 int yyFlexLexer::yylex()
@@ -387,7 +387,7 @@ static yyconst flex_int32_t yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
         4,    4,    2,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    5,    6,    1,    6,    1,    1,    1,    1,    7,
+        1,    5,    6,    7,    6,    1,    1,    1,    7,    7,
         7,    1,    8,    9,   10,   11,    6,   12,   12,   12,
        12,   12,   12,   12,   12,   12,   12,    7,   13,    1,
        14,    1,    1,    1,   15,   16,   17,   18,   19,   20,
@@ -582,19 +582,19 @@ static yyconst flex_int16_t yy_chk[359] =
 #define yymore() yymore_used_but_not_detected
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
-#line 1 "Lexer.lex"
-#line 2 "Lexer.lex"
+#line 1 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
+#line 2 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 /* stl */
 #include <string>
 #include <sstream>
 /* Implementation of yyFlexScanner */
 #include <mgf/Scanner.hpp>
 #include <mgf/defines.hpp>
-
+ 
 /* typedef to make the returns for the tokens shorter */
 typedef mgf::Parser::token token;
 int mgf_line_no = 1;
-
+ 
 /* define yyterminate as this instead of NULL */
 #define yyterminate() return token::T_END;
 
@@ -608,7 +608,7 @@ int mgf_line_no = 1;
     token::K_ => key word
 */
 
-#line 612 "Lexer.cpp"
+#line 612 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.cpp"
 
 #define INITIAL 0
 
@@ -715,11 +715,11 @@ YY_DECL
 	register yy_state_type yy_current_state;
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
+    
+#line 34 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 
-#line 33 "Lexer.lex"
 
-
-#line 723 "Lexer.cpp"
+#line 723 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.cpp"
 
 	if ( !(yy_init) )
 		{
@@ -806,7 +806,7 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 35 "Lexer.lex"
+#line 36 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_EOL");
     ++mgf_line_no;
@@ -816,7 +816,7 @@ YY_RULE_SETUP
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 41 "Lexer.lex"
+#line 42 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_COMMENT");
     ++mgf_line_no;
@@ -825,7 +825,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 47 "Lexer.lex"
+#line 48 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_COMMENT");
     ++mgf_line_no;
@@ -835,12 +835,12 @@ YY_RULE_SETUP
 case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
-#line 53 "Lexer.lex"
+#line 54 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 56 "Lexer.lex"
+#line 57 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("V_INTEGER"<<" (="<<yytext<<")");
     yylval->v_integer = atoi(yytext);
@@ -849,7 +849,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 62 "Lexer.lex"
+#line 63 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("V_DOUBLE"<<" (="<<yytext<<")");
     yylval->v_double = atof(yytext);
@@ -858,7 +858,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 68 "Lexer.lex"
+#line 69 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("V_DOUBLE"<<" (="<<yytext<<")");
     std::istringstream iss;
@@ -869,7 +869,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 82 "Lexer.lex"
+#line 83 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_PLUS");
     return token::T_PLUS;
@@ -877,7 +877,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 87 "Lexer.lex"
+#line 88 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_MINUS");
     return token::T_MINUS;
@@ -885,7 +885,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 92 "Lexer.lex"
+#line 93 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_EQUALS");
     return token::T_EQUALS;
@@ -893,7 +893,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 97 "Lexer.lex"
+#line 98 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_COMA");
     return token::T_COMA;
@@ -901,7 +901,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 102 "Lexer.lex"
+#line 103 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_AND");
     return token::T_AND;
@@ -909,7 +909,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 107 "Lexer.lex"
+#line 108 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_USER");
     return token::T_USER;
@@ -917,7 +917,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 112 "Lexer.lex"
+#line 113 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_BEGIN_IONS");
     return token::T_BEGIN_IONS;
@@ -925,7 +925,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 117 "Lexer.lex"
+#line 118 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_END_IONS");
     return token::T_END_IONS;
@@ -933,7 +933,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 127 "Lexer.lex"
+#line 128 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_ACCESSION");
     return token::K_ACCESSION;
@@ -941,7 +941,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 132 "Lexer.lex"
+#line 133 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_CHARGE");
     return token::K_CHARGE;
@@ -949,7 +949,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 137 "Lexer.lex"
+#line 138 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_CLE");
     return token::K_CLE;
@@ -957,7 +957,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 142 "Lexer.lex"
+#line 143 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_COM");
     return token::K_COM;
@@ -965,7 +965,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 147 "Lexer.lex"
+#line 148 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_CUTOUT");
     return token::K_CUTOUT;
@@ -973,7 +973,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 152 "Lexer.lex"
+#line 153 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_COMP");
     return token::K_COMP;
@@ -981,7 +981,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 157 "Lexer.lex"
+#line 158 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_DB");
     return token::K_DB;
@@ -989,7 +989,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 162 "Lexer.lex"
+#line 163 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_DECOY");
     return token::K_DECOY;
@@ -997,7 +997,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 167 "Lexer.lex"
+#line 168 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_ERRORTOLERANT");
     return token::K_ERRORTOLERANT;
@@ -1005,7 +1005,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 172 "Lexer.lex"
+#line 173 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_ETAG");
     return token::K_ETAG;
@@ -1013,7 +1013,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 177 "Lexer.lex"
+#line 178 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_FORMAT");
     return token::K_FORMAT;
@@ -1021,7 +1021,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 182 "Lexer.lex"
+#line 183 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_FRAMES");
     return token::K_FRAMES;
@@ -1029,7 +1029,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 187 "Lexer.lex"
+#line 188 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_INSTRUMENT");
     return token::K_INSTRUMENT;
@@ -1037,7 +1037,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 192 "Lexer.lex"
+#line 193 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_IT_MODS");
     return token::K_IT_MODS;
@@ -1045,7 +1045,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 197 "Lexer.lex"
+#line 198 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_ITOL");
     return token::K_ITOL;
@@ -1053,7 +1053,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 202 "Lexer.lex"
+#line 203 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_ITOLU");
     return token::K_ITOLU;
@@ -1061,7 +1061,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 207 "Lexer.lex"
+#line 208 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_LOCUS");
     return token::K_LOCUS;
@@ -1069,7 +1069,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 212 "Lexer.lex"
+#line 213 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_MASS");
     return token::K_MASS;
@@ -1077,7 +1077,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 217 "Lexer.lex"
+#line 218 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_MODS");
     return token::K_MODS;
@@ -1085,7 +1085,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 222 "Lexer.lex"
+#line 223 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_MULTI_SITE_MODS");
     return token::K_MULTI_SITE_MODS;
@@ -1093,7 +1093,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 227 "Lexer.lex"
+#line 228 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_PEP_ISOTOPE_ERROR");
     return token::K_PEP_ISOTOPE_ERROR;
@@ -1101,7 +1101,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 232 "Lexer.lex"
+#line 233 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_PEPMASS");
     return token::K_PEPMASS;
@@ -1109,7 +1109,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 237 "Lexer.lex"
+#line 238 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_PFA");
     return token::K_PFA;
@@ -1117,7 +1117,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 242 "Lexer.lex"
+#line 243 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_PRECURSOR");
     return token::K_PRECURSOR;
@@ -1125,7 +1125,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 247 "Lexer.lex"
+#line 248 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_QUANTITATION");
     return token::K_QUANTITATION;
@@ -1133,7 +1133,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 252 "Lexer.lex"
+#line 253 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_RAWFILE");
     return token::K_RAWFILE;
@@ -1141,7 +1141,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 257 "Lexer.lex"
+#line 258 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_RAWSCANS");
     return token::K_RAWSCANS;
@@ -1149,7 +1149,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 262 "Lexer.lex"
+#line 263 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_REPORT");
     return token::K_REPORT;
@@ -1157,7 +1157,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 267 "Lexer.lex"
+#line 268 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_REPTYPE");
     return token::K_REPTYPE;
@@ -1165,7 +1165,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 272 "Lexer.lex"
+#line 273 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_RTINSECONDS");
     return token::K_RTINSECONDS;
@@ -1173,7 +1173,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 277 "Lexer.lex"
+#line 278 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_SCANS");
     return token::K_SCANS;
@@ -1181,7 +1181,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 282 "Lexer.lex"
+#line 283 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_SEARCH");
     return token::K_SEARCH;
@@ -1189,7 +1189,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 287 "Lexer.lex"
+#line 288 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_SEG");
     return token::K_SEG;
@@ -1197,7 +1197,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 292 "Lexer.lex"
+#line 293 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_SEQ");
     return token::K_SEQ;
@@ -1205,7 +1205,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 297 "Lexer.lex"
+#line 298 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_TAG");
     return token::K_TAG;
@@ -1213,7 +1213,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 302 "Lexer.lex"
+#line 303 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_TAXONOMY");
     return token::K_TAXONOMY;
@@ -1221,7 +1221,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 307 "Lexer.lex"
+#line 308 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_TITLE");
     return token::K_TITLE;
@@ -1229,7 +1229,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 312 "Lexer.lex"
+#line 313 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_TOL");
     return token::K_TOL;
@@ -1237,7 +1237,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 317 "Lexer.lex"
+#line 318 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_TOLU");
     return token::K_TOLU;
@@ -1245,7 +1245,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 322 "Lexer.lex"
+#line 323 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_USEREMAIL");
     return token::K_USEREMAIL;
@@ -1253,7 +1253,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 327 "Lexer.lex"
+#line 328 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_USERNAME");
     return token::K_USERNAME;
@@ -1261,7 +1261,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 333 "Lexer.lex"
+#line 334 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("V_STRING"<<" (="<<yytext<<")");
     yylval->v_string = new std::string(yytext, yyleng);
@@ -1270,17 +1270,17 @@ YY_RULE_SETUP
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 339 "Lexer.lex"
+#line 340 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     std::cerr<<"line "<<mgf_line_no<<" what is that ??? :  <"<<yytext<<">"<<std::endl;
 }
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 342 "Lexer.lex"
+#line 343 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 1284 "Lexer.cpp"
+#line 1284 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1448,9 +1448,9 @@ yyFlexLexer::yyFlexLexer( std::istream* arg_yyin, std::ostream* arg_yyout )
 yyFlexLexer::~yyFlexLexer()
 {
 	delete [] yy_state_buf;
-	yyfree(yy_start_stack  );
+	Mgffree(yy_start_stack  );
 	yy_delete_buffer( YY_CURRENT_BUFFER );
-	yyfree(yy_buffer_stack  );
+	Mgffree(yy_buffer_stack  );
 }
 
 /* The contents of this function are C++ specific, so the () macro is not used.
@@ -1578,7 +1578,7 @@ int yyFlexLexer::yy_get_next_buffer()
 
 				b->yy_ch_buf = (char *)
 					/* Include room in for 2 EOB chars. */
-					yyrealloc((void *) b->yy_ch_buf,b->yy_buf_size + 2  );
+					Mgfrealloc((void *) b->yy_ch_buf,b->yy_buf_size + 2  );
 				}
 			else
 				/* Can't grow it, we don't own it. */
@@ -1627,7 +1627,7 @@ int yyFlexLexer::yy_get_next_buffer()
 	if ((yy_size_t) ((yy_n_chars) + number_to_move) > YY_CURRENT_BUFFER_LVALUE->yy_buf_size) {
 		/* Extend the array by 50%, plus the number we really need. */
 		yy_size_t new_size = (yy_n_chars) + number_to_move + ((yy_n_chars) >> 1);
-		YY_CURRENT_BUFFER_LVALUE->yy_ch_buf = (char *) yyrealloc((void *) YY_CURRENT_BUFFER_LVALUE->yy_ch_buf,new_size  );
+		YY_CURRENT_BUFFER_LVALUE->yy_ch_buf = (char *) Mgfrealloc((void *) YY_CURRENT_BUFFER_LVALUE->yy_ch_buf,new_size  );
 		if ( ! YY_CURRENT_BUFFER_LVALUE->yy_ch_buf )
 			YY_FATAL_ERROR( "out of dynamic memory in yy_get_next_buffer()" );
 	}
@@ -1647,7 +1647,7 @@ int yyFlexLexer::yy_get_next_buffer()
 {
 	register yy_state_type yy_current_state;
 	register char *yy_cp;
-
+    
 	yy_current_state = (yy_start);
 	yy_current_state += YY_AT_BOL();
 
@@ -1702,7 +1702,7 @@ int yyFlexLexer::yy_get_next_buffer()
     void yyFlexLexer::yyunput( int c, register char* yy_bp)
 {
 	register char *yy_cp;
-
+    
     yy_cp = (yy_c_buf_p);
 
 	/* undo effects of setting up yytext */
@@ -1739,7 +1739,7 @@ int yyFlexLexer::yy_get_next_buffer()
     int yyFlexLexer::yyinput()
 {
 	int c;
-
+    
 	*(yy_c_buf_p) = (yy_hold_char);
 
 	if ( *(yy_c_buf_p) == YY_END_OF_BUFFER_CHAR )
@@ -1807,12 +1807,12 @@ int yyFlexLexer::yy_get_next_buffer()
 
 /** Immediately switch to a different input stream.
  * @param input_file A readable stream.
- *
+ * 
  * @note This function does not reset the start condition to @c INITIAL .
  */
     void yyFlexLexer::yyrestart( std::istream* input_file )
 {
-
+    
 	if ( ! YY_CURRENT_BUFFER ){
         yyensure_buffer_stack ();
 		YY_CURRENT_BUFFER_LVALUE =
@@ -1825,11 +1825,11 @@ int yyFlexLexer::yy_get_next_buffer()
 
 /** Switch to a different input buffer.
  * @param new_buffer The new input buffer.
- *
+ * 
  */
     void yyFlexLexer::yy_switch_to_buffer( YY_BUFFER_STATE new_buffer )
 {
-
+    
 	/* TODO. We should be able to replace this entire function body
 	 * with
 	 *		yypop_buffer_state();
@@ -1869,14 +1869,14 @@ int yyFlexLexer::yy_get_next_buffer()
 /** Allocate and initialize an input buffer state.
  * @param file A readable stream.
  * @param size The character buffer size in bytes. When in doubt, use @c YY_BUF_SIZE.
- *
+ * 
  * @return the allocated buffer state.
  */
     YY_BUFFER_STATE yyFlexLexer::yy_create_buffer( std::istream* file, int size )
 {
 	YY_BUFFER_STATE b;
-
-	b = (YY_BUFFER_STATE) yyalloc(sizeof( struct yy_buffer_state )  );
+    
+	b = (YY_BUFFER_STATE) Mgfalloc(sizeof( struct yy_buffer_state )  );
 	if ( ! b )
 		YY_FATAL_ERROR( "out of dynamic memory in yy_create_buffer()" );
 
@@ -1885,7 +1885,7 @@ int yyFlexLexer::yy_get_next_buffer()
 	/* yy_ch_buf has to be 2 characters longer than the size given because
 	 * we need to put in 2 end-of-buffer characters.
 	 */
-	b->yy_ch_buf = (char *) yyalloc(b->yy_buf_size + 2  );
+	b->yy_ch_buf = (char *) Mgfalloc(b->yy_buf_size + 2  );
 	if ( ! b->yy_ch_buf )
 		YY_FATAL_ERROR( "out of dynamic memory in yy_create_buffer()" );
 
@@ -1898,11 +1898,11 @@ int yyFlexLexer::yy_get_next_buffer()
 
 /** Destroy the buffer.
  * @param b a buffer created with yy_create_buffer()
- *
+ * 
  */
     void yyFlexLexer::yy_delete_buffer( YY_BUFFER_STATE b )
 {
-
+    
 	if ( ! b )
 		return;
 
@@ -1910,9 +1910,9 @@ int yyFlexLexer::yy_get_next_buffer()
 		YY_CURRENT_BUFFER_LVALUE = (YY_BUFFER_STATE) 0;
 
 	if ( b->yy_is_our_buffer )
-		yyfree((void *) b->yy_ch_buf  );
+		Mgffree((void *) b->yy_ch_buf  );
 
-	yyfree((void *) b  );
+	Mgffree((void *) b  );
 }
 
 extern "C" int isatty (int );
@@ -1925,7 +1925,7 @@ extern "C" int isatty (int );
 
 {
 	int oerrno = errno;
-
+    
 	yy_flush_buffer( b );
 
 	b->yy_input_file = file;
@@ -1946,7 +1946,7 @@ extern "C" int isatty (int );
 
 /** Discard all buffered characters. On the next scan, YY_INPUT will be called.
  * @param b the buffer state to be flushed, usually @c YY_CURRENT_BUFFER.
- *
+ * 
  */
     void yyFlexLexer::yy_flush_buffer( YY_BUFFER_STATE b )
 {
@@ -1975,7 +1975,7 @@ extern "C" int isatty (int );
  *  the current state. This function will allocate the stack
  *  if necessary.
  *  @param new_buffer The new state.
- *
+ *  
  */
 void yyFlexLexer::yypush_buffer_state (YY_BUFFER_STATE new_buffer)
 {
@@ -2005,7 +2005,7 @@ void yyFlexLexer::yypush_buffer_state (YY_BUFFER_STATE new_buffer)
 
 /** Removes and deletes the top of the stack, if present.
  *  The next element becomes the new top.
- *
+ *  
  */
 void yyFlexLexer::yypop_buffer_state (void)
 {
@@ -2029,7 +2029,7 @@ void yyFlexLexer::yypop_buffer_state (void)
 void yyFlexLexer::yyensure_buffer_stack(void)
 {
 	int num_to_alloc;
-
+    
 	if (!(yy_buffer_stack)) {
 
 		/* First allocation is just for 2 elements, since we don't know if this
@@ -2037,14 +2037,14 @@ void yyFlexLexer::yyensure_buffer_stack(void)
 		 * immediate realloc on the next call.
          */
 		num_to_alloc = 1;
-		(yy_buffer_stack) = (struct yy_buffer_state**)yyalloc
+		(yy_buffer_stack) = (struct yy_buffer_state**)Mgfalloc
 								(num_to_alloc * sizeof(struct yy_buffer_state*)
 								);
 		if ( ! (yy_buffer_stack) )
 			YY_FATAL_ERROR( "out of dynamic memory in yyensure_buffer_stack()" );
-
+								  
 		memset((yy_buffer_stack), 0, num_to_alloc * sizeof(struct yy_buffer_state*));
-
+				
 		(yy_buffer_stack_max) = num_to_alloc;
 		(yy_buffer_stack_top) = 0;
 		return;
@@ -2056,7 +2056,7 @@ void yyFlexLexer::yyensure_buffer_stack(void)
 		int grow_size = 8 /* arbitrary grow size */;
 
 		num_to_alloc = (yy_buffer_stack_max) + grow_size;
-		(yy_buffer_stack) = (struct yy_buffer_state**)yyrealloc
+		(yy_buffer_stack) = (struct yy_buffer_state**)Mgfrealloc
 								((yy_buffer_stack),
 								num_to_alloc * sizeof(struct yy_buffer_state*)
 								);
@@ -2079,10 +2079,10 @@ void yyFlexLexer::yyensure_buffer_stack(void)
 		new_size = (yy_start_stack_depth) * sizeof( int );
 
 		if ( ! (yy_start_stack) )
-			(yy_start_stack) = (int *) yyalloc(new_size  );
+			(yy_start_stack) = (int *) Mgfalloc(new_size  );
 
 		else
-			(yy_start_stack) = (int *) yyrealloc((void *) (yy_start_stack),new_size  );
+			(yy_start_stack) = (int *) Mgfrealloc((void *) (yy_start_stack),new_size  );
 
 		if ( ! (yy_start_stack) )
 			YY_FATAL_ERROR( "out of memory expanding start-condition stack" );
@@ -2159,12 +2159,12 @@ static int yy_flex_strlen (yyconst char * s )
 }
 #endif
 
-void *yyalloc (yy_size_t  size )
+void *Mgfalloc (yy_size_t  size )
 {
 	return (void *) malloc( size );
 }
 
-void *yyrealloc  (void * ptr, yy_size_t  size )
+void *Mgfrealloc  (void * ptr, yy_size_t  size )
 {
 	/* The cast to (char *) in the following accommodates both
 	 * implementations that use char* generic pointers, and those
@@ -2176,11 +2176,11 @@ void *yyrealloc  (void * ptr, yy_size_t  size )
 	return (void *) realloc( (char *) ptr, size );
 }
 
-void yyfree (void * ptr )
+void Mgffree (void * ptr )
 {
-	free( (char *) ptr );	/* see yyrealloc() for (char *) cast */
+	free( (char *) ptr );	/* see Mgfrealloc() for (char *) cast */
 }
 
 #define YYTABLES_NAME "yytables"
 
-#line 342 "Lexer.lex"
+#line 343 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
