@@ -11,6 +11,7 @@ if(UNIX)
 		  COMMAND ${BISON_EXECUTABLE}
 		  --output=${BisonOutputSrc}
 				  ${SRCROOT}/Parser.yy
+            --report=state
 		  COMMENT "Generating Parser.cpp"
 		)
 	else()

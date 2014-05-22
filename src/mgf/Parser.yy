@@ -190,6 +190,7 @@ title   : V_STRING {$$=$1;$1=nullptr;}
         | title T_PLUS {*$1+="+";$$=$1;$1=nullptr;}
         | title T_MINUS {*$1+="-";$$=$1;$1=nullptr;}
         | title T_COMA {*$1+=",";$$=$1;$1=nullptr;}
+        | title T_EQUALS {*$1+="=";$$=$1;$1=nullptr;}
         ;
 
 string_list : string_list T_COMA string_st  {$1->push_back(*$3);$$=$1;$1=nullptr;DEL($3);}
