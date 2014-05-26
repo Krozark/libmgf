@@ -66,6 +66,8 @@ namespace mgf
              */
             inline const LocalHeader& getHeader()const{return header;}
 
+            inline LocalHeader& getHeader(){return header;}
+
 
             /**
              * \return the peptide mass

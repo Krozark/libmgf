@@ -71,6 +71,7 @@ namespace mgf
 
     void LocalHeader::setSeq(std::list<std::string>& s)
     {
+        sequences.clear();
         for(std::string& seq : s)
             sequences.emplace_back(std::move(seq));
         s.clear();
@@ -122,6 +123,15 @@ namespace mgf
         ///\todo TODO
         if(self.title.size())
             stream<<"TITLE="<<self.title<<"\n";
+        if(self.sequences.size()>0)
+        {
+            auto current = self.sequences.begin();
+            stream<<"SEQ="<<*current;
+            ++current;
+            for(;current != self.sequences.end();++current)
+                stream<<","<<*current;
+            stream<<"\n";
+        }
         if(self.mz)
         {
             stream<<"PEPMASS="<<self.mz;
