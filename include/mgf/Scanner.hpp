@@ -12,11 +12,11 @@
 #define YY_DECL int mgf::Scanner::yylex()
 
 // Include Bison for types / tokens
-#if __WIN32
-    #include <mgf/Win/Parser.hpp>
-#else
+//#if __WIN32
+//    #include <mgf/Win/Parser.hpp>
+//#else
     #include <mgf/Parser.hpp>
-#endif // __WIN32
+//#endif // __WIN32
 
 namespace mgf
 {

@@ -1,7 +1,7 @@
 set(INCROOT ${PROJECT_SOURCE_DIR}/include/${CMAKE_PROJECT_NAME})
 set(SRCROOT ${PROJECT_SOURCE_DIR}/src/${CMAKE_PROJECT_NAME})
 
-if(UNIX)
+#if(UNIX)
 	FIND_PACKAGE(BISON REQUIRED)
 	SET(BisonOutputSrc ${SRCROOT}/Parser.cpp)
 	set(BisonOutputInc ${SRCROOT}/Parser.hpp ${SRCROOT}/stack.hh)
@@ -30,11 +30,11 @@ if(UNIX)
 	else()
 		message( SEND_ERROR "Flex is required" )
 	ENDIF()
-elseif(WIN32)
-    set(FlexOutputSrc ${SRCROOT}/Win/Lexer.cpp)
-	set(BisonOutputSrc ${SRCROOT}/Win/Parser.cpp)
-	set(BisonOutputInc ${SRCROOT}/Win/Parser.hpp ${SRCROOT}/Win/location.hh ${SRCROOT}/Win/position.hh ${SRCROOT}/Win/stack.hh)
-endif()
+#elseif(WIN32)
+    #set(FlexOutputSrc ${SRCROOT}/Win/Lexer.cpp)
+	#set(BisonOutputSrc ${SRCROOT}/Win/Parser.cpp)
+	#set(BisonOutputInc ${SRCROOT}/Win/Parser.hpp ${SRCROOT}/Win/stack.hh)
+#endif()
 
 #ROOT files
 set(ROOT_SRC
