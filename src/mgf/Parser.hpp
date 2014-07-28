@@ -1,4 +1,4 @@
-// A Bison parser, made by GNU Bison 3.0.
+// A Bison parser, made by GNU Bison 3.0.2.
 
 // Skeleton interface for Bison LALR(1) parsers in C++
 
@@ -31,16 +31,16 @@
 // version 2.2 of Bison.
 
 /**
- ** \file C:\Documents and Settings\aaa\Mes documents\GitHub\Harpe-client\Qt\..\..\libmgf\src\mgf\Parser.hpp
+ ** \file /home/maxime/Documents/git/libmgf/src/mgf/Parser.hpp
  ** Define the mgf::parser class.
  */
 
 // C++ LALR(1) parser skeleton written by Akim Demaille.
 
-#ifndef YY_YY_C_DOCUMENTS_AND_SETTINGS_AAA_MES_DOCUMENTS_GITHUB_HARPE_CLIENT_QT_LIBMGF_SRC_MGF_PARSER_HPP_INCLUDED
-# define YY_YY_C_DOCUMENTS_AND_SETTINGS_AAA_MES_DOCUMENTS_GITHUB_HARPE_CLIENT_QT_LIBMGF_SRC_MGF_PARSER_HPP_INCLUDED
+#ifndef YY_YY_HOME_MAXIME_DOCUMENTS_GIT_LIBMGF_SRC_MGF_PARSER_HPP_INCLUDED
+# define YY_YY_HOME_MAXIME_DOCUMENTS_GIT_LIBMGF_SRC_MGF_PARSER_HPP_INCLUDED
 // //                    "%code requires" blocks.
-#line 20 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:371
+#line 20 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:372
 
     #include <list>
 	#include <string>
@@ -65,7 +65,7 @@
     }
     
 
-#line 69 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.hpp" // lalr1.cc:371
+#line 69 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.hpp" // lalr1.cc:372
 
 
 # include <vector>
@@ -76,14 +76,67 @@
 
 
 
+#ifndef YY_ATTRIBUTE
+# if (defined __GNUC__                                               \
+      && (2 < __GNUC__ || (__GNUC__ == 2 && 96 <= __GNUC_MINOR__)))  \
+     || defined __SUNPRO_C && 0x5110 <= __SUNPRO_C
+#  define YY_ATTRIBUTE(Spec) __attribute__(Spec)
+# else
+#  define YY_ATTRIBUTE(Spec) /* empty */
+# endif
+#endif
+
+#ifndef YY_ATTRIBUTE_PURE
+# define YY_ATTRIBUTE_PURE   YY_ATTRIBUTE ((__pure__))
+#endif
+
+#ifndef YY_ATTRIBUTE_UNUSED
+# define YY_ATTRIBUTE_UNUSED YY_ATTRIBUTE ((__unused__))
+#endif
+
+#if !defined _Noreturn \
+     && (!defined __STDC_VERSION__ || __STDC_VERSION__ < 201112)
+# if defined _MSC_VER && 1200 <= _MSC_VER
+#  define _Noreturn __declspec (noreturn)
+# else
+#  define _Noreturn YY_ATTRIBUTE ((__noreturn__))
+# endif
+#endif
+
+/* Suppress unused-variable warnings by "using" E.  */
+#if ! defined lint || defined __GNUC__
+# define YYUSE(E) ((void) (E))
+#else
+# define YYUSE(E) /* empty */
+#endif
+
+#if defined __GNUC__ && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
+/* Suppress an incorrect diagnostic about yylval being uninitialized.  */
+# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN \
+    _Pragma ("GCC diagnostic push") \
+    _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")\
+    _Pragma ("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")
+# define YY_IGNORE_MAYBE_UNINITIALIZED_END \
+    _Pragma ("GCC diagnostic pop")
+#else
+# define YY_INITIAL_VALUE(Value) Value
+#endif
+#ifndef YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+# define YY_IGNORE_MAYBE_UNINITIALIZED_END
+#endif
+#ifndef YY_INITIAL_VALUE
+# define YY_INITIAL_VALUE(Value) /* Nothing. */
+#endif
+
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
 #endif
 
-#line 10 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:371
+#line 10 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:372
 namespace mgf {
-#line 87 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.hpp" // lalr1.cc:371
+#line 140 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.hpp" // lalr1.cc:372
 
 
 
@@ -97,7 +150,7 @@ namespace mgf {
     /// Symbol semantic values.
     union semantic_type
     {
-    #line 57 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:371
+    #line 57 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:372
 
     int                         v_integer;
     double                      v_double;
@@ -108,7 +161,7 @@ namespace mgf {
     mgf::s_range                v_d_range;
     mgf::s_i_range              v_i_range;
 
-#line 112 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.hpp" // lalr1.cc:371
+#line 165 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.hpp" // lalr1.cc:372
     };
 #else
     typedef YYSTYPE semantic_type;
@@ -275,14 +328,14 @@ namespace mgf {
 
 #if YYDEBUG
     /// The current debugging stream.
-    std::ostream& debug_stream () const;
+    std::ostream& debug_stream () const YY_ATTRIBUTE_PURE;
     /// Set the current debugging stream.
     void set_debug_stream (std::ostream &);
 
     /// Type for debugging levels.
     typedef int debug_level_type;
     /// The current debugging level.
-    debug_level_type debug_level () const;
+    debug_level_type debug_level () const YY_ATTRIBUTE_PURE;
     /// Set the current debugging level.
     void set_debug_level (debug_level_type l);
 #endif
@@ -310,8 +363,8 @@ namespace mgf {
 
     /// Compute post-reduction state.
     /// \param yystate   the current state
-    /// \param yylhs     the nonterminal to push on the stack
-    state_type yy_lr_goto_state_ (state_type yystate, int yylhs);
+    /// \param yysym     the nonterminal to push on the stack
+    state_type yy_lr_goto_state_ (state_type yystate, int yysym);
 
     /// Whether the given \c yypact_ value indicates a defaulted state.
     /// \param yyvalue   the value to check
@@ -389,7 +442,7 @@ namespace mgf {
     /// \brief Reclaim the memory associated to a symbol.
     /// \param yymsg     Why this token is reclaimed.
     ///                  If null, print nothing.
-    /// \param s         The symbol.
+    /// \param yysym     The symbol.
     template <typename Base>
     void yy_destroy_ (const char* yymsg, basic_symbol<Base>& yysym) const;
 
@@ -463,13 +516,13 @@ namespace mgf {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 273,           //< Last index in yytable_.
-      yynnts_ = 22,  //< Number of nonterminal symbols.
+      yylast_ = 273,     ///< Last index in yytable_.
+      yynnts_ = 22,  ///< Number of nonterminal symbols.
       yyempty_ = -2,
-      yyfinal_ = 38, //< Termination state number.
+      yyfinal_ = 38, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 59    //< Number of tokens.
+      yyntokens_ = 59  ///< Number of tokens.
     };
 
 
@@ -479,11 +532,11 @@ namespace mgf {
   };
 
 
-#line 10 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:371
+#line 10 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:372
 } // mgf
-#line 485 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.hpp" // lalr1.cc:371
+#line 538 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.hpp" // lalr1.cc:372
 
 
 
 
-#endif // !YY_YY_C_DOCUMENTS_AND_SETTINGS_AAA_MES_DOCUMENTS_GITHUB_HARPE_CLIENT_QT_LIBMGF_SRC_MGF_PARSER_HPP_INCLUDED
+#endif // !YY_YY_HOME_MAXIME_DOCUMENTS_GIT_LIBMGF_SRC_MGF_PARSER_HPP_INCLUDED

@@ -1,6 +1,6 @@
-#line 2 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.cpp"
+#line 2 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.cpp"
 
-#line 4 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.cpp"
+#line 4 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -9,7 +9,7 @@
 #define FLEX_SCANNER
 #define YY_FLEX_MAJOR_VERSION 2
 #define YY_FLEX_MINOR_VERSION 5
-#define YY_FLEX_SUBMINOR_VERSION 37
+#define YY_FLEX_SUBMINOR_VERSION 35
 #if YY_FLEX_SUBMINOR_VERSION > 0
 #define FLEX_BETA
 #endif
@@ -154,7 +154,15 @@ typedef unsigned int flex_uint32_t;
 
 /* Size of default input buffer. */
 #ifndef YY_BUF_SIZE
+#ifdef __ia64__
+/* On IA-64, the buffer size is 16k, not 8k.
+ * Moreover, YY_BUF_SIZE is 2*YY_READ_BUF_SIZE in the general case.
+ * Ditto for the __ia64__ case accordingly.
+ */
+#define YY_BUF_SIZE 32768
+#else
 #define YY_BUF_SIZE 16384
+#endif /* __ia64__ */
 #endif
 
 /* The state buf must be large enough to hold one state per character in the main buffer.
@@ -166,12 +174,7 @@ typedef unsigned int flex_uint32_t;
 typedef struct yy_buffer_state *YY_BUFFER_STATE;
 #endif
 
-#ifndef YY_TYPEDEF_YY_SIZE_T
-#define YY_TYPEDEF_YY_SIZE_T
-typedef size_t yy_size_t;
-#endif
-
-extern yy_size_t yyleng;
+extern int yyleng;
 
 #define EOB_ACT_CONTINUE_SCAN 0
 #define EOB_ACT_END_OF_FILE 1
@@ -195,6 +198,11 @@ extern yy_size_t yyleng;
 
 #define unput(c) yyunput( c, (yytext_ptr)  )
 
+#ifndef YY_TYPEDEF_YY_SIZE_T
+#define YY_TYPEDEF_YY_SIZE_T
+typedef size_t yy_size_t;
+#endif
+
 #ifndef YY_STRUCT_YY_BUFFER_STATE
 #define YY_STRUCT_YY_BUFFER_STATE
 struct yy_buffer_state
@@ -213,7 +221,7 @@ struct yy_buffer_state
 	/* Number of characters read into yy_ch_buf, not including EOB
 	 * characters.
 	 */
-	yy_size_t yy_n_chars;
+	int yy_n_chars;
 
 	/* Whether we "own" the buffer - i.e., we know we created it,
 	 * and can realloc() it to grow it, and should free() it to
@@ -574,8 +582,8 @@ static yyconst flex_int16_t yy_chk[359] =
 #define yymore() yymore_used_but_not_detected
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
-#line 1 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
-#line 2 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 1 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
+#line 2 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 /* stl */
 #include <string>
 #include <sstream>
@@ -600,7 +608,7 @@ int mgf_line_no = 1;
     token::K_ => key word
 */
 
-#line 604 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.cpp"
+#line 612 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.cpp"
 
 #define INITIAL 0
 
@@ -611,7 +619,7 @@ int mgf_line_no = 1;
  */
 #include <unistd.h>
 #endif
-    
+
 #ifndef YY_EXTRA_TYPE
 #define YY_EXTRA_TYPE void *
 #endif
@@ -630,7 +638,12 @@ static int yy_flex_strlen (yyconst char * );
 
 /* Amount of stuff to slurp up with each read. */
 #ifndef YY_READ_BUF_SIZE
+#ifdef __ia64__
+/* On IA-64, the buffer size is 16k, not 8k */
+#define YY_READ_BUF_SIZE 16384
+#else
 #define YY_READ_BUF_SIZE 8192
+#endif /* __ia64__ */
 #endif
 
 /* Copy whatever the last rule matched to the standard output. */
@@ -703,10 +716,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 34 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 34 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 
 
-#line 710 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.cpp"
+#line 723 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.cpp"
 
 	if ( !(yy_init) )
 		{
@@ -793,7 +806,7 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 36 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 36 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_EOL");
     ++mgf_line_no;
@@ -803,7 +816,7 @@ YY_RULE_SETUP
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 42 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 42 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_COMMENT");
     ++mgf_line_no;
@@ -812,7 +825,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 48 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 48 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_COMMENT");
     ++mgf_line_no;
@@ -822,12 +835,12 @@ YY_RULE_SETUP
 case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
-#line 54 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 54 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 57 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 57 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("V_INTEGER"<<" (="<<yytext<<")");
     yylval->v_integer = atoi(yytext);
@@ -836,7 +849,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 63 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 63 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("V_DOUBLE"<<" (="<<yytext<<")");
     yylval->v_double = atof(yytext);
@@ -845,7 +858,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 69 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 69 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("V_DOUBLE"<<" (="<<yytext<<")");
     std::istringstream iss;
@@ -856,7 +869,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 83 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 83 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_PLUS");
     return token::T_PLUS;
@@ -864,7 +877,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 88 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 88 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_MINUS");
     return token::T_MINUS;
@@ -872,7 +885,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 93 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 93 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_EQUALS");
     return token::T_EQUALS;
@@ -880,7 +893,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 98 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 98 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_COMA");
     return token::T_COMA;
@@ -888,7 +901,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 103 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 103 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_AND");
     return token::T_AND;
@@ -896,7 +909,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 108 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 108 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_USER");
     return token::T_USER;
@@ -904,7 +917,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 113 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 113 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_BEGIN_IONS");
     return token::T_BEGIN_IONS;
@@ -912,7 +925,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 118 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 118 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("T_END_IONS");
     return token::T_END_IONS;
@@ -920,7 +933,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 128 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 128 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_ACCESSION");
     return token::K_ACCESSION;
@@ -928,7 +941,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 133 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 133 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_CHARGE");
     return token::K_CHARGE;
@@ -936,7 +949,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 138 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 138 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_CLE");
     return token::K_CLE;
@@ -944,7 +957,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 143 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 143 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_COM");
     return token::K_COM;
@@ -952,7 +965,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 148 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 148 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_CUTOUT");
     return token::K_CUTOUT;
@@ -960,7 +973,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 153 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 153 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_COMP");
     return token::K_COMP;
@@ -968,7 +981,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 158 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 158 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_DB");
     return token::K_DB;
@@ -976,7 +989,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 163 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 163 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_DECOY");
     return token::K_DECOY;
@@ -984,7 +997,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 168 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 168 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_ERRORTOLERANT");
     return token::K_ERRORTOLERANT;
@@ -992,7 +1005,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 173 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 173 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_ETAG");
     return token::K_ETAG;
@@ -1000,7 +1013,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 178 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 178 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_FORMAT");
     return token::K_FORMAT;
@@ -1008,7 +1021,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 183 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 183 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_FRAMES");
     return token::K_FRAMES;
@@ -1016,7 +1029,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 188 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 188 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_INSTRUMENT");
     return token::K_INSTRUMENT;
@@ -1024,7 +1037,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 193 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 193 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_IT_MODS");
     return token::K_IT_MODS;
@@ -1032,7 +1045,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 198 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 198 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_ITOL");
     return token::K_ITOL;
@@ -1040,7 +1053,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 203 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 203 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_ITOLU");
     return token::K_ITOLU;
@@ -1048,7 +1061,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 208 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 208 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_LOCUS");
     return token::K_LOCUS;
@@ -1056,7 +1069,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 213 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 213 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_MASS");
     return token::K_MASS;
@@ -1064,7 +1077,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 218 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 218 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_MODS");
     return token::K_MODS;
@@ -1072,7 +1085,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 223 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 223 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_MULTI_SITE_MODS");
     return token::K_MULTI_SITE_MODS;
@@ -1080,7 +1093,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 228 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 228 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_PEP_ISOTOPE_ERROR");
     return token::K_PEP_ISOTOPE_ERROR;
@@ -1088,7 +1101,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 233 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 233 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_PEPMASS");
     return token::K_PEPMASS;
@@ -1096,7 +1109,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 238 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 238 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_PFA");
     return token::K_PFA;
@@ -1104,7 +1117,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 243 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 243 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_PRECURSOR");
     return token::K_PRECURSOR;
@@ -1112,7 +1125,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 248 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 248 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_QUANTITATION");
     return token::K_QUANTITATION;
@@ -1120,7 +1133,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 253 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 253 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_RAWFILE");
     return token::K_RAWFILE;
@@ -1128,7 +1141,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 258 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 258 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_RAWSCANS");
     return token::K_RAWSCANS;
@@ -1136,7 +1149,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 263 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 263 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_REPORT");
     return token::K_REPORT;
@@ -1144,7 +1157,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 268 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 268 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_REPTYPE");
     return token::K_REPTYPE;
@@ -1152,7 +1165,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 273 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 273 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_RTINSECONDS");
     return token::K_RTINSECONDS;
@@ -1160,7 +1173,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 278 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 278 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_SCANS");
     return token::K_SCANS;
@@ -1168,7 +1181,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 283 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 283 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_SEARCH");
     return token::K_SEARCH;
@@ -1176,7 +1189,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 288 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 288 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_SEG");
     return token::K_SEG;
@@ -1184,7 +1197,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 293 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 293 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_SEQ");
     return token::K_SEQ;
@@ -1192,7 +1205,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 298 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 298 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_TAG");
     return token::K_TAG;
@@ -1200,7 +1213,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 303 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 303 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_TAXONOMY");
     return token::K_TAXONOMY;
@@ -1208,7 +1221,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 308 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 308 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_TITLE");
     return token::K_TITLE;
@@ -1216,7 +1229,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 313 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 313 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_TOL");
     return token::K_TOL;
@@ -1224,7 +1237,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 318 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 318 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_TOLU");
     return token::K_TOLU;
@@ -1232,7 +1245,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 323 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 323 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_USEREMAIL");
     return token::K_USEREMAIL;
@@ -1240,7 +1253,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 328 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 328 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("K_USERNAME");
     return token::K_USERNAME;
@@ -1248,7 +1261,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 334 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 334 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     MGF_TOKEN_DEBUG("V_STRING"<<" (="<<yytext<<")");
     yylval->v_string = new std::string(yytext, yyleng);
@@ -1257,17 +1270,17 @@ YY_RULE_SETUP
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 340 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 340 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 {
     std::cerr<<"line "<<mgf_line_no<<" what is that ??? :  <"<<yytext<<">"<<std::endl;
 }
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 343 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 343 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 1271 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.cpp"
+#line 1284 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1542,21 +1555,21 @@ int yyFlexLexer::yy_get_next_buffer()
 
 	else
 		{
-			yy_size_t num_to_read =
+			int num_to_read =
 			YY_CURRENT_BUFFER_LVALUE->yy_buf_size - number_to_move - 1;
 
 		while ( num_to_read <= 0 )
 			{ /* Not enough room in the buffer - grow it. */
 
 			/* just a shorter name for the current buffer */
-			YY_BUFFER_STATE b = YY_CURRENT_BUFFER_LVALUE;
+			YY_BUFFER_STATE b = YY_CURRENT_BUFFER;
 
 			int yy_c_buf_p_offset =
 				(int) ((yy_c_buf_p) - b->yy_ch_buf);
 
 			if ( b->yy_is_our_buffer )
 				{
-				yy_size_t new_size = b->yy_buf_size * 2;
+				int new_size = b->yy_buf_size * 2;
 
 				if ( new_size <= 0 )
 					b->yy_buf_size += b->yy_buf_size / 8;
@@ -1587,7 +1600,7 @@ int yyFlexLexer::yy_get_next_buffer()
 
 		/* Read in more data. */
 		YY_INPUT( (&YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[number_to_move]),
-			(yy_n_chars), num_to_read );
+			(yy_n_chars), (size_t) num_to_read );
 
 		YY_CURRENT_BUFFER_LVALUE->yy_n_chars = (yy_n_chars);
 		}
@@ -1683,7 +1696,7 @@ int yyFlexLexer::yy_get_next_buffer()
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 	yy_is_jam = (yy_current_state == 264);
 
-		return yy_is_jam ? 0 : yy_current_state;
+	return yy_is_jam ? 0 : yy_current_state;
 }
 
     void yyFlexLexer::yyunput( int c, register char* yy_bp)
@@ -1698,7 +1711,7 @@ int yyFlexLexer::yy_get_next_buffer()
 	if ( yy_cp < YY_CURRENT_BUFFER_LVALUE->yy_ch_buf + 2 )
 		{ /* need to shift things up to make room */
 		/* +2 for EOB chars. */
-		register yy_size_t number_to_move = (yy_n_chars) + 2;
+		register int number_to_move = (yy_n_chars) + 2;
 		register char *dest = &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[
 					YY_CURRENT_BUFFER_LVALUE->yy_buf_size + 2];
 		register char *source =
@@ -1741,7 +1754,7 @@ int yyFlexLexer::yy_get_next_buffer()
 
 		else
 			{ /* need more input */
-			yy_size_t offset = (yy_c_buf_p) - (yytext_ptr);
+			int offset = (yy_c_buf_p) - (yytext_ptr);
 			++(yy_c_buf_p);
 
 			switch ( yy_get_next_buffer(  ) )
@@ -1902,6 +1915,8 @@ int yyFlexLexer::yy_get_next_buffer()
 	Mgffree((void *) b  );
 }
 
+extern "C" int isatty (int );
+
 /* Initializes or reinitializes a buffer.
  * This function is sometimes called more than once on the same buffer,
  * such as during a yyrestart() or at EOF.
@@ -2013,7 +2028,7 @@ void yyFlexLexer::yypop_buffer_state (void)
  */
 void yyFlexLexer::yyensure_buffer_stack(void)
 {
-	yy_size_t num_to_alloc;
+	int num_to_alloc;
     
 	if (!(yy_buffer_stack)) {
 
@@ -2168,4 +2183,4 @@ void Mgffree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 343 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Lexer.lex"
+#line 343 "/home/maxime/Documents/git/libmgf/src/mgf/Lexer.lex"

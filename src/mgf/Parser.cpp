@@ -1,4 +1,4 @@
-// A Bison parser, made by GNU Bison 3.0.
+// A Bison parser, made by GNU Bison 3.0.2.
 
 // Skeleton implementation for Bison LALR(1) parsers in C++
 
@@ -33,13 +33,13 @@
 
 // First part of user declarations.
 
-#line 37 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:398
+#line 37 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:399
 
-# ifndef YY_NULL
+# ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
-#   define YY_NULL nullptr
+#   define YY_NULLPTR nullptr
 #  else
-#   define YY_NULL 0
+#   define YY_NULLPTR 0
 #  endif
 # endif
 
@@ -47,9 +47,9 @@
 
 // User implementation prologue.
 
-#line 51 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:406
+#line 51 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:407
 // Unqualified %code blocks.
-#line 46 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:407
+#line 46 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:408
 
     #include <utility>
     #include <mgf/Driver.hpp>
@@ -59,7 +59,7 @@
 
     #define DEL(x) delete x; x=nullptr;
 
-#line 63 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:407
+#line 63 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:408
 
 
 #ifndef YY_
@@ -124,9 +124,9 @@
 #define YYERROR         goto yyerrorlab
 #define YYRECOVERING()  (!!yyerrstatus_)
 
-#line 10 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:473
+#line 10 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:474
 namespace mgf {
-#line 130 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:473
+#line 130 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:474
 
   /* Return YYSTR after stripping away unnecessary quotes and
      backslashes, so that it's suitable for yyerror.  The heuristic is
@@ -405,13 +405,13 @@ namespace mgf {
 #endif // YYDEBUG
 
   inline Parser::state_type
-  Parser::yy_lr_goto_state_ (state_type yystate, int yylhs)
+  Parser::yy_lr_goto_state_ (state_type yystate, int yysym)
   {
-    int yyr = yypgoto_[yylhs - yyntokens_] + yystate;
+    int yyr = yypgoto_[yysym - yyntokens_] + yystate;
     if (0 <= yyr && yyr <= yylast_ && yycheck_[yyr] == yystate)
       return yytable_[yyr];
     else
-      return yydefgoto_[yylhs - yyntokens_];
+      return yydefgoto_[yysym - yyntokens_];
   }
 
   inline bool
@@ -434,6 +434,7 @@ namespace mgf {
 
     // State.
     int yyn;
+    /// Length of the RHS of the rule being reduced.
     int yylen = 0;
 
     // Error handling.
@@ -442,9 +443,6 @@ namespace mgf {
 
     /// The lookahead symbol.
     symbol_type yyla;
-
-    /// $$ and @$.
-    stack_symbol_type yylhs;
 
     /// The return value of parse ().
     int yyresult;
@@ -461,7 +459,7 @@ namespace mgf {
        location values to have been already stored, initialize these
        stacks with a primary value.  */
     yystack_.clear ();
-    yypush_ (YY_NULL, 0, yyla);
+    yypush_ (YY_NULLPTR, 0, yyla);
 
     // A new symbol was pushed on the stack.
   yynewstate:
@@ -539,559 +537,562 @@ namespace mgf {
   `-----------------------------*/
   yyreduce:
     yylen = yyr2_[yyn];
-    yylhs.state = yy_lr_goto_state_(yystack_[yylen].state, yyr1_[yyn]);
-    /* If YYLEN is nonzero, implement the default value of the action:
-       '$$ = $1'.  Otherwise, use the top of the stack.
+    {
+      stack_symbol_type yylhs;
+      yylhs.state = yy_lr_goto_state_(yystack_[yylen].state, yyr1_[yyn]);
+      /* If YYLEN is nonzero, implement the default value of the
+         action: '$$ = $1'.  Otherwise, use the top of the stack.
 
-       Otherwise, the following line sets YYLHS.VALUE to garbage.
-       This behavior is undocumented and Bison
-       users should not rely upon it.  */
-    if (yylen)
-      yylhs.value = yystack_[yylen - 1].value;
-    else
-      yylhs.value = yystack_[0].value;
+         Otherwise, the following line sets YYLHS.VALUE to garbage.
+         This behavior is undocumented and Bison users should not rely
+         upon it.  */
+      if (yylen)
+        yylhs.value = yystack_[yylen - 1].value;
+      else
+        yylhs.value = yystack_[0].value;
 
 
-    // Perform the reduction.
-    YY_REDUCE_PRINT (yyn);
-    try
-      {
-        switch (yyn)
-          {
+      // Perform the reduction.
+      YY_REDUCE_PRINT (yyn);
+      try
+        {
+          switch (yyn)
+            {
   case 2:
-#line 158 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 158 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_integer)=(yystack_[1].value.v_integer);}
-#line 565 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 565 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 3:
-#line 159 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 159 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_integer)=-(yystack_[1].value.v_integer);}
-#line 571 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 571 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 4:
-#line 160 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 160 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_integer)=(yystack_[0].value.v_integer);}
-#line 577 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 577 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 5:
-#line 163 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 163 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {auto l=MGF_NEW_INTEGER_LIST;l->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=l;}
-#line 583 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 583 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 6:
-#line 164 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 164 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yystack_[2].value.v_interger_list)->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=(yystack_[2].value.v_interger_list);(yystack_[2].value.v_interger_list)=nullptr;}
-#line 589 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 589 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 7:
-#line 165 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 165 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yystack_[2].value.v_interger_list)->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=(yystack_[2].value.v_interger_list);(yystack_[2].value.v_interger_list)=nullptr;}
-#line 595 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 595 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 8:
-#line 168 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 168 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_double)=(yystack_[1].value.v_double);}
-#line 601 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 601 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 9:
-#line 171 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 171 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     { (yystack_[2].value.v_double_list)->push_back((yystack_[0].value.v_double));(yylhs.value.v_double_list)=(yystack_[2].value.v_double_list);(yystack_[2].value.v_double_list)=nullptr;}
-#line 607 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 607 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 10:
-#line 172 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 172 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {auto l = MGF_NEW_DOUBLE_LIST;l->push_back((yystack_[0].value.v_double));(yylhs.value.v_double_list)=l;}
-#line 613 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 613 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 11:
-#line 176 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 176 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yystack_[2].value.v_interger_list)->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=(yystack_[2].value.v_interger_list);(yystack_[2].value.v_interger_list)=nullptr;}
-#line 619 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 619 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 12:
-#line 177 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 177 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {auto l = MGF_NEW_INTEGER_LIST;l->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=l;}
-#line 625 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 625 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 13:
-#line 180 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 180 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_string)=(yystack_[0].value.v_string);(yystack_[0].value.v_string)=nullptr;}
-#line 631 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 631 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 14:
-#line 181 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 181 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+=*(yystack_[0].value.v_string);DEL((yystack_[0].value.v_string));(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 637 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 637 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 15:
-#line 182 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 182 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+=std::to_string((yystack_[0].value.v_double));(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 643 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 643 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 16:
-#line 183 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 183 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+="+";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 649 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 649 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 17:
-#line 184 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 184 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+="-";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 655 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 655 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 18:
-#line 187 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 187 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_string)=(yystack_[0].value.v_string);(yystack_[0].value.v_string)=nullptr;}
-#line 661 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 661 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 19:
-#line 188 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 188 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+=*(yystack_[0].value.v_string);DEL((yystack_[0].value.v_string));(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 667 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 667 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 20:
-#line 189 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 189 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+=std::to_string((yystack_[0].value.v_double));(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 673 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 673 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 21:
-#line 190 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 190 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+="+";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 679 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 679 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 22:
-#line 191 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 191 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+="-";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 685 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 685 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 23:
-#line 192 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 192 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+=",";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 691 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 691 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 24:
-#line 193 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 193 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+="=";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 697 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 697 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 25:
-#line 196 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 196 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yystack_[2].value.v_string_list)->push_back(*(yystack_[0].value.v_string));(yylhs.value.v_string_list)=(yystack_[2].value.v_string_list);(yystack_[2].value.v_string_list)=nullptr;DEL((yystack_[0].value.v_string));}
-#line 703 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 703 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 26:
-#line 197 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 197 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {auto l = MGF_NEW_STRING_LIST;l->push_back(*(yystack_[0].value.v_string));(yylhs.value.v_string_list)=l;}
-#line 709 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 709 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 27:
-#line 201 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 201 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_double)=(yystack_[0].value.v_integer);}
-#line 715 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 715 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 28:
-#line 202 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 202 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_double)=(yystack_[0].value.v_double);}
-#line 721 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 721 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 29:
-#line 205 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 205 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_d_range).min=(yystack_[0].value.v_double);(yylhs.value.v_d_range).max=-1;}
-#line 727 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 727 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 30:
-#line 206 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 206 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_d_range).min=(yystack_[2].value.v_double);(yylhs.value.v_d_range).max=(yystack_[0].value.v_double);}
-#line 733 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 733 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 31:
-#line 209 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 209 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_i_range).min=(yystack_[0].value.v_integer);(yylhs.value.v_i_range).max=-1;}
-#line 739 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 739 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 32:
-#line 210 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 210 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_i_range).min=(yystack_[2].value.v_integer);(yylhs.value.v_i_range).max=(yystack_[0].value.v_integer);}
-#line 745 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 745 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 33:
-#line 213 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 213 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_integer)=(yystack_[0].value.v_integer);}
-#line 751 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 751 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 34:
-#line 214 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 214 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_integer)=-1;}
-#line 757 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 757 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 35:
-#line 218 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 218 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setAccession(*(yystack_[1].value.v_double_list));DEL((yystack_[1].value.v_double_list));}
-#line 763 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 763 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 36:
-#line 219 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 219 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setCharge(*(yystack_[1].value.v_interger_list));DEL((yystack_[1].value.v_interger_list));}
-#line 769 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 769 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 37:
-#line 220 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 220 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setCle(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 775 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 775 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 38:
-#line 221 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 221 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setCom(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 781 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 781 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 39:
-#line 222 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 222 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setComp(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 787 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 787 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 40:
-#line 223 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 223 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setCutout(*(yystack_[1].value.v_interger_list));DEL((yystack_[1].value.v_interger_list));}
-#line 793 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 793 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 41:
-#line 224 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 224 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setDb(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 799 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 799 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 42:
-#line 225 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 225 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setDecoy((yystack_[1].value.v_integer));}
-#line 805 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 805 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 43:
-#line 226 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 226 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setErrorTolerant((yystack_[1].value.v_integer));}
-#line 811 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 811 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 44:
-#line 227 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 227 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setFormat(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string))}
-#line 817 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 817 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 45:
-#line 228 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 228 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setFrames(*(yystack_[1].value.v_interger_list));DEL((yystack_[1].value.v_interger_list));}
-#line 823 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 823 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 46:
-#line 229 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 229 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setInstrument(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 829 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 829 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 47:
-#line 230 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 230 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setItMods(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 835 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 835 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 48:
-#line 231 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 231 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setItOl((yystack_[1].value.v_double));}
-#line 841 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 841 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 49:
-#line 232 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 232 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setItOlU(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 847 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 847 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 50:
-#line 233 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 233 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setMass(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 853 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 853 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 51:
-#line 234 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 234 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setMods(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 859 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 859 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 52:
-#line 235 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 235 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setMultiSiteMods((yystack_[1].value.v_integer));}
-#line 865 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 865 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 53:
-#line 236 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 236 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setPepIsotopeError((yystack_[1].value.v_integer));}
-#line 871 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 871 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 54:
-#line 237 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 237 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setPfa((yystack_[1].value.v_integer));}
-#line 877 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 877 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 55:
-#line 238 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 238 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setPrecursor((yystack_[1].value.v_double));}
-#line 883 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 883 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 56:
-#line 239 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 239 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setQuantitation(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 889 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 889 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 57:
-#line 240 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 240 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setRepport((yystack_[1].value.v_integer));}
-#line 895 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 895 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 58:
-#line 241 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 241 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setReptype(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 901 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 901 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 59:
-#line 242 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 242 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setSearch(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 907 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 907 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 60:
-#line 243 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 243 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setSeg((yystack_[1].value.v_double));}
-#line 913 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 913 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 61:
-#line 244 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 244 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setTaxonomy(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 919 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 919 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 62:
-#line 245 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 245 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setTol((yystack_[1].value.v_double));}
-#line 925 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 925 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 63:
-#line 246 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 246 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setTolU(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 931 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 931 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 64:
-#line 247 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 247 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setUser((yystack_[1].value.v_integer));}
-#line 937 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 937 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 65:
-#line 248 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 248 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setUserMail(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 943 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 943 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 66:
-#line 249 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 249 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setUserName(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 949 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 949 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 70:
-#line 258 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 258 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.push((yystack_[2].value.v_double),(yystack_[1].value.v_double),0);}
-#line 955 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 955 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 71:
-#line 259 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 259 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.push((yystack_[3].value.v_double),(yystack_[2].value.v_double),(yystack_[1].value.v_integer));}
-#line 961 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 961 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 74:
-#line 266 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 266 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {return MGF_END_IONS;}
-#line 967 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 967 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 75:
-#line 267 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 267 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {return MGF_END_IONS;}
-#line 973 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 973 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 79:
-#line 275 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 275 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setCharge((yystack_[1].value.v_integer));}
-#line 979 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 979 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 80:
-#line 276 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 276 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setComp(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 985 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 985 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 81:
-#line 277 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 277 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setEtag(*(yystack_[1].value.v_string_list));DEL((yystack_[1].value.v_string_list));}
-#line 991 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 991 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 82:
-#line 278 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 278 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setInstrument(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 997 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 997 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 83:
-#line 279 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 279 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setItMods(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 1003 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 1003 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 84:
-#line 280 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 280 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setLocus(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 1009 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 1009 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 85:
-#line 281 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 281 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setPepMass((yystack_[1].value.v_double),0);}
-#line 1015 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 1015 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 86:
-#line 282 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 282 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setPepMass((yystack_[2].value.v_double),(yystack_[1].value.v_double));}
-#line 1021 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 1021 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 87:
-#line 283 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 283 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setRawFile(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 1027 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 1027 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 88:
-#line 284 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 284 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setRawScans((yystack_[1].value.v_i_range).min,(yystack_[1].value.v_i_range).max);}
-#line 1033 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 1033 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 89:
-#line 285 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 285 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setRtinSeconds((yystack_[1].value.v_d_range).min,(yystack_[1].value.v_d_range).max);}
-#line 1039 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 1039 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 90:
-#line 286 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 286 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setScans((yystack_[1].value.v_d_range).min,(yystack_[1].value.v_d_range).max);}
-#line 1045 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 1045 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 91:
-#line 287 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 287 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setSeq(*(yystack_[1].value.v_string_list));DEL((yystack_[1].value.v_string_list));}
-#line 1051 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 1051 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 92:
-#line 288 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 288 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setTag(*(yystack_[1].value.v_string_list));DEL((yystack_[1].value.v_string_list));}
-#line 1057 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 1057 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 93:
-#line 289 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 289 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setTitle(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 1063 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 1063 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 94:
-#line 290 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 290 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setTol((yystack_[1].value.v_double));}
-#line 1069 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 1069 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 95:
-#line 291 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:846
+#line 291 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setTolU(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 1075 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
+#line 1075 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
 
-#line 1079 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:846
-          default:
-            break;
-          }
-      }
-    catch (const syntax_error& yyexc)
-      {
-        error (yyexc);
-        YYERROR;
-      }
-    YY_SYMBOL_PRINT ("-> $$ =", yylhs);
-    yypop_ (yylen);
-    yylen = 0;
-    YY_STACK_PRINT ();
+#line 1079 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+            default:
+              break;
+            }
+        }
+      catch (const syntax_error& yyexc)
+        {
+          error (yyexc);
+          YYERROR;
+        }
+      YY_SYMBOL_PRINT ("-> $$ =", yylhs);
+      yypop_ (yylen);
+      yylen = 0;
+      YY_STACK_PRINT ();
 
-    // Shift the result of the reduction.
-    yypush_ (YY_NULL, yylhs);
+      // Shift the result of the reduction.
+      yypush_ (YY_NULLPTR, yylhs);
+    }
     goto yynewstate;
 
   /*--------------------------------------.
@@ -1211,11 +1212,11 @@ namespace mgf {
         // Do not try to display the values of the reclaimed symbols,
         // as their printer might throw an exception.
         if (!yyempty)
-          yy_destroy_ (YY_NULL, yyla);
+          yy_destroy_ (YY_NULLPTR, yyla);
 
         while (1 < yystack_.size ())
           {
-            yy_destroy_ (YY_NULL, yystack_[0]);
+            yy_destroy_ (YY_NULLPTR, yystack_[0]);
             yypop_ ();
           }
         throw;
@@ -1294,7 +1295,7 @@ namespace mgf {
           }
       }
 
-    char const* yyformat = YY_NULL;
+    char const* yyformat = YY_NULLPTR;
     switch (yycount)
       {
 #define YYCASE_(N, S)                         \
@@ -1592,7 +1593,7 @@ namespace mgf {
   "double_quoted", "double_quoted_list", "interger_list", "string_st",
   "title", "string_list", "number", "number_range", "raw", "report_val",
   "headerparam", "headerparams", "ion", "ions", "block", "blocks",
-  "blockparam", "blockparams", "start", YY_NULL
+  "blockparam", "blockparams", "start", YY_NULLPTR
   };
 
 #if YYDEBUG
@@ -1693,10 +1694,10 @@ namespace mgf {
       return undef_token_;
   }
 
-#line 10 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:1156
+#line 10 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:1155
 } // mgf
-#line 1699 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.cpp" // lalr1.cc:1156
-#line 304 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // lalr1.cc:1157
+#line 1700 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:1155
+#line 304 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:1156
 
  
  

@@ -1,4 +1,4 @@
-// A Bison parser, made by GNU Bison 3.0.
+// A Bison parser, made by GNU Bison 3.0.2.
 
 // Stack handling for Bison parsers in C++
 
@@ -31,18 +31,18 @@
 // version 2.2 of Bison.
 
 /**
- ** \file C:\Documents and Settings\aaa\Mes documents\GitHub\Harpe-client\Qt\..\..\libmgf\src\mgf\stack.hh
+ ** \file /home/maxime/Documents/git/libmgf/src/mgf/stack.hh
  ** Define the mgf::stack class.
  */
 
-#ifndef YY_YY_C_DOCUMENTS_AND_SETTINGS_AAA_MES_DOCUMENTS_GITHUB_HARPE_CLIENT_QT_LIBMGF_SRC_MGF_STACK_HH_INCLUDED
-# define YY_YY_C_DOCUMENTS_AND_SETTINGS_AAA_MES_DOCUMENTS_GITHUB_HARPE_CLIENT_QT_LIBMGF_SRC_MGF_STACK_HH_INCLUDED
+#ifndef YY_YY_HOME_MAXIME_DOCUMENTS_GIT_LIBMGF_SRC_MGF_STACK_HH_INCLUDED
+# define YY_YY_HOME_MAXIME_DOCUMENTS_GIT_LIBMGF_SRC_MGF_STACK_HH_INCLUDED
 
 # include <vector>
 
-#line 10 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // stack.hh:133
+#line 10 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // stack.hh:133
 namespace mgf {
-#line 46 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\stack.hh" // stack.hh:133
+#line 46 "/home/maxime/Documents/git/libmgf/src/mgf/stack.hh" // stack.hh:133
   template <class T, class S = std::vector<T> >
   class stack
   {
@@ -151,8 +151,8 @@ namespace mgf {
     unsigned int range_;
   };
 
-#line 10 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\Parser.yy" // stack.hh:133
+#line 10 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // stack.hh:133
 } // mgf
-#line 157 "C:\\Documents and Settings\\aaa\\Mes documents\\GitHub\\Harpe-client\\Qt\\..\\..\\libmgf\\src\\mgf\\stack.hh" // stack.hh:133
+#line 157 "/home/maxime/Documents/git/libmgf/src/mgf/stack.hh" // stack.hh:133
 
-#endif // !YY_YY_C_DOCUMENTS_AND_SETTINGS_AAA_MES_DOCUMENTS_GITHUB_HARPE_CLIENT_QT_LIBMGF_SRC_MGF_STACK_HH_INCLUDED
+#endif // !YY_YY_HOME_MAXIME_DOCUMENTS_GIT_LIBMGF_SRC_MGF_STACK_HH_INCLUDED
