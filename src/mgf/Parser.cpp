@@ -33,7 +33,7 @@
 
 // First part of user declarations.
 
-#line 37 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:399
+#line 37 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:399
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -47,9 +47,9 @@
 
 // User implementation prologue.
 
-#line 51 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:407
+#line 51 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:407
 // Unqualified %code blocks.
-#line 46 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:408
+#line 46 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:408
 
     #include <utility>
     #include <mgf/Driver.hpp>
@@ -58,8 +58,9 @@
 	static int yylex(mgf::Parser::semantic_type* yylval, mgf::Scanner& scanner);
 
     #define DEL(x) delete x; x=nullptr;
+    #define YYSTOP {yyresult=MGF_END_IONS;goto yyreturn;}
 
-#line 63 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:408
+#line 64 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:408
 
 
 #ifndef YY_
@@ -124,9 +125,9 @@
 #define YYERROR         goto yyerrorlab
 #define YYRECOVERING()  (!!yyerrstatus_)
 
-#line 10 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:474
+#line 10 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:474
 namespace mgf {
-#line 130 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:474
+#line 131 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:474
 
   /* Return YYSTR after stripping away unnecessary quotes and
      backslashes, so that it's suitable for yyerror.  The heuristic is
@@ -559,523 +560,523 @@ namespace mgf {
           switch (yyn)
             {
   case 2:
-#line 158 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 159 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_integer)=(yystack_[1].value.v_integer);}
-#line 565 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 566 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 3:
-#line 159 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 160 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_integer)=-(yystack_[1].value.v_integer);}
-#line 571 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 572 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 4:
-#line 160 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 161 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_integer)=(yystack_[0].value.v_integer);}
-#line 577 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 578 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 5:
-#line 163 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 164 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {auto l=MGF_NEW_INTEGER_LIST;l->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=l;}
-#line 583 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 584 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 6:
-#line 164 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 165 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yystack_[2].value.v_interger_list)->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=(yystack_[2].value.v_interger_list);(yystack_[2].value.v_interger_list)=nullptr;}
-#line 589 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 590 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 7:
-#line 165 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 166 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yystack_[2].value.v_interger_list)->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=(yystack_[2].value.v_interger_list);(yystack_[2].value.v_interger_list)=nullptr;}
-#line 595 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 596 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 8:
-#line 168 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 169 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_double)=(yystack_[1].value.v_double);}
-#line 601 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 602 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 9:
-#line 171 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 172 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     { (yystack_[2].value.v_double_list)->push_back((yystack_[0].value.v_double));(yylhs.value.v_double_list)=(yystack_[2].value.v_double_list);(yystack_[2].value.v_double_list)=nullptr;}
-#line 607 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 608 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 10:
-#line 172 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 173 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {auto l = MGF_NEW_DOUBLE_LIST;l->push_back((yystack_[0].value.v_double));(yylhs.value.v_double_list)=l;}
-#line 613 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 614 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 11:
-#line 176 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 177 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yystack_[2].value.v_interger_list)->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=(yystack_[2].value.v_interger_list);(yystack_[2].value.v_interger_list)=nullptr;}
-#line 619 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 620 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 12:
-#line 177 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 178 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {auto l = MGF_NEW_INTEGER_LIST;l->push_back((yystack_[0].value.v_integer));(yylhs.value.v_interger_list)=l;}
-#line 625 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 626 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 13:
-#line 180 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 181 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_string)=(yystack_[0].value.v_string);(yystack_[0].value.v_string)=nullptr;}
-#line 631 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 632 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 14:
-#line 181 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 182 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+=*(yystack_[0].value.v_string);DEL((yystack_[0].value.v_string));(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 637 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 638 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 15:
-#line 182 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 183 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+=std::to_string((yystack_[0].value.v_double));(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 643 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 644 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 16:
-#line 183 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 184 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+="+";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 649 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 650 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 17:
-#line 184 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 185 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+="-";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 655 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 656 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 18:
-#line 187 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 188 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_string)=(yystack_[0].value.v_string);(yystack_[0].value.v_string)=nullptr;}
-#line 661 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 662 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 19:
-#line 188 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 189 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+=*(yystack_[0].value.v_string);DEL((yystack_[0].value.v_string));(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 667 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 668 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 20:
-#line 189 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 190 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+=std::to_string((yystack_[0].value.v_double));(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 673 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 674 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 21:
-#line 190 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 191 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+="+";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 679 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 680 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 22:
-#line 191 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 192 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+="-";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 685 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 686 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 23:
-#line 192 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 193 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+=",";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 691 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 692 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 24:
-#line 193 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 194 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {*(yystack_[1].value.v_string)+="=";(yylhs.value.v_string)=(yystack_[1].value.v_string);(yystack_[1].value.v_string)=nullptr;}
-#line 697 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 698 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 25:
-#line 196 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 197 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yystack_[2].value.v_string_list)->push_back(*(yystack_[0].value.v_string));(yylhs.value.v_string_list)=(yystack_[2].value.v_string_list);(yystack_[2].value.v_string_list)=nullptr;DEL((yystack_[0].value.v_string));}
-#line 703 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 704 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 26:
-#line 197 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 198 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {auto l = MGF_NEW_STRING_LIST;l->push_back(*(yystack_[0].value.v_string));(yylhs.value.v_string_list)=l;}
-#line 709 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 710 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 27:
-#line 201 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 202 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_double)=(yystack_[0].value.v_integer);}
-#line 715 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 716 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 28:
-#line 202 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 203 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_double)=(yystack_[0].value.v_double);}
-#line 721 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 722 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 29:
-#line 205 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 206 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_d_range).min=(yystack_[0].value.v_double);(yylhs.value.v_d_range).max=-1;}
-#line 727 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 728 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 30:
-#line 206 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 207 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_d_range).min=(yystack_[2].value.v_double);(yylhs.value.v_d_range).max=(yystack_[0].value.v_double);}
-#line 733 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 734 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 31:
-#line 209 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 210 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_i_range).min=(yystack_[0].value.v_integer);(yylhs.value.v_i_range).max=-1;}
-#line 739 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 740 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 32:
-#line 210 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 211 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_i_range).min=(yystack_[2].value.v_integer);(yylhs.value.v_i_range).max=(yystack_[0].value.v_integer);}
-#line 745 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 746 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 33:
-#line 213 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 214 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_integer)=(yystack_[0].value.v_integer);}
-#line 751 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 752 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 34:
-#line 214 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 215 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {(yylhs.value.v_integer)=-1;}
-#line 757 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 758 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 35:
-#line 218 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 219 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setAccession(*(yystack_[1].value.v_double_list));DEL((yystack_[1].value.v_double_list));}
-#line 763 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 764 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 36:
-#line 219 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 220 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setCharge(*(yystack_[1].value.v_interger_list));DEL((yystack_[1].value.v_interger_list));}
-#line 769 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 770 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 37:
-#line 220 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 221 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setCle(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 775 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 776 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 38:
-#line 221 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 222 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setCom(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 781 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 782 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 39:
-#line 222 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 223 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setComp(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 787 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 788 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 40:
-#line 223 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 224 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setCutout(*(yystack_[1].value.v_interger_list));DEL((yystack_[1].value.v_interger_list));}
-#line 793 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 794 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 41:
-#line 224 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 225 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setDb(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 799 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 800 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 42:
-#line 225 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 226 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setDecoy((yystack_[1].value.v_integer));}
-#line 805 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 806 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 43:
-#line 226 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 227 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setErrorTolerant((yystack_[1].value.v_integer));}
-#line 811 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 812 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 44:
-#line 227 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 228 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setFormat(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string))}
-#line 817 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 818 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 45:
-#line 228 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 229 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setFrames(*(yystack_[1].value.v_interger_list));DEL((yystack_[1].value.v_interger_list));}
-#line 823 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 824 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 46:
-#line 229 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 230 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setInstrument(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 829 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 830 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 47:
-#line 230 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 231 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setItMods(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 835 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 836 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 48:
-#line 231 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 232 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setItOl((yystack_[1].value.v_double));}
-#line 841 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 842 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 49:
-#line 232 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 233 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setItOlU(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 847 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 848 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 50:
-#line 233 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 234 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setMass(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 853 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 854 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 51:
-#line 234 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 235 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setMods(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 859 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 860 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 52:
-#line 235 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 236 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setMultiSiteMods((yystack_[1].value.v_integer));}
-#line 865 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 866 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 53:
-#line 236 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 237 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setPepIsotopeError((yystack_[1].value.v_integer));}
-#line 871 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 872 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 54:
-#line 237 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 238 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setPfa((yystack_[1].value.v_integer));}
-#line 877 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 878 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 55:
-#line 238 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 239 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setPrecursor((yystack_[1].value.v_double));}
-#line 883 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 884 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 56:
-#line 239 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 240 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setQuantitation(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 889 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 890 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 57:
-#line 240 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 241 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setRepport((yystack_[1].value.v_integer));}
-#line 895 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 896 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 58:
-#line 241 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 242 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setReptype(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 901 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 902 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 59:
-#line 242 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 243 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setSearch(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 907 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 908 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 60:
-#line 243 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 244 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setSeg((yystack_[1].value.v_double));}
-#line 913 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 914 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 61:
-#line 244 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 245 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setTaxonomy(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 919 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 920 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 62:
-#line 245 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 246 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setTol((yystack_[1].value.v_double));}
-#line 925 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 926 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 63:
-#line 246 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 247 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setTolU(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 931 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 932 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 64:
-#line 247 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 248 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setUser((yystack_[1].value.v_integer));}
-#line 937 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 938 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 65:
-#line 248 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 249 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setUserMail(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 943 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 944 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 66:
-#line 249 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 250 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.header.setUserName(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 949 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 950 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 70:
-#line 258 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 259 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.push((yystack_[2].value.v_double),(yystack_[1].value.v_double),0);}
-#line 955 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 956 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 71:
-#line 259 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 260 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.push((yystack_[3].value.v_double),(yystack_[2].value.v_double),(yystack_[1].value.v_integer));}
-#line 961 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 962 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 74:
-#line 266 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
-    {return MGF_END_IONS;}
-#line 967 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 267 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+    {YYSTOP;}
+#line 968 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 75:
-#line 267 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
-    {return MGF_END_IONS;}
-#line 973 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 268 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+    {YYSTOP;}
+#line 974 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 79:
-#line 275 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 276 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setCharge((yystack_[1].value.v_integer));}
-#line 979 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 980 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 80:
-#line 276 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 277 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setComp(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 985 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 986 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 81:
-#line 277 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 278 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setEtag(*(yystack_[1].value.v_string_list));DEL((yystack_[1].value.v_string_list));}
-#line 991 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 992 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 82:
-#line 278 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 279 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setInstrument(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 997 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 998 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 83:
-#line 279 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 280 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setItMods(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 1003 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1004 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 84:
-#line 280 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 281 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setLocus(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 1009 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1010 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 85:
-#line 281 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 282 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setPepMass((yystack_[1].value.v_double),0);}
-#line 1015 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1016 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 86:
-#line 282 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 283 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setPepMass((yystack_[2].value.v_double),(yystack_[1].value.v_double));}
-#line 1021 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1022 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 87:
-#line 283 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 284 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setRawFile(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 1027 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1028 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 88:
-#line 284 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 285 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setRawScans((yystack_[1].value.v_i_range).min,(yystack_[1].value.v_i_range).max);}
-#line 1033 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1034 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 89:
-#line 285 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 286 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setRtinSeconds((yystack_[1].value.v_d_range).min,(yystack_[1].value.v_d_range).max);}
-#line 1039 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1040 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 90:
-#line 286 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 287 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setScans((yystack_[1].value.v_d_range).min,(yystack_[1].value.v_d_range).max);}
-#line 1045 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1046 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 91:
-#line 287 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 288 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setSeq(*(yystack_[1].value.v_string_list));DEL((yystack_[1].value.v_string_list));}
-#line 1051 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1052 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 92:
-#line 288 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 289 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setTag(*(yystack_[1].value.v_string_list));DEL((yystack_[1].value.v_string_list));}
-#line 1057 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1058 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 93:
-#line 289 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 290 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setTitle(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 1063 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1064 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 94:
-#line 290 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 291 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setTol((yystack_[1].value.v_double));}
-#line 1069 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1070 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
   case 95:
-#line 291 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
+#line 292 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:847
     {driver.currentSpectrum.header.setTolU(*(yystack_[1].value.v_string));DEL((yystack_[1].value.v_string));}
-#line 1075 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1076 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
     break;
 
 
-#line 1079 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
+#line 1080 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:847
             default:
               break;
             }
@@ -1600,16 +1601,16 @@ namespace mgf {
   const unsigned short int
   Parser::yyrline_[] =
   {
-       0,   158,   158,   159,   160,   163,   164,   165,   168,   171,
-     172,   176,   177,   180,   181,   182,   183,   184,   187,   188,
-     189,   190,   191,   192,   193,   196,   197,   201,   202,   205,
-     206,   209,   210,   213,   214,   218,   219,   220,   221,   222,
-     223,   224,   225,   226,   227,   228,   229,   230,   231,   232,
-     233,   234,   235,   236,   237,   238,   239,   240,   241,   242,
-     243,   244,   245,   246,   247,   248,   249,   250,   253,   254,
-     258,   259,   262,   263,   266,   267,   270,   271,   272,   275,
-     276,   277,   278,   279,   280,   281,   282,   283,   284,   285,
-     286,   287,   288,   289,   290,   291,   292,   295,   296,   300
+       0,   159,   159,   160,   161,   164,   165,   166,   169,   172,
+     173,   177,   178,   181,   182,   183,   184,   185,   188,   189,
+     190,   191,   192,   193,   194,   197,   198,   202,   203,   206,
+     207,   210,   211,   214,   215,   219,   220,   221,   222,   223,
+     224,   225,   226,   227,   228,   229,   230,   231,   232,   233,
+     234,   235,   236,   237,   238,   239,   240,   241,   242,   243,
+     244,   245,   246,   247,   248,   249,   250,   251,   254,   255,
+     259,   260,   263,   264,   267,   268,   271,   272,   273,   276,
+     277,   278,   279,   280,   281,   282,   283,   284,   285,   286,
+     287,   288,   289,   290,   291,   292,   293,   296,   297,   301
   };
 
   // Print the state stack on the debug stream.
@@ -1694,10 +1695,10 @@ namespace mgf {
       return undef_token_;
   }
 
-#line 10 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:1155
+#line 10 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:1155
 } // mgf
-#line 1700 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.cpp" // lalr1.cc:1155
-#line 304 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:1156
+#line 1701 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.cpp" // lalr1.cc:1155
+#line 305 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:1156
 
  
  

@@ -18,16 +18,16 @@ namespace mgf
         clear();
     }
 
-    bool Spectrum::is_one_of_h2o(const Peak* p)const
+    /*bool Spectrum::is_one_of_h2o(const Peak* p)const
     {
         return (p == special_peaks[SPECIAL::DEBUT_H2O]) or (p == special_peaks[SPECIAL::FIN_H2O]);
-    };
+    };*/
 
     bool Spectrum::is_one_of_specials(const Peak* p)const
     {
         return (p == special_peaks[SPECIAL::DEBUT]) 
-            or (p == special_peaks[SPECIAL::DEBUT_H2O]) 
-            or (p == special_peaks[SPECIAL::FIN_H2O])
+            //or (p == special_peaks[SPECIAL::DEBUT_H2O])
+            //or (p == special_peaks[SPECIAL::FIN_H2O])
             or (p == special_peaks[SPECIAL::FIN]);
     };
     
@@ -77,7 +77,7 @@ namespace mgf
 
     void Spectrum::add_specials_peaks()
     {
-        /********* EXTREMITÉES ****************/
+        /////////////// EXTREMITÉES /////////////////
         Peak* p = new Peak(0,1,-1);
         p->mass = p->mz;
         peaks.emplace_back(p);
@@ -88,9 +88,9 @@ namespace mgf
         peaks.emplace_back(p);
         special_peaks[SPECIAL::FIN] = p;
         
-        /***************** H2O *******************/
+        /////////// H2O ////////////////
 
-        p = new Peak(mgf::Convert::MH2O,1,-1); 
+        /*p = new Peak(mgf::Convert::MH2O,1,-1); 
         p->mass = p->mz;
         peaks.emplace_back(p);
         special_peaks[SPECIAL::DEBUT_H2O] = p;
@@ -98,7 +98,7 @@ namespace mgf
         p = new Peak(this->mass - mgf::Convert::MH2O,1,-1);
         p->mass = p->mz;
         peaks.emplace_back(p);
-        special_peaks[SPECIAL::FIN_H2O] = p;
+        special_peaks[SPECIAL::FIN_H2O] = p;*/
     }
 
     void Spectrum::prepare(const int max_charge,const int flags)
@@ -163,7 +163,7 @@ namespace mgf
     void Spectrum::normalize_intensitee()
     {
         const unsigned int size = peaks.size();
-        double max = 1;
+        double max = 0;
 
         meta.intensity_sum = SPECIAL::SIZE;
 

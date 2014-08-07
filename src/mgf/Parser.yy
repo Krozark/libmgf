@@ -51,6 +51,7 @@
 	static int yylex(mgf::Parser::semantic_type* yylval, mgf::Scanner& scanner);
 
     #define DEL(x) delete x; x=nullptr;
+    #define YYSTOP {yyresult=MGF_END_IONS;goto yyreturn;}
 }
  
 /* token types */
@@ -263,8 +264,8 @@ ions : ions ion
      | ion      
      ;
 
-block : T_BEGIN_IONS T_EOL blockparams ions T_END_IONS T_EOL    {return MGF_END_IONS;}
-      | T_BEGIN_IONS T_EOL blockparams T_END_IONS T_EOL         {return MGF_END_IONS;}
+block : T_BEGIN_IONS T_EOL blockparams ions T_END_IONS T_EOL    {YYSTOP;}
+      | T_BEGIN_IONS T_EOL blockparams T_END_IONS T_EOL         {YYSTOP;}
       ;
 
 blocks : /* empty */

@@ -113,7 +113,7 @@ namespace mgf
              * \param p the peak to compare
              * \return true if p is one of special peaks with H2o decalage
              */
-            bool is_one_of_h2o(const Peak*)const;
+            //bool is_one_of_h2o(const Peak*)const;
 
             /**
              * \param p the peak to compare
@@ -149,11 +149,11 @@ namespace mgf
             void normalize_intensitee();
 
             enum SPECIAL {DEBUT=0, ///< mass = 0
-                DEBUT_H2O, ///< mass = MH2O
-                FIN_H2O, ///< mass = fin - MH2O
+                //DEBUT_H2O, ///< mass = MH2O
+                //FIN_H2O, ///< mass = fin - MH2O
                 FIN, ///< mass = tout
                 SIZE};
-            Peak* special_peaks[SPECIAL::SIZE]; ///< store the specials peaks (artificals)
+            Peak* special_peaks[SPECIAL::SIZE]; ///< store the specials peaks (artificals)*/
         
     };
 }

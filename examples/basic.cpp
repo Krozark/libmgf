@@ -11,6 +11,7 @@ int main(int argc,char* argv[])
     {
         mgf::Driver driver(file);
         mgf::Analyse a = driver.parse();
+        std::cout<<"is valid?: "<<driver.isValid()<<std::endl;
         file.close();
 
         r = a.size();

@@ -31,18 +31,18 @@
 // version 2.2 of Bison.
 
 /**
- ** \file /home/maxime/Documents/git/libmgf/src/mgf/stack.hh
+ ** \file /media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/stack.hh
  ** Define the mgf::stack class.
  */
 
-#ifndef YY_YY_HOME_MAXIME_DOCUMENTS_GIT_LIBMGF_SRC_MGF_STACK_HH_INCLUDED
-# define YY_YY_HOME_MAXIME_DOCUMENTS_GIT_LIBMGF_SRC_MGF_STACK_HH_INCLUDED
+#ifndef YY_YY_MEDIA_HDD1_DEV_PROJET_LABO_LIBMGF_SRC_MGF_STACK_HH_INCLUDED
+# define YY_YY_MEDIA_HDD1_DEV_PROJET_LABO_LIBMGF_SRC_MGF_STACK_HH_INCLUDED
 
 # include <vector>
 
-#line 10 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // stack.hh:133
+#line 10 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // stack.hh:133
 namespace mgf {
-#line 46 "/home/maxime/Documents/git/libmgf/src/mgf/stack.hh" // stack.hh:133
+#line 46 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/stack.hh" // stack.hh:133
   template <class T, class S = std::vector<T> >
   class stack
   {
@@ -151,8 +151,8 @@ namespace mgf {
     unsigned int range_;
   };
 
-#line 10 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // stack.hh:133
+#line 10 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // stack.hh:133
 } // mgf
-#line 157 "/home/maxime/Documents/git/libmgf/src/mgf/stack.hh" // stack.hh:133
+#line 157 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/stack.hh" // stack.hh:133
 
-#endif // !YY_YY_HOME_MAXIME_DOCUMENTS_GIT_LIBMGF_SRC_MGF_STACK_HH_INCLUDED
+#endif // !YY_YY_MEDIA_HDD1_DEV_PROJET_LABO_LIBMGF_SRC_MGF_STACK_HH_INCLUDED

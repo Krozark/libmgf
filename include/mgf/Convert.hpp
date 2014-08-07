@@ -14,7 +14,7 @@ namespace mgf
             Convert& operator=(const Convert&) = delete;
 
             static constexpr float MH = 1.00794f; ///< Mass of Hydrogen in Da
-            static constexpr float MO = 15.99943f; ///< mass of carbon in Da
+            static constexpr float MO = 15.99943f; ///< mass of oxygen in Da
             static constexpr float MH2O = (MO + 2*MH); ///< mass of H2O if Da
             
             /**

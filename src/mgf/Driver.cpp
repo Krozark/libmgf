@@ -23,6 +23,7 @@ namespace mgf
     {
         mgf::Analyse analyse;
         int status = 0;
+        validity = true;
         while ((status = parser.parse()) == MGF_END_IONS)
         {
             analyse.push(new Spectrum(std::move(currentSpectrum)));

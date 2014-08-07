@@ -31,16 +31,16 @@
 // version 2.2 of Bison.
 
 /**
- ** \file /home/maxime/Documents/git/libmgf/src/mgf/Parser.hpp
+ ** \file /media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.hpp
  ** Define the mgf::parser class.
  */
 
 // C++ LALR(1) parser skeleton written by Akim Demaille.
 
-#ifndef YY_YY_HOME_MAXIME_DOCUMENTS_GIT_LIBMGF_SRC_MGF_PARSER_HPP_INCLUDED
-# define YY_YY_HOME_MAXIME_DOCUMENTS_GIT_LIBMGF_SRC_MGF_PARSER_HPP_INCLUDED
+#ifndef YY_YY_MEDIA_HDD1_DEV_PROJET_LABO_LIBMGF_SRC_MGF_PARSER_HPP_INCLUDED
+# define YY_YY_MEDIA_HDD1_DEV_PROJET_LABO_LIBMGF_SRC_MGF_PARSER_HPP_INCLUDED
 // //                    "%code requires" blocks.
-#line 20 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:372
+#line 20 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:372
 
     #include <list>
 	#include <string>
@@ -65,7 +65,7 @@
     }
     
 
-#line 69 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.hpp" // lalr1.cc:372
+#line 69 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.hpp" // lalr1.cc:372
 
 
 # include <vector>
@@ -134,9 +134,9 @@
 # define YYDEBUG 0
 #endif
 
-#line 10 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:372
+#line 10 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:372
 namespace mgf {
-#line 140 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.hpp" // lalr1.cc:372
+#line 140 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.hpp" // lalr1.cc:372
 
 
 
@@ -150,7 +150,7 @@ namespace mgf {
     /// Symbol semantic values.
     union semantic_type
     {
-    #line 57 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:372
+    #line 58 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:372
 
     int                         v_integer;
     double                      v_double;
@@ -161,7 +161,7 @@ namespace mgf {
     mgf::s_range                v_d_range;
     mgf::s_i_range              v_i_range;
 
-#line 165 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.hpp" // lalr1.cc:372
+#line 165 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.hpp" // lalr1.cc:372
     };
 #else
     typedef YYSTYPE semantic_type;
@@ -532,11 +532,11 @@ namespace mgf {
   };
 
 
-#line 10 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.yy" // lalr1.cc:372
+#line 10 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.yy" // lalr1.cc:372
 } // mgf
-#line 538 "/home/maxime/Documents/git/libmgf/src/mgf/Parser.hpp" // lalr1.cc:372
+#line 538 "/media/HDD1/DEV/Projet/Labo/libmgf/src/mgf/Parser.hpp" // lalr1.cc:372
 
 
 
 
-#endif // !YY_YY_HOME_MAXIME_DOCUMENTS_GIT_LIBMGF_SRC_MGF_PARSER_HPP_INCLUDED
+#endif // !YY_YY_MEDIA_HDD1_DEV_PROJET_LABO_LIBMGF_SRC_MGF_PARSER_HPP_INCLUDED
