@@ -25,10 +25,10 @@ namespace mgf
 
     bool Spectrum::is_one_of_specials(const Peak* p)const
     {
-        return (p == special_peaks[SPECIAL::DEBUT]) 
+        return ((p == special_peaks[SPECIAL::DEBUT]) 
             //or (p == special_peaks[SPECIAL::DEBUT_H2O])
             //or (p == special_peaks[SPECIAL::FIN_H2O])
-            or (p == special_peaks[SPECIAL::FIN]);
+            or (p == special_peaks[SPECIAL::FIN]));
     };
     
 
